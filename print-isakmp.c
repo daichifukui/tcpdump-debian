@@ -332,9 +332,13 @@ rawprint(caddr_t loc, size_t len)
 	static u_char *p;
 	int i;
 
+	TCHECK2(*loc, len);
+	
 	p = (u_char *)loc;
 	for (i = 0; i < len; i++)
 		printf("%02x", p[i] & 0xff);
+trunc:
+
 }
 
 struct attrmap {
@@ -1030,11 +1034,20 @@ isakmp_sub0_print(u_char np, struct isakmp_gen *ext, u_char *ep,
 	cp = (u_char *)ext;
 	safememcpy(&e, ext, sizeof(e));
 
+	/*
+	 * Since we can't have a payload length of less than 4 bytes,
+	 * we need to bail out here if the generic header is nonsensical
+	 * or truncated, otherwise we could loop forever processing
+	 * zero-length items or otherwise misdissect the packet.
+	 */
+	item_len = ntohs(e.len);
+	if (item_len <= 4)
+		return NULL;
+
 	if (NPFUNC(np))
 		cp = (*NPFUNC(np))(ext, ep, phase, doi, proto);
 	else {
 		printf("%s", NPSTR(np));
-		item_len = ntohs(e.len);
 		if (item_len == 0) {
 			/*
 			 * We don't want to loop forever processing this
@@ -1060,6 +1073,8 @@ isakmp_sub_print(u_char np, struct isakmp_gen *ext, u_char *ep,
 	cp = (u_char *)ext;
 
 	while (np) {
+		TCHECK2(*ext, sizeof(e));
+		
 		safememcpy(&e, ext, sizeof(e));
 
 		if (ep < (u_char *)ext + ntohs(e.len)) {
@@ -1085,6 +1100,8 @@ isakmp_sub_print(u_char np, struct isakmp_gen *ext, u_char *ep,
 		ext = (struct isakmp_gen *)cp;
 	}
 	return cp;
+trunc:
+	return NULL;
 }
 
 static char *

@@ -1,3 +1,10 @@
+tcpdump (3.7.2-3) unstable; urgency=low
+
+  * Backport changes from upstream CVS to fix several vulnerabilities in
+    ISAKMP, L2TP and Radius parsing (closes: #227844, #227845, #227846).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 17 Jan 2004 14:12:30 +0100
+
 tcpdump (3.7.2-2) unstable; urgency=low
 
   * Acknowledge NMU by Romain (closes: #208543).

@@ -1,0 +1,46 @@
+#! /bin/sh -e
+## 10_man_install.dpatch by Romain Francoise <rfrancoise@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Change man page install paths for Debian.
+
+if [ $# -lt 1 ]; then
+    echo "`basename $0`: script expects -patch|-unpatch as argument" >&2
+    exit 1
+fi
+
+[ -f debian/patches/00patch-opts ] && . debian/patches/00patch-opts
+patch_opts="${patch_opts:--f --no-backup-if-mismatch} ${2:+-d $2}"
+
+case "$1" in
+    -patch) patch -p1 ${patch_opts} < $0;;
+    -unpatch) patch -R -p1 ${patch_opts} < $0;;
+    *)
+        echo "`basename $0`: script expects -patch|-unpatch as argument" >&2
+        exit 1;;
+esac
+
+exit 0
+
+@DPATCH@
+diff -urNad /home/romain/Work/Debian/tcpdump/tcpdump-3.8.3/Makefile.in tcpdump-3.8.3/Makefile.in
+--- /home/romain/Work/Debian/tcpdump/tcpdump-3.8.3/Makefile.in	2004-05-08 09:12:28.000000000 +0200
++++ tcpdump-3.8.3/Makefile.in	2004-05-08 09:13:23.000000000 +0200
+@@ -157,13 +157,13 @@
+ 	[ -d $(DESTDIR)$(sbindir) ] || \
+ 	    (mkdir -p $(DESTDIR)$(sbindir); chmod 755 $(DESTDIR)$(sbindir))
+ 	$(INSTALL_PROGRAM) $(PROG) $(DESTDIR)$(sbindir)/$(PROG)
+-	[ -d $(DESTDIR)$(mandir)/man1 ] || \
+-	    (mkdir -p $(DESTDIR)$(mandir)/man1; chmod 755 $(DESTDIR)$(mandir)/man1)
+-	$(INSTALL_DATA) $(srcdir)/$(PROG).1 $(DESTDIR)$(mandir)/man1/$(PROG).1
++	[ -d $(DESTDIR)$(mandir)/man8 ] || \
++	    (mkdir -p $(DESTDIR)$(mandir)/man8; chmod 755 $(DESTDIR)$(mandir)/man8)
++	$(INSTALL_DATA) $(srcdir)/$(PROG).1 $(DESTDIR)$(mandir)/man8/$(PROG).8
+ 
+ uninstall:
+ 	rm -f $(DESTDIR)$(sbindir)/$(PROG)
+-	rm -f $(DESTDIR)$(mandir)/man1/$(PROG).1
++	rm -f $(DESTDIR)$(mandir)/man8/$(PROG).8
+ 
+ lint: $(GENSRC)
+ 	lint -hbxn $(SRC) | \

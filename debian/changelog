@@ -1,3 +1,28 @@
+tcpdump (3.8.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/rules:
+    + Add -D_FILE_OFFSET_BITS=64 to default CFLAGS to match libpcap 
+      (closes: #154762).
+    + Use dpatch for patch management.
+    + Clean up CFLAGS handling.
+    + Support DEB_BUILD_OPTIONS.
+  * debian/control: 
+    + Build-Depend on libpcap0.8-dev, dpatch.
+    + Add versioned Build-Depends on debhelper.
+    + Remove Emacs-style URL markers from description.
+  * debian/compat: New file.
+  * debian/copyright: Update.
+  * debian/tcpdump.docs: Do not install upstream INSTALL file.
+  * debian/patches: New directory.
+  * debian/patches/10_man_install.dpatch: Patch split off the Debian diff
+    to change man install paths in upstream Makefile.in.
+  * debian/patches/20_man_fixes.dpatch: Patch split off the Debian diff to
+    fix some inconsistencies in the upstream man page.
+  * debian/patches/00list: New file (patch list).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Tue, 11 May 2004 14:02:09 +0200
+
 tcpdump (3.7.2-4) unstable; urgency=high
 
   * Urgency high due to security fixes.

@@ -3,8 +3,8 @@ Section: net
 Priority: optional
 Maintainer: Torsten Landschoff <torsten@debian.org>
 Uploaders: Romain Francoise <rfrancoise@debian.org>
-Build-Depends: debhelper, libpcap-dev
-Standards-Version: 3.1.0
+Build-Depends: debhelper (>= 4), libpcap0.8-dev, dpatch
+Standards-Version: 3.6.1.0
 
 Package: tcpdump
 Architecture: any
@@ -18,6 +18,6 @@ Description: A powerful tool for network monitoring and data acquisition
  It can be used to print out the headers of packets on a network 
  interface, filter packets that match a certain expression. You can 
  use this tool to track down network problems, to detect "ping attacks" 
- or to monitor network activities. More information is at 
- <URL: http://www.tcpdump.org/>
- 
+ or to monitor network activities. 
+ .
+ Further information is available at http://www.tcpdump.org/

@@ -1,33 +1,34 @@
 #!/usr/bin/make -f
-# Sample debian/rules that uses debhelper.
-# GNU copyright 1997 to 1999 by Joey Hess.
 
-# Uncomment this to turn on verbose mode.
+include /usr/share/dpatch/dpatch.make
+
 export DH_VERBOSE=1
-
-# This is the debhelper compatability version to use.
-export DH_COMPAT=2
 
 dstdir := $(shell pwd)/debian/tcpdump
 
-build: build-stamp
+export CFLAGS=-D_FILE_OFFSET_BITS=64
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+        CFLAGS += -O0
+endif
+
+build: patch build-stamp
 build-stamp:
 	dh_testdir
 
 	./configure --prefix=/usr --mandir=\$${prefix}/share/man 	\
 		--without-crypto --infodir=\$${prefix}/share/info	\
 		--enable-ipv6
-	# Add here commands to compile the package.
 	$(MAKE)
 
 	touch build-stamp
 
-clean:
+clean: clean-patched unpatch
+clean-patched:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp
 
-	# Add here commands to clean up after the build process.
 	-$(MAKE) distclean
 
 	dh_clean
@@ -38,7 +39,6 @@ install: build
 	dh_clean -k
 	dh_installdirs
 
-	# Add here commands to install the package into debian/tmp.
 	$(MAKE) install prefix=$(dstdir)/usr
 
 
@@ -59,8 +59,6 @@ binary-arch: build install
 	dh_strip
 	dh_compress
 	dh_fixperms
-	# You may want to make some executables suid here.
-	dh_suidregister
 #	dh_makeshlibs
 	dh_installdeb
 #	dh_perl

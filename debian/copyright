@@ -1,69 +1,114 @@
 This package was debianized by Anand Kumria <wildfire@progsoc.org> on
 Wed, 22 Nov 2000 13:19:33 +1100.
+It is now maintained by:
+ + Torsten Landschoff <torsten@debian.org>
+ + Romain Francoise <rfrancoise@debian.org>
 
-It was downloaded from http://www.tcpdump.org/
+It was downloaded from http://tcpdump.org/release/tcpdump-3.8.3.tar.gz
 
-Upstream Author(s): patches@tcpdump.org
+Upstream Authors: tcpdump-workers@tcpdump.org
 
-Copyright:
+Licensed under the 3-clause BSD license: 
 
-The licence style is BSD-like and an example of this licence
-can be found in /usr/share/common-licenses/BSD. Unfortunately
-this released version does not contain the licence document.
-Upstream have made it available via CVS and you can examine
-it at <URL: http://cvs.tcpdump.org/cgi-bin/cvsweb/tcpdump/LICENSE?rev=1.1>
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
 
-The BSD version of this licence differs from the one included in:
-		- Item 3, replace "University" with "Authors"
-	- The LEGALESE (uppercase portion) ends after
-	  the words "A PARTICULAR PURPOSE"
-	- The copyright holders are listed below (the CREDITS
-	  file is canonical, this is merely a convienent listing)
-	  <URL: http://cvs.tcpdump.org/cgi-bin/cvsweb/tcpdump/CREDITS?rev=1.13>
+    1. Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in
+       the documentation and/or other materials provided with the
+       distribution.
+    3. The names of the authors may not be used to endorse or promote
+       products derived from this software without specific prior
+       written permission.
 
-This file lists people who have contributed to tcpdump:
+  THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-The current maintainers:
+Current upstream maintainers:
 	Bill Fenner			<fenner@research.att.com>
-	Assar Westerlund 		<assar@sics.se>
-	Alexey Kuznetsov		<kuznet@ms2.inr.ac.ru>
+	Fulvio Risso			<risso@polito.it>
+	Guy Harris	 		<guy@alum.mit.edu>
+	Hannes Gredler			<hannes@juniper.net>
 	Jun-ichiro itojun Hagino	<itojun@iijlab.net>
-	Guy Harris 			<guy@alum.mit.edu>
-	Torsten Landschoff 		<t.landschoff@gmx.net>
-	Michael Richardson 		<mcr@sandelman.ottawa.on.ca>
+	Michael Richardson	 	<mcr@sandelman.ottawa.on.ca>
 
 Additional people who have contributed patches:
 
-	Alfredo Andres			<aandres@mfom.es>
-	Andrew Tridgell			<tridge@linuxcare.com>
-        Ben Smithurst			<ben@scientia.demon.co.uk>
+	Alan Bawden			<Alan@LCS.MIT.EDU>
+	Alexey Kuznetsov		<kuznet@ms2.inr.ac.ru>
+	Albert Chin			<china@thewrittenword.com>
+	Andrew Brown			<atatat@atatdot.net>
+	Antti Kantee			<pooka@netbsd.org>
+	Arkadiusz Miskiewicz		<misiek@pld.org.pl>
+	Armando L. Caro Jr.		<acaro@mail.eecis.udel.edu>
+	Assar Westerlund	 	<assar@sics.se>
+	Brian Ginsbach			<ginsbach@cray.com>
+	Charles M. Hannum		<mycroft@netbsd.org>
 	Chris G. Demetriou		<cgd@netbsd.org>
-	Craig Rodrigues			<rodrigc@mediaone.net>
-	Daniel Hagerty			<hag@ai.mit.edu>
-	Francisco Matias Cuenca-Acuna	<mcuenca@george.rutgers.edu>
-	Frank Volf			<volf@oasis.IAEhv.nl>
-	Gert Doering			<gert@greenie.muc.de>
-	Gilbert Ramirez Jr.		<gram@xiexie.org>
-	Gisle Vanem			<gvanem@eunet.no>
-	JINMEI Tatuya			<jinmei@kame.net>
-	Jeffrey Hutzelman		<jhutz@cmu.edu>
+	Chris Pepper			<pepper@mail.reppep.com>
+	Darren Reed			<darrenr@reed.wattle.id.au>
+	David Kaelbling			<drk@sgi.com>
+	David Young			<dyoung@ojctech.com>
+	Don Ebright			<Don.Ebright@compuware.com> 
+	Eric Anderson			<anderse@hpl.hp.com>
+	Franz Schaefer			<schaefer@mond.at>
+	Gianluca Varenni		<varenni@netgroup-serv.polito.it>
+	Gisle Vanem			<giva@bgnett.no>
+	Graeme Hewson			<ghewson@cix.compulink.co.uk>
+	Greg Stark			<gsstark@mit.edu>
+	Greg Troxel			<gdt@ir.bbn.com>
+	Guillaume Pelat			<endymion_@users.sourceforge.net>
+	Hyung Sik Yoon			<hsyn@kr.ibm.com>
+	Igor Khristophorov		<igor@atdot.org>
+	Jan-Philip Velders		<jpv@veldersjes.net>
+	Jason R. Thorpe			<thorpej@netbsd.org>
+	Javier Achirica			<achirica@ttd.net>
+	Jean Tourrilhes			<jt@hpl.hp.com>
+	Jefferson Ogata			<jogata@nodc.noaa.gov>
+	Jesper Peterson			<jesper@endace.com>
+	John Bankier			<jbankier@rainfinity.com>
+	Jon Lindgren			<jonl@yubyub.net>
 	Juergen Schoenwaelder		<schoenw@ibr.cs.tu-bs.de>
-	Ken Hornstein			<kenh@cmf.nrl.navy.mil>
-	Kevin Steves			<stevesk@sweden.hp.com>
-	Larry Lile			<lile@stdio.com>
+	Kazushi Sugyo			<sugyo@pb.jp.nec.com>
+	Klaus Klein			<kleink@netbsd.org>
+	Koryn Grant			<koryn@endace.com>
+	Krzysztof Halasa		<khc@pm.waw.pl>
+	Lorenzo Cavallaro		<sullivan@sikurezza.org>
+	Loris Degioanni			<loris@netgroup-serv.polito.it>
 	Love Hörnquist-Åstrand		<lha@stacken.kth.se>
-	Marko Kiiskila			<carnil@cs.tut.fi>
-	Michael T. Stolarchuk		<mts@off.to>
-	Motonori Shindo			<mshindo@mshindo.net>
+	Maciej W. Rozycki		<macro@ds2.pg.gda.pl>
+	Marcus Felipe Pereira		<marcus@task.com.br>
+	Martin Husemann			<martin@netbsd.org>
+	Mike Wiacek			<mike@iroot.net>
+	Monroe Williams			<monroe@pobox.com>
+	Octavian Cerna			<tavy@ylabs.com>
+	Olaf Kirch			<okir@caldera.de>
 	Onno van der Linden		<onno@simplex.nl>
-	Pasvorn Boonmark		<boonmark@juniper.net>
+	Paul Mundt			<lethal@linux-sh.org>
+	Pavel Kankovsky			<kan@dcit.cz>
+	Peter Fales			<peter@fales-lorenz.net>
 	Peter Jeremy			<peter.jeremy@alcatel.com.au>
+	Phil Wood			<cpw@lanl.gov>
 	Rafal Maszkowski		<rzm@icm.edu.pl>
-	Richard Sharpe			<sharpe@ns.aus.com>
 	Rick Jones			<raj@cup.hp.com>
-	Roderick Schertler		<roderick@argon.org>
-	Tony Li				<tli@jnx.com>
-	Wilbert de Graaf		<wilbertdg@hetnet.nl>
+	Scott Barron			<sb125499@ohiou.edu>
+	Scott Gifford			<sgifford@tir.com>
+	Sebastian Krahmer		<krahmer@cs.uni-potsdam.de>
+	Shaun Clowes			<delius@progsoc.uts.edu.au>
+	Solomon Peachy			<pizza@shaftnet.org>
+	Stefan Hudson			<hudson@mbay.net>
+	Takashi Yamamoto		<yamt@mwd.biglobe.ne.jp>
+	Tony Li				<tli@procket.com>
+	Torsten Landschoff	 	<torsten@debian.org>
+	Uns Lider			<unslider@miranda.org>
+	Uwe Girlich			<Uwe.Girlich@philosys.de>
+	Xianjie Zhang			<xzhang@cup.hp.com>
+	Yen Yen Lim
+	Yoann Vandoorselaere		<yoann@prelude-ids.org>
 
 The original LBL crew:
 	Steve McCanne

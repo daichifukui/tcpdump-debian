@@ -1,3 +1,11 @@
+tcpdump (3.8.3-3) unstable; urgency=low
+
+  * debian/patches/40_ipv6cp.dpatch: New patch, do not try to print IPV6CP
+    ppp packets, the dissector doesn't support it (closes: #255179).
+  * debian/patches/00list: Add 40_ipv6cp.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 19 Jun 2004 15:01:27 +0200
+
 tcpdump (3.8.3-2) unstable; urgency=low
 
   * debian/rules: Enable crypto support (closes: #82581, #93428).

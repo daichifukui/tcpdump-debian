@@ -17,8 +17,7 @@ build-stamp:
 	dh_testdir
 
 	./configure --prefix=/usr --mandir=\$${prefix}/share/man 	\
-		--without-crypto --infodir=\$${prefix}/share/info	\
-		--enable-ipv6
+		--infodir=\$${prefix}/share/info --enable-ipv6
 	$(MAKE)
 
 	touch build-stamp

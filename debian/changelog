@@ -1,3 +1,19 @@
+tcpdump (3.8.3-2) unstable; urgency=low
+
+  * debian/rules: Enable crypto support (closes: #82581, #93428).
+  * debian/control:
+    + Build-Depend on libssl-dev.
+    + Put back URL markers in description.
+    + Switch Maintainer and Uploaders fields to match reality.
+  * debian/patches/30_openssl_des.dpatch: Patch to make upstream's
+    configure script check for DES_cbc_encrypt instead of des_cbc_encrypt,
+    (the function got renamed in OpenSSL 0.9.7), which saves us the hassle
+    of re-running autoconf.  Temporary hack since upstream has fixed this
+    in CVS already.
+  * debian/patches/00list: Add 30_openssl_des.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Fri, 14 May 2004 22:14:08 +0200
+
 tcpdump (3.8.3-1) unstable; urgency=low
 
   * New upstream release.

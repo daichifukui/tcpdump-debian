@@ -1,9 +1,9 @@
 Source: tcpdump
 Section: net
 Priority: optional
-Maintainer: Torsten Landschoff <torsten@debian.org>
-Uploaders: Romain Francoise <rfrancoise@debian.org>
-Build-Depends: debhelper (>= 4), libpcap0.8-dev, dpatch
+Maintainer: Romain Francoise <rfrancoise@debian.org>
+Uploaders: Torsten Landschoff <torsten@debian.org>
+Build-Depends: debhelper (>= 4), libpcap0.8-dev, dpatch, libssl-dev
 Standards-Version: 3.6.1.0
 
 Package: tcpdump
@@ -20,4 +20,4 @@ Description: A powerful tool for network monitoring and data acquisition
  use this tool to track down network problems, to detect "ping attacks" 
  or to monitor network activities. 
  .
- Further information is available at http://www.tcpdump.org/
+ Further information is available at <URL: http://www.tcpdump.org/>

@@ -1,3 +1,18 @@
+tcpdump (3.7.2-4) unstable; urgency=high
+
+  * Urgency high due to security fixes.
+  * Backport changes from upstream CVS to fix ISAKMP payload handling
+    denial-of-service vulnerabilities (CAN-2004-0183, CAN-2004-0184).
+    Detailed changes (with corresponding upstream revisions):
+    + Add length checks in isakmp_id_print() (print-isakmp.c, rev. 1.47)
+    + Add data checks all over the place, change rawprint() prototype and
+      add corresponding return value checks (print-isakmp.c, rev. 1.46)
+    + Add missing ntohs() and change length initialization in
+      isakmp_id_print(), not porting prototype changes (print-isakmp.c,
+      rev. 1.45)
+  
+ -- Romain Francoise <rfrancoise@debian.org>  Tue,  6 Apr 2004 19:39:24 +0200
+
 tcpdump (3.7.2-3) unstable; urgency=low
 
   * Backport changes from upstream CVS to fix several vulnerabilities in

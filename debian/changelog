@@ -1,3 +1,14 @@
+tcpdump (3.7.2-2) unstable; urgency=low
+
+  * Acknowledge NMU by Romain (closes: #208543).
+  * Apply man page fixes by Romain:
+    + networks(4) changed to networks(5) (closes: #194180).
+    + ethers(3N) changed to ethers(5) (closes: #197888).
+  * debian/control: Added Romain Francoise as co maintainer. Thanks for 
+    your help, Romain!
+
+ -- Torsten Landschoff <torsten@debian.org>  Sun, 19 Oct 2003 04:12:31 +0200
+
 tcpdump (3.7.2-1.1) unstable; urgency=low
 
   * NMU

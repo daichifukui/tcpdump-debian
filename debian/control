@@ -2,6 +2,7 @@ Source: tcpdump
 Section: net
 Priority: optional
 Maintainer: Torsten Landschoff <torsten@debian.org>
+Uploaders: Romain Francoise <rfrancoise@debian.org>
 Build-Depends: debhelper, libpcap-dev
 Standards-Version: 3.1.0
 

@@ -53,6 +53,7 @@ static const char rcsid[] =
 #include <pcap.h>
 #include <stdio.h>
 
+#include "ethertype.h"
 #include "interface.h"
 #include "extract.h"
 #include "addrtoname.h"

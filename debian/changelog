@@ -1,0 +1,190 @@
+tcpdump (3.7.2-1.1) unstable; urgency=low
+
+  * NMU
+  * Reverse order of #include directives in print-sctp.c so that
+    IPPROTO_SCTP is defined (closes: #208543).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 12 Oct 2003 17:06:01 +0200
+
+tcpdump (3.7.2-1) unstable; urgency=low
+
+  * New upstream release (closes: #195816).
+
+ -- Torsten Landschoff <torsten@debian.org>  Sun,  8 Jun 2003 00:14:44 +0200
+
+tcpdump (3.7.1-1.2) unstable; urgency=high
+
+  * Non-maintainer upload
+  * Apply security fixes from 3.7.2
+    - Fixed infinite loop when parsing malformed isakmp packets.
+      (CAN-2003-0108)
+    - Fixed infinite loop when parsing malformed BGP packets.
+    - Fixed buffer overflow with certain malformed NFS packets.
+
+ -- Matt Zimmerman <mdz@debian.org>  Thu, 27 Feb 2003 11:00:32 -0500
+
+tcpdump (3.7.1-1.1) unstable; urgency=low
+
+  * NMU
+  * Simple rebuild to deal with libpcap0->libpcap0.7 transition.
+    Sourceful NMU so that every arch rebuilds it.
+ 
+ -- LaMont Jones <lamont@debian.org>  Wed, 14 Aug 2002 21:25:45 -0600
+
+tcpdump (3.7.1-1) unstable; urgency=low
+
+  * New upstream release (closes: #138052).
+
+ -- Torsten Landschoff <torsten@debian.org>  Sat,  3 Aug 2002 23:54:04 +0200
+
+tcpdump (3.6.2-2) unstable; urgency=HIGH
+
+  * print-rx.c: Take the version from current CVS fixing the remote 
+    buffer overflow reported in FreeBSD Security Advisory SA-01:48
+    yesterday. Thanks to Matt Zimmerman for forwarding the report, 
+    I might have missed it.
+  * debian/control: Clean the Build-Depends from build-essential 
+    packages.
+
+ -- Torsten Landschoff <torsten@debian.org>  Thu, 19 Jul 2001 15:03:48 +0200
+
+tcpdump (3.6.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Torsten Landschoff <torsten@debian.org>  Tue,  6 Mar 2001 04:18:16 +0100
+
+tcpdump (3.6.1-2) unstable; urgency=low
+
+  * debian/rules: Force support for IPv6 (closes: #82665).
+  * print-icmp6.c: Removed duplicate definition also in icmp6.h to 
+    get the package to compile with IPv6.
+  * Rebuild should fix the missing libpcap0-dependency (closes: #82666).
+    Additional info: The missing dependency was because the configure 
+    script found my libpcap sources in the parent directory. Black magic
+    always works against you :(
+
+ -- Torsten Landschoff <torsten@debian.org>  Thu, 18 Jan 2001 00:44:01 +0100
+
+tcpdump (3.6.1-1) unstable; urgency=high
+
+  * Taking back the package. Kudos to Anand for his help.
+  * New upstream release. This release fixes a security hole in print-rx.c.
+  * debian/rules: Disable crypto support (closes: #81969).
+  * Removed empty README.Debian (closes: #81966).
+
+ -- Torsten Landschoff <torsten@debian.org>  Tue, 16 Jan 2001 16:04:03 +0100
+
+tcpdump (3.5.2-3) unstable; urgency=low
+
+  * Fixup dependancy stuff. Sheesh. (Closes: #78063, #78081, #78082)
+
+ -- Anand Kumria <wildfire@progsoc.org>  Tue, 28 Nov 2000 02:16:01 +1100
+
+tcpdump (3.5.2-2) unstable; urgency=low
+
+  * Update both config.guess and config.sub (Closes: #36692, #53145)
+  * Opps, make the .diff available. 
+  * We require a particular libpcap version to work (Closes: #77877)
+
+ -- Anand Kumria <wildfire@progsoc.org>  Mon, 27 Nov 2000 01:13:55 +1100
+
+tcpdump (3.5.2-1) unstable; urgency=low
+
+  * New Maintainer
+  * New upstream release (Closes: #75889)
+  * Upstream added hex dump (-x) and ascii dump (-X) Closes: #23514, #29418)
+  * Acknowledge and incorporate security fixes (Closes: #63708, #77489)
+  * Appletalk / Ethertalk patches are in (Closes: #67642)
+
+ -- Anand Kumria <wildfire@progsoc.org>  Wed, 22 Nov 2000 13:19:33 +1100
+
+tcpdump (3.4a6-4.1) frozen unstable; urgency=high
+
+  * Non-maintainer upload by security team
+  * Apply patch from tcpdump-workers mailinglist to fix DNS DoS attack
+    against tcpdump. Based on patch from Guy Harris <gharris@flashcom.net> as
+    found on http://www.tcpdump.org/lists/workers/1999/msg00607.html
+  * Fix Build-Depends entry in debian/control
+
+ -- Wichert Akkerman <wakkerma@debian.org>  Sun,  7 May 2000 15:17:33 +0200
+
+tcpdump (3.4a6-4) unstable; urgency=low
+
+  * New maintainer.
+  * tcpdump.c (main): Reestablish priviliges before closing the device
+    (closes: #19959).
+  * It seems the problem with ppp came from the kernel - I can dump 
+    packages on ppp0 just fine... (closes: #25757)
+  * print-tcp.c (tcp_print): Applied patch from David S. Miller submitted 
+    by Andrea Arcangeli to fix tcpdump sack TCP option interpretation 
+    (closes: #28530).
+  * print-bootp.c (rfc1048_print): Interpret timezone offset as signed
+    (closes: #40376). Fixed byte order problem in printing internet 
+    addresses (closes: #40375). Thanks to Roderick Schertler for the patch.
+  * Several files: Applied SMB patch from samba.org (closes: #27653).
+  * print-ip.c (ip_print): Check for ip headers with less than 5 longs. 
+    Patch taken from RedHat's source package.
+  * Redid debian/rules using debhelper.
+  * Makefile.in: Install the manpage into man8 instead of man1. 
+  * tcpdump.1: Moved to section 8 (admin commands).
+  * print-smb.c (print_smb): Disabled anything but printing the command 
+    info by default. Otherwise we would get flooded with smb information.
+    You can get all info using -vvv. Two -v's will give you the SMB headers.
+  * tcpdump.1: Documented the behaviour described above.
+
+ -- Torsten Landschoff <torsten@debian.org>  Mon, 22 Nov 1999 01:31:44 +0100
+
+tcpdump (3.4a6-3) frozen unstable; urgency=low
+
+  * fixed permissions
+
+ -- Peter Tobias <tobias@et-inf.fho-emden.de>  Mon, 30 Mar 1998 02:28:39 +0200
+
+
+tcpdump (3.4a6-2) frozen unstable; urgency=low
+
+  * rebuild with latest debmake, fixes #19415
+    (should also fix the lintian warnings)
+  * updated standards-version
+
+ -- Peter Tobias <tobias@et-inf.fho-emden.de>  Mon, 30 Mar 1998 00:28:39 +0200
+
+
+tcpdump (3.4a6-1) unstable; urgency=low
+
+  * updated to latest upstream version, fixes: Bug#17163
+  * install changelog.Debian compressed, fixes: Bug#15417
+
+ -- Peter Tobias <tobias@et-inf.fho-emden.de>  Sun,  1 Feb 1998 00:08:31 +0100
+
+
+tcpdump (3.4a4-1) unstable; urgency=low
+
+  * updated to latest upstream version
+  * libc6 version
+
+ -- Peter Tobias <tobias@et-inf.fho-emden.de>  Wed, 17 Sep 1997 23:22:54 +0200
+
+
+tcpdump (3.3.1a2-1) frozen stable unstable; urgency=medium
+
+  * updated to latest upstream version (works with new libpcap now)
+
+ -- Peter Tobias <tobias@et-inf.fho-emden.de>  Sat, 24 May 1997 00:49:17 +0200
+
+
+tcpdump (3.3-2) unstable; urgency=low
+
+  * fixed SLIP support
+
+ -- Peter Tobias <tobias@et-inf.fho-emden.de>  Sun, 16 Feb 1997 21:06:51 +0100
+
+
+tcpdump (3.3-1) unstable; urgency=low
+
+  * updated to latest upstream version
+
+ -- Peter Tobias <tobias@et-inf.fho-emden.de>  Thu, 16 Jan 1997 01:34:00 +0100
+
+

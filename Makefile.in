@@ -150,13 +150,13 @@ install:
 	[ -d $(DESTDIR)$(sbindir) ] || \
 	    (mkdir -p $(DESTDIR)$(sbindir); chmod 755 $(DESTDIR)$(sbindir))
 	$(INSTALL_PROGRAM) $(PROG) $(DESTDIR)$(sbindir)/$(PROG)
-	[ -d $(DESTDIR)$(mandir)/man1 ] || \
-	    (mkdir -p $(DESTDIR)$(mandir)/man1; chmod 755 $(DESTDIR)$(mandir)/man1)
-	$(INSTALL_DATA) $(srcdir)/$(PROG).1 $(DESTDIR)$(mandir)/man1/$(PROG).1
+	[ -d $(DESTDIR)$(mandir)/man8 ] || \
+	    (mkdir -p $(DESTDIR)$(mandir)/man8; chmod 755 $(DESTDIR)$(mandir)/man8)
+	$(INSTALL_DATA) $(srcdir)/$(PROG).1 $(DESTDIR)$(mandir)/man8/$(PROG).8
 
 uninstall:
 	rm -f $(DESTDIR)$(sbindir)/$(PROG)
-	rm -f $(DESTDIR)$(mandir)/man1/$(PROG).1
+	rm -f $(DESTDIR)$(mandir)/man8/$(PROG).8
 
 lint: $(GENSRC)
 	lint -hbxn $(SRC) | \

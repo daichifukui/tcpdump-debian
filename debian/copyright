@@ -1,0 +1,71 @@
+This package was debianized by Anand Kumria <wildfire@progsoc.org> on
+Wed, 22 Nov 2000 13:19:33 +1100.
+
+It was downloaded from http://www.tcpdump.org/
+
+Upstream Author(s): patches@tcpdump.org
+
+Copyright:
+
+The licence style is BSD-like and an example of this licence
+can be found in /usr/share/common-licenses/BSD. Unfortunately
+this released version does not contain the licence document.
+Upstream have made it available via CVS and you can examine
+it at <URL: http://cvs.tcpdump.org/cgi-bin/cvsweb/tcpdump/LICENSE?rev=1.1>
+
+The BSD version of this licence differs from the one included in:
+		- Item 3, replace "University" with "Authors"
+	- The LEGALESE (uppercase portion) ends after
+	  the words "A PARTICULAR PURPOSE"
+	- The copyright holders are listed below (the CREDITS
+	  file is canonical, this is merely a convienent listing)
+	  <URL: http://cvs.tcpdump.org/cgi-bin/cvsweb/tcpdump/CREDITS?rev=1.13>
+
+This file lists people who have contributed to tcpdump:
+
+The current maintainers:
+	Bill Fenner			<fenner@research.att.com>
+	Assar Westerlund 		<assar@sics.se>
+	Alexey Kuznetsov		<kuznet@ms2.inr.ac.ru>
+	Jun-ichiro itojun Hagino	<itojun@iijlab.net>
+	Guy Harris 			<guy@alum.mit.edu>
+	Torsten Landschoff 		<t.landschoff@gmx.net>
+	Michael Richardson 		<mcr@sandelman.ottawa.on.ca>
+
+Additional people who have contributed patches:
+
+	Alfredo Andres			<aandres@mfom.es>
+	Andrew Tridgell			<tridge@linuxcare.com>
+        Ben Smithurst			<ben@scientia.demon.co.uk>
+	Chris G. Demetriou		<cgd@netbsd.org>
+	Craig Rodrigues			<rodrigc@mediaone.net>
+	Daniel Hagerty			<hag@ai.mit.edu>
+	Francisco Matias Cuenca-Acuna	<mcuenca@george.rutgers.edu>
+	Frank Volf			<volf@oasis.IAEhv.nl>
+	Gert Doering			<gert@greenie.muc.de>
+	Gilbert Ramirez Jr.		<gram@xiexie.org>
+	Gisle Vanem			<gvanem@eunet.no>
+	JINMEI Tatuya			<jinmei@kame.net>
+	Jeffrey Hutzelman		<jhutz@cmu.edu>
+	Juergen Schoenwaelder		<schoenw@ibr.cs.tu-bs.de>
+	Ken Hornstein			<kenh@cmf.nrl.navy.mil>
+	Kevin Steves			<stevesk@sweden.hp.com>
+	Larry Lile			<lile@stdio.com>
+	Love Hörnquist-Åstrand		<lha@stacken.kth.se>
+	Marko Kiiskila			<carnil@cs.tut.fi>
+	Michael T. Stolarchuk		<mts@off.to>
+	Motonori Shindo			<mshindo@mshindo.net>
+	Onno van der Linden		<onno@simplex.nl>
+	Pasvorn Boonmark		<boonmark@juniper.net>
+	Peter Jeremy			<peter.jeremy@alcatel.com.au>
+	Rafal Maszkowski		<rzm@icm.edu.pl>
+	Richard Sharpe			<sharpe@ns.aus.com>
+	Rick Jones			<raj@cup.hp.com>
+	Roderick Schertler		<roderick@argon.org>
+	Tony Li				<tli@jnx.com>
+	Wilbert de Graaf		<wilbertdg@hetnet.nl>
+
+The original LBL crew:
+	Steve McCanne
+	Craig Leres
+	Van Jacobson

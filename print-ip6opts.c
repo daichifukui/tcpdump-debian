@@ -129,6 +129,29 @@ trunc:
     printf("[trunc] ");
 }
 
+#ifndef IP6OPT_PAD1
+#define IP6OPT_PAD1     0x00
+#endif
+#ifndef IP6OPT_PADN
+#define IP6OPT_PADN     0x01
+#endif
+#ifndef IP6OPT_MINLEN
+#define IP6OPT_MINLEN   2
+#endif
+#ifndef IP6OPT_RTALERT
+#define IP6OPT_RTALERT  0x05
+#endif
+#ifndef IP6OPT_RTALERT_LEN
+#define IP6OPT_RTALERT_LEN      4
+#endif
+#ifndef IP6OPT_JUMBO
+#define IP6OPT_JUMBO    0xC2
+#endif
+#ifndef IP6OPT_JUMBO_LEN
+#define IP6OPT_JUMBO_LEN        6
+#endif
+
+
 void
 ip6_opt_print(const u_char *bp, int len)
 {

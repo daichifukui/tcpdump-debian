@@ -45,6 +45,11 @@ static const char rcsid[] =
 #include "interface.h"
 #include "addrtoname.h"
 
+#ifndef IPV6_RTHDR_TYPE_0
+#define IPV6_RTHDR_TYPE_0 0
+#endif
+
+
 int
 rt6_print(register const u_char *bp, register const u_char *bp2)
 {

@@ -1,3 +1,13 @@
+tcpdump (3.8.3-4) unstable; urgency=high
+
+  * Urgency set to high due to security fixes.
+  * debian/patches/50_misc_dos.dpatch: Security fixes stolen from the 3.8
+    branch fix infinite loops in the BGP, ISIS, LDP and RSVP dissectors
+    (closes: #306529).
+  * debian/patches/00list: Add 50_misc_dos.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Wed, 27 Apr 2005 21:05:37 +0200
+
 tcpdump (3.8.3-3) unstable; urgency=low
 
   * debian/patches/40_ipv6cp.dpatch: New patch, do not try to print IPV6CP

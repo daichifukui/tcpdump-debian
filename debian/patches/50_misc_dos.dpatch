@@ -1,0 +1,138 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 50_misc_dos.dpatch by Romain Francoise <rfrancoise@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Security fixes from upstream CVS.
+
+@DPATCH@
+diff -urNad tcpdump-3.8.3/print-bgp.c /tmp/dpep.vFpHHq/tcpdump-3.8.3/print-bgp.c
+--- tcpdump-3.8.3/print-bgp.c	2004-03-24 01:04:04.000000000 +0100
++++ /tmp/dpep.vFpHHq/tcpdump-3.8.3/print-bgp.c	2005-04-27 21:07:21.000000000 +0200
+@@ -36,7 +36,7 @@
+ 
+ #ifndef lint
+ static const char rcsid[] _U_ =
+-     "@(#) $Header: /tcpdump/master/tcpdump/print-bgp.c,v 1.72.2.4 2004/03/24 00:04:04 guy Exp $";
++     "@(#) $Header: /tcpdump/master/tcpdump/print-bgp.c,v 1.72.2.5 2005/04/27 18:42:28 hannes Exp $";
+ #endif
+ 
+ #include <tcpdump-stdinc.h>
+@@ -1216,6 +1216,8 @@
+                             tptr = pptr + len;
+                             break;
+ 			}
++                        if (advance < 0) /* infinite loop protection */
++                            break;
+ 			tptr += advance;
+ 		}
+ 		break;
+diff -urNad tcpdump-3.8.3/print-isoclns.c /tmp/dpep.vFpHHq/tcpdump-3.8.3/print-isoclns.c
+--- tcpdump-3.8.3/print-isoclns.c	2004-03-24 02:45:26.000000000 +0100
++++ /tmp/dpep.vFpHHq/tcpdump-3.8.3/print-isoclns.c	2005-04-27 21:07:21.000000000 +0200
+@@ -26,7 +26,7 @@
+ 
+ #ifndef lint
+ static const char rcsid[] _U_ =
+-    "@(#) $Header: /tcpdump/master/tcpdump/print-isoclns.c,v 1.106.2.5 2004/03/24 01:45:26 guy Exp $ (LBL)";
++    "@(#) $Header: /tcpdump/master/tcpdump/print-isoclns.c,v 1.106.2.8 2005/04/25 10:44:24 hannes Exp $ (LBL)";
+ #endif
+ 
+ #ifdef HAVE_CONFIG_H
+@@ -1250,11 +1250,11 @@
+ 	    break;
+ 	case L1_CSNP:
+ 	case L2_CSNP:
+-	    printf(", src-id %s", isis_print_id(header_csnp->source_id,SYSTEM_ID_LEN));
++	    printf(", src-id %s", isis_print_id(header_csnp->source_id,NODE_ID_LEN));
+ 	    break;
+ 	case L1_PSNP:
+ 	case L2_PSNP:
+-	    printf(", src-id %s", isis_print_id(header_psnp->source_id,SYSTEM_ID_LEN));
++	    printf(", src-id %s", isis_print_id(header_psnp->source_id,NODE_ID_LEN));
+ 	    break;
+ 
+ 	}
+@@ -1506,6 +1506,9 @@
+                tlv_type,
+                tlv_len);
+ 
++        if (tlv_len == 0) /* something is malformed */
++            break;
++
+         /* now check if we have a decoder otherwise do a hexdump at the end*/
+ 	switch (tlv_type) {
+ 	case TLV_AREA_ADDR:
+@@ -1536,7 +1539,7 @@
+ 	    break;
+ 
+         case TLV_ISNEIGH_VARLEN:
+-            if (!TTEST2(*tptr, 1))
++            if (!TTEST2(*tptr, 1) || tmp < 3) /* min. TLV length */
+ 		goto trunctlv;
+ 	    lan_alen = *tptr++; /* LAN adress length */
+             tmp --;
+diff -urNad tcpdump-3.8.3/print-ldp.c /tmp/dpep.vFpHHq/tcpdump-3.8.3/print-ldp.c
+--- tcpdump-3.8.3/print-ldp.c	2003-11-16 09:51:31.000000000 +0100
++++ /tmp/dpep.vFpHHq/tcpdump-3.8.3/print-ldp.c	2005-04-27 21:07:21.000000000 +0200
+@@ -15,7 +15,7 @@
+ 
+ #ifndef lint
+ static const char rcsid[] _U_ =
+-    "@(#) $Header: /tcpdump/master/tcpdump/print-ldp.c,v 1.4.2.2 2003/11/16 08:51:31 guy Exp $";
++    "@(#) $Header: /tcpdump/master/tcpdump/print-ldp.c,v 1.4.2.3 2005/04/27 18:42:29 hannes Exp $";
+ #endif
+ 
+ #ifdef HAVE_CONFIG_H
+@@ -326,6 +326,9 @@
+                EXTRACT_32BITS(&ldp_msg_header->id),
+                LDP_MASK_U_BIT(EXTRACT_16BITS(&ldp_msg_header->type)) ? "continue processing" : "ignore");
+ 
++        if (msg_len == 0) /* infinite loop protection */
++            break;
++
+         msg_tptr=tptr+sizeof(struct ldp_msg_header);
+         msg_tlen=msg_len-sizeof(struct ldp_msg_header)+4; /* Type & Length fields not included */
+ 
+diff -urNad tcpdump-3.8.3/print-rsvp.c /tmp/dpep.vFpHHq/tcpdump-3.8.3/print-rsvp.c
+--- tcpdump-3.8.3/print-rsvp.c	2004-03-24 05:01:08.000000000 +0100
++++ /tmp/dpep.vFpHHq/tcpdump-3.8.3/print-rsvp.c	2005-04-27 21:07:21.000000000 +0200
+@@ -15,7 +15,7 @@
+ 
+ #ifndef lint
+ static const char rcsid[] _U_ =
+-    "@(#) $Header: /tcpdump/master/tcpdump/print-rsvp.c,v 1.24.2.3 2004/03/24 04:01:08 guy Exp $";
++    "@(#) $Header: /tcpdump/master/tcpdump/print-rsvp.c,v 1.24.2.5 2005/04/26 14:00:03 hannes Exp $";
+ #endif
+ 
+ #ifdef HAVE_CONFIG_H
+@@ -875,10 +875,17 @@
+             switch(rsvp_obj_ctype) {
+             case RSVP_CTYPE_IPV4:
+                 while(obj_tlen >= 4 ) {
+-                    printf("\n\t    Subobject Type: %s",
++                    printf("\n\t    Subobject Type: %s, length %u",
+                            tok2str(rsvp_obj_xro_values,
+                                    "Unknown %u",
+-                                   RSVP_OBJ_XRO_MASK_SUBOBJ(*obj_tptr)));                
++                                   RSVP_OBJ_XRO_MASK_SUBOBJ(*obj_tptr)),
++                           *(obj_tptr+1));                
++
++                    if (*(obj_tptr+1) == 0) { /* prevent infinite loops */
++                        printf("\n\t      ERROR: zero length ERO subtype");
++                        break;
++                    }
++
+                     switch(RSVP_OBJ_XRO_MASK_SUBOBJ(*obj_tptr)) {
+                     case RSVP_OBJ_XRO_IPV4:
+                         printf(", %s, %s/%u, Flags: [%s]",
+@@ -921,8 +928,8 @@
+                 if (obj_tlen < 8)
+                     return;
+                 printf("\n\t    Restart  Time: %ums, Recovery Time: %ums",
+-                       EXTRACT_16BITS(obj_tptr),
+-                       EXTRACT_16BITS(obj_tptr+4));
++                       EXTRACT_32BITS(obj_tptr),
++                       EXTRACT_32BITS(obj_tptr+4));
+                 obj_tlen-=8;
+                 obj_tptr+=8;
+                 break;

@@ -8,7 +8,7 @@ It was downloaded from http://tcpdump.org/release/tcpdump-3.8.3.tar.gz
 
 Upstream Authors: tcpdump-workers@tcpdump.org
 
-Licensed under the 3-clause BSD license: 
+Licensed under the 3-clause BSD license:
 
   Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions
@@ -27,6 +27,41 @@ Licensed under the 3-clause BSD license:
   THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
   IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
   WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+Some files in this package are licensed under the 4-clause BSD license,
+the copyright on most of them belongs to The Regents of the University
+of California.  Since the license was retroactively changed in 1999 to
+remove the advertising clause, they are effectively under the 3-clause
+license even if the text of the license in the files hasn't been
+updated.  See the following document for more details:
+
+   <URL: ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change>
+
+Other files under the 4-clause BSD license and whose copyright doesn't
+belong to the The Regents of the University of California are listed
+below:
+- aodv.h, Copyright (c) 2003 Bruce M. Simpson
+- atmuni31.h, Copyright (c) 1997 Yen Yen Lim and North Dakota State University
+- ieee802_11.h, Copyright (c) 2001 Fortress Technologies and Charlie Lenahan
+- print-802_11.c, Copyright (c) 2001 Fortress Technologies and Charlie Lenahan
+- print-aodv.c, Copyright (c) 2003 Bruce M. Simpson
+- print-ascii.c, Copyright (c) 1997, 1998 The NetBSD Foundation, Inc.
+- print-cnfp.c, Copyright (c) 1998 Michael Shalayeff
+- print-gre.c, Copyright (c) 2002 Jason L. Wright
+- print-mobile.c, Copyright (c) 1998 The NetBSD Foundation, Inc.
+- print-sunatm.c, Copyright (c) 1997 Yen Yen Lim and North Dakota State
+  		  University
+- print-telnet.c, Copyright (c) 1997, 1998 The NetBSD Foundation, Inc.
+- print-timed.c, Copyright (c) 2000 Ben Smithurst
+- missing/inet_aton.c, Copyright (c) 1995, 1996, 1997 Kungliga Tekniska
+  		       Högskolan (Royal Institute of Technology, Stockholm,
+		       Sweden).
+- missing/inet_ntop.c, Copyright (c) 1995, 1996, 1997 Kungliga Tekniska
+  		       Högskolan (Royal Institute of Technology, Stockholm,
+		       Sweden).
+- missing/inet_pton.c, Copyright (c) 1995, 1996, 1997 Kungliga Tekniska
+  		       Högskolan (Royal Institute of Technology, Stockholm,
+		       Sweden).
 
 Current upstream maintainers:
 	Bill Fenner			<fenner@research.att.com>
@@ -53,7 +88,7 @@ Additional people who have contributed patches:
 	Darren Reed			<darrenr@reed.wattle.id.au>
 	David Kaelbling			<drk@sgi.com>
 	David Young			<dyoung@ojctech.com>
-	Don Ebright			<Don.Ebright@compuware.com> 
+	Don Ebright			<Don.Ebright@compuware.com>
 	Eric Anderson			<anderse@hpl.hp.com>
 	Franz Schaefer			<schaefer@mond.at>
 	Gianluca Varenni		<varenni@netgroup-serv.polito.it>

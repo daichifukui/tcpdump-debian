@@ -23,28 +23,28 @@ esac
 exit 0
 
 @DPATCH@
-diff -urNad /home/romain/Work/Debian/tcpdump/tcpdump-3.8.3/tcpdump.1 tcpdump-3.8.3/tcpdump.1
---- /home/romain/Work/Debian/tcpdump/tcpdump-3.8.3/tcpdump.1	2004-05-08 09:12:32.000000000 +0200
-+++ tcpdump-3.8.3/tcpdump.1	2004-05-08 09:18:27.000000000 +0200
+diff -urNad tcpdump-3.9.0.cvs.20050511/tcpdump.1 /tmp/dpep.KrdlNv/tcpdump-3.9.0.cvs.20050511/tcpdump.1
+--- tcpdump-3.9.0.cvs.20050511/tcpdump.1	2005-05-11 19:58:22.000000000 +0200
++++ /tmp/dpep.KrdlNv/tcpdump-3.9.0.cvs.20050511/tcpdump.1	2005-05-11 19:59:34.000000000 +0200
 @@ -22,7 +22,7 @@
  .\" WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  .\" MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  .\"
--.TH TCPDUMP 1  "7 January 2004"
-+.TH TCPDUMP 8  "8 May 2004"
+-.TH TCPDUMP 1  "18 April 2005"
++.TH TCPDUMP 8  "18 April 2005"
  .SH NAME
  tcpdump \- dump traffic on a network
  .SH SYNOPSIS
-@@ -672,7 +672,7 @@
- True if the ethernet destination address is \fIehost\fP.
+@@ -715,7 +715,7 @@
+ True if the Ethernet destination address is \fIehost\fP.
  \fIEhost\fP
  may be either a name from /etc/ethers or a number (see
 -.IR ethers (3N)
 +.IR ethers (5)
  for numeric format).
  .IP "\fBether src \fIehost\fP
- True if the ethernet source address is \fIehost\fP.
-@@ -699,7 +699,7 @@
+ True if the Ethernet source address is \fIehost\fP.
+@@ -742,7 +742,7 @@
  True if the IPv4/v6 destination address of the packet has a network
  number of \fInet\fP.
  \fINet\fP may be either a name from /etc/networks
@@ -53,7 +53,7 @@ diff -urNad /home/romain/Work/Debian/tcpdump/tcpdump-3.8.3/tcpdump.1 tcpdump-3.8
  .IP "\fBsrc net \fInet\fR"
  True if the IPv4/v6 source address of the packet has a network
  number of \fInet\fP.
-@@ -718,9 +718,9 @@
+@@ -761,9 +761,9 @@
  True if the packet is ip/tcp, ip/udp, ip6/tcp or ip6/udp and has a
  destination port value of \fIport\fP.
  The \fIport\fP can be a number or a name used in /etc/services (see

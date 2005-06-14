@@ -1,3 +1,28 @@
+tcpdump (3.9.0.cvs.20050614-1) unstable; urgency=low
+
+  * New CVS snapshot.
+  * Upload to unstable.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Tue, 14 Jun 2005 19:43:24 +0200
+
+tcpdump (3.9.0.cvs.20050529-1) experimental; urgency=low
+
+  * New upstream CVS snapshot for experimental.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 29 May 2005 12:55:31 +0200
+
+tcpdump (3.9.0.cvs.20050511-1) experimental; urgency=low
+
+  * Upstream CVS snapshot of tcpdump 3.9 for experimental.
+  * debian/patches/20_man_fixes.dpatch: Resynchronized.
+  * debian/patches/30_openssl_des.dpatch: Dropped (fixed upstream).
+  * debian/patches/40_ipv6cp.dpatch: Ditto.
+  * debian/patches/50_misc_dos.dpatch: Ditto.
+  * debian/patches/00list: Update.
+  * debian/control: Build with libpcap0.9, also in experimental.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Wed, 11 May 2005 20:00:31 +0200
+
 tcpdump (3.8.3-5) unstable; urgency=low
 
   * debian/copyright: Clarify license conditions, some files in the

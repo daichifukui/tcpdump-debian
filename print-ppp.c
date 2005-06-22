@@ -31,7 +31,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-    "@(#) $Header: /tcpdump/master/tcpdump/print-ppp.c,v 1.108.2.2 2005/05/08 21:01:25 hannes Exp $ (LBL)";
+    "@(#) $Header: /tcpdump/master/tcpdump/print-ppp.c,v 1.108.2.4 2005/06/18 23:56:40 guy Exp $ (LBL)";
 #endif
 
 #ifdef HAVE_CONFIG_H
@@ -518,22 +518,32 @@ handle_ctrl_proto(u_int proto, const u_char *pptr, int length)
 		       EXTRACT_16BITS(tptr));
 		/* XXX: need to decode Rejected-Information? - hexdump for now */
                 if (len > 6) {
-                        printf("\n\t  Unknown Data");
+                        printf("\n\t  Rejected Packet");
                         print_unknown_data(tptr+2,"\n\t    ",len-2);
                 }
 		break;
 	case CPCODES_ECHO_REQ:
 	case CPCODES_ECHO_RPL:
 	case CPCODES_DISC_REQ:
-	case CPCODES_ID:
 		if (length < 8)
 			break;
 		TCHECK2(*tptr, 4);
 		printf("\n\t  Magic-Num 0x%08x", EXTRACT_32BITS(tptr));
 		/* XXX: need to decode Data? - hexdump for now */
                 if (len > 8) {
-                        printf("\n\t  Unknown Data");
+                        printf("\n\t  Data");
                         print_unknown_data(tptr+4,"\n\t    ",len-4);
+                }
+		break;
+	case CPCODES_ID:
+		if (length < 8)
+			break;
+		TCHECK2(*tptr, 4);
+		printf("\n\t  Magic-Num 0x%08x", EXTRACT_32BITS(tptr));
+		/* RFC 1661 says this is intended to be human readable */
+                if (len > 8) {
+                        printf("\n\t  Message\n\t    ");
+                        fn_printn(tptr+4,len-4,snapend);
                 }
 		break;
 	case CPCODES_TIME_REM:
@@ -572,6 +582,13 @@ print_lcp_config_options(const u_char *p, int length)
 	opt = p[0];
 	if (length < len)
 		return 0;
+	if (len < 2) {
+		if ((opt >= LCPOPT_MIN) && (opt <= LCPOPT_MAX))
+			printf("\n\t  %s Option (0x%02x), length %u (bogus, should be >= 2)", lcpconfopts[opt],opt,len);
+		else
+			printf("\n\tunknown LCP option 0x%02x", opt);
+		return 0;
+	}
 	if ((opt >= LCPOPT_MIN) && (opt <= LCPOPT_MAX))
 		printf("\n\t  %s Option (0x%02x), length %u: ", lcpconfopts[opt],opt,len);
 	else {
@@ -955,6 +972,13 @@ print_ipcp_config_options(const u_char *p, int length)
 	opt = p[0];
 	if (length < len)
 		return 0;
+	if (len < 2) {
+		printf("\n\t  %s Option (0x%02x), length %u (bogus, should be >= 2)",
+		       tok2str(ipcpopt_values,"unknown",opt),
+		       opt,
+        	       len);
+		return 0;
+	}
 
 	printf("\n\t  %s Option (0x%02x), length %u: ",
 	       tok2str(ipcpopt_values,"unknown",opt),
@@ -1023,6 +1047,13 @@ print_ip6cp_config_options(const u_char *p, int length)
 	opt = p[0];
 	if (length < len)
 		return 0;
+	if (len < 2) {
+		printf("\n\t  %s Option (0x%02x), length %u (bogus, should be >= 2)",
+		       tok2str(ip6cpopt_values,"unknown",opt),
+		       opt,
+	               len);
+	        return 0;
+	}
 
 	printf("\n\t  %s Option (0x%02x), length %u: ",
 	       tok2str(ip6cpopt_values,"unknown",opt),
@@ -1073,6 +1104,13 @@ print_ccp_config_options(const u_char *p, int length)
 	opt = p[0];
 	if (length < len)
 		return 0;
+	if (len < 2) {
+	        printf("\n\t  %s Option (0x%02x), length %u (bogus, should be >= 2)",
+        	       tok2str(ccpconfopts_values, "Unknown", opt),
+	               opt,
+        	       len);
+        	return 0;
+        }
 
         printf("\n\t  %s Option (0x%02x), length %u:",
                tok2str(ccpconfopts_values, "Unknown", opt),
@@ -1124,6 +1162,13 @@ print_bacp_config_options(const u_char *p, int length)
 	opt = p[0];
 	if (length < len)
 		return 0;
+	if (len < 2) {
+	        printf("\n\t  %s Option (0x%02x), length %u (bogus, should be >= 2)",
+        	       tok2str(bacconfopts_values, "Unknown", opt),
+	               opt,
+        	       len);
+        	return 0;
+        }
 
         printf("\n\t  %s Option (0x%02x), length %u:",
                tok2str(bacconfopts_values, "Unknown", opt),

@@ -1,3 +1,10 @@
+tcpdump (3.9.0.cvs.20050622-1) unstable; urgency=low
+
+  * New CVS snapshot.
+  * debian/control: Bump Standards-Version to 3.6.2.1, no changes needed.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Wed, 22 Jun 2005 19:52:31 +0200
+
 tcpdump (3.9.0.cvs.20050614-1) unstable; urgency=low
 
   * New CVS snapshot.

@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Romain Francoise <rfrancoise@debian.org>
 Uploaders: Torsten Landschoff <torsten@debian.org>
 Build-Depends: debhelper (>= 4), libpcap0.9-dev, dpatch, libssl-dev
-Standards-Version: 3.6.1.0
+Standards-Version: 3.6.2.1
 
 Package: tcpdump
 Architecture: any

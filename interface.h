@@ -18,7 +18,7 @@
  * WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @(#) $Header: /tcpdump/master/tcpdump/interface.h,v 1.244.2.11 2005/06/20 07:45:04 hannes Exp $ (LBL)
+ * @(#) $Header: /tcpdump/master/tcpdump/interface.h,v 1.244.2.14 2005/07/10 14:47:57 hannes Exp $ (LBL)
  */
 
 #ifndef tcpdump_interface_h
@@ -166,11 +166,13 @@ extern const char *dnnum_string(u_short);
 #include <pcap.h>
 
 extern int print_unknown_data(const u_char *, const char *,int);
-extern void ascii_print_with_offset(const char *, const u_char *, u_int, u_int);
-extern void ascii_print(const char *, const u_char *, u_int);
+extern void ascii_print(const u_char *, u_int);
+extern void hex_and_ascii_print_with_offset(const char *, const u_char *,
+	u_int, u_int);
+extern void hex_and_ascii_print(const char *, const u_char *, u_int);
 extern void hex_print_with_offset(const char *, const u_char *, u_int, u_int);
-extern void telnet_print(const u_char *, u_int);
 extern void hex_print(const char *, const u_char *, u_int);
+extern void telnet_print(const u_char *, u_int);
 extern int ether_encap_print(u_short, const u_char *, u_int, u_int, u_short *);
 extern int llc_print(const u_char *, u_int, u_int, const u_char *,
 	const u_char *, u_short *);
@@ -283,6 +285,7 @@ extern const char *nt_errstr(u_int32_t);
 extern void print_data(const unsigned char *, int);
 extern void l2tp_print(const u_char *, u_int);
 extern void vrrp_print(const u_char *, u_int, int);
+extern void slow_print(const u_char *, u_int);
 extern void pgm_print(const u_char *, u_int, const u_char *);
 extern void cdp_print(const u_char *, u_int, u_int);
 extern void stp_print(const u_char *, u_int);
@@ -345,6 +348,7 @@ extern netdissect_options *gndo;
 #define Xflag gndo->ndo_Xflag 
 #define Cflag gndo->ndo_Cflag 
 #define Aflag gndo->ndo_Aflag 
+#define suppress_default_print gndo->ndo_suppress_default_print
 #define packettype gndo->ndo_packettype
 #define tcpmd5secret gndo->ndo_tcpmd5secret
 #define Wflag gndo->ndo_Wflag

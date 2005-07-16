@@ -1,0 +1,13 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 30_version.dpatch by Romain Francoise <rfrancoise@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix upstream version.
+
+@DPATCH@
+diff -urNad --exclude=CVS --exclude=.svn ./VERSION /tmp/dpep-work.NbcoCG/tcpdump-3.9.3/VERSION
+--- ./VERSION	2005-07-11 22:10:32.000000000 +0200
++++ /tmp/dpep-work.NbcoCG/tcpdump-3.9.3/VERSION	2005-07-16 15:09:17.000000000 +0200
+@@ -1 +1 @@
+-3.9.2
++3.9.3

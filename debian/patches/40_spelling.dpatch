@@ -1,0 +1,43 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 40_spelling.dpatch by Romain Francoise <rfrancoise@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Spelling fixes by Michael Shields <shields@msrl.com>.
+
+@DPATCH@
+diff -urNad --exclude=CVS --exclude=.svn ./icmp6.h /tmp/dpep-work.xvutUn/tcpdump-3.9.3/icmp6.h
+--- ./icmp6.h	2005-01-14 11:41:50.000000000 +0100
++++ /tmp/dpep-work.xvutUn/tcpdump-3.9.3/icmp6.h	2005-07-17 12:30:15.000000000 +0200
+@@ -104,9 +104,9 @@
+ #define MLD6_LISTENER_DONE		132	/* multicast listener done */
+ 
+ #define ND_ROUTER_SOLICIT		133	/* router solicitation */
+-#define ND_ROUTER_ADVERT		134	/* router advertisment */
++#define ND_ROUTER_ADVERT		134	/* router advertisement */
+ #define ND_NEIGHBOR_SOLICIT		135	/* neighbor solicitation */
+-#define ND_NEIGHBOR_ADVERT		136	/* neighbor advertisment */
++#define ND_NEIGHBOR_ADVERT		136	/* neighbor advertisement */
+ #define ND_REDIRECT			137	/* redirect */
+ 
+ #define ICMP6_ROUTER_RENUMBERING	138	/* router renumbering */
+diff -urNad --exclude=CVS --exclude=.svn ./print-icmp6.c /tmp/dpep-work.xvutUn/tcpdump-3.9.3/print-icmp6.c
+--- ./print-icmp6.c	2005-07-11 22:24:32.000000000 +0200
++++ /tmp/dpep-work.xvutUn/tcpdump-3.9.3/print-icmp6.c	2005-07-17 12:30:15.000000000 +0200
+@@ -75,7 +75,7 @@
+     { ND_ROUTER_SOLICIT, "router solicitation"},
+     { ND_ROUTER_ADVERT, "router advertisement"},
+     { ND_NEIGHBOR_SOLICIT, "neighbor solicitation"},
+-    { ND_NEIGHBOR_ADVERT, "neighbor advertisment"},
++    { ND_NEIGHBOR_ADVERT, "neighbor advertisement"},
+     { ND_REDIRECT, "redirect"},
+     { ICMP6_ROUTER_RENUMBERING, "router renumbering"},
+     { IND_SOLICIT, "inverse neighbor solicitation"},
+@@ -131,7 +131,7 @@
+    { ND_OPT_PREFIX_INFORMATION, "prefix info"},
+    { ND_OPT_REDIRECTED_HEADER, "redirected header"},
+    { ND_OPT_MTU, "mtu"},
+-   { ND_OPT_ADVINTERVAL, "advertisment interval"},
++   { ND_OPT_ADVINTERVAL, "advertisement interval"},
+    { ND_OPT_HOMEAGENT_INFO, "homeagent information"},
+    { ND_OPT_ROUTE_INFO, "route info"},
+    { 0,	NULL }

@@ -1,3 +1,16 @@
+tcpdump (3.9.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+  * debian/patches/40_spelling.dpatch: Dropped (included upstream).
+  * debian/patches/30_version.dpatch: Dropped.
+  * debian/patches/30_vlan_eflag: New patch, reverse test for eflag in
+    print-ether.c to match the intended effect (closes: #324706).
+
+  * This upload also transitions tcpdump to OpenSSL 0.9.8.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun,  9 Oct 2005 20:11:49 +0200
+
 tcpdump (3.9.3-2) unstable; urgency=low
 
   * debian/patches/40_spelling.dpatch: New patch, fixes spelling errors

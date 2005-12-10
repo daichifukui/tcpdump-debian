@@ -23,9 +23,9 @@ esac
 exit 0
 
 @DPATCH@
-diff -urNad tcpdump-3.9.0.cvs.20050511/tcpdump.1 /tmp/dpep.KrdlNv/tcpdump-3.9.0.cvs.20050511/tcpdump.1
---- tcpdump-3.9.0.cvs.20050511/tcpdump.1	2005-05-11 19:58:22.000000000 +0200
-+++ /tmp/dpep.KrdlNv/tcpdump-3.9.0.cvs.20050511/tcpdump.1	2005-05-11 19:59:34.000000000 +0200
+diff -urNad tcpdump-3.9.4~/tcpdump.1 tcpdump-3.9.4/tcpdump.1
+--- tcpdump-3.9.4~/tcpdump.1	2005-12-10 14:23:01.000000000 +0100
++++ tcpdump-3.9.4/tcpdump.1	2005-12-10 14:24:08.000000000 +0100
 @@ -22,7 +22,7 @@
  .\" WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  .\" MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
@@ -35,6 +35,24 @@ diff -urNad tcpdump-3.9.0.cvs.20050511/tcpdump.1 /tmp/dpep.KrdlNv/tcpdump-3.9.0.
  .SH NAME
  tcpdump \- dump traffic on a network
  .SH SYNOPSIS
+@@ -306,7 +306,7 @@
+ .B \-E
+ Use \fIspi@ipaddr algo:secret\fP for decrypting IPsec ESP packets that
+ are addressed to \fIaddr\fP and contain Security Parameter Index value
+-\fIspi\fP. This combination may be repeated with comma or newline seperation.
++\fIspi\fP. This combination may be repeated with comma or newline separation.
+ .IP
+ Note that setting the secret for IPv4 ESP packets is supported at this time.
+ .IP
+@@ -322,7 +322,7 @@
+ with cryptography enabled.
+ .IP
+ \fIsecret\fP is the ASCII text for ESP secret key. 
+-If preceeded by 0x, then a hex value will be read.
++If preceded by 0x, then a hex value will be read.
+ .IP
+ The option assumes RFC2406 ESP, not RFC1827 ESP.
+ The option is only for debugging purposes, and
 @@ -715,7 +715,7 @@
  True if the Ethernet destination address is \fIehost\fP.
  \fIEhost\fP
@@ -65,3 +83,12 @@ diff -urNad tcpdump-3.9.0.cvs.20050511/tcpdump.1 /tmp/dpep.KrdlNv/tcpdump-3.9.0.
  If a name is used, both the port
  number and protocol are checked.
  If a number or ambiguous name is used,
+@@ -954,7 +954,7 @@
+ (applies only to packets logged by OpenBSD's
+ .BR pf (4)).
+ .IP "\fBrulenum \fInum\fR"
+-Synonomous with the
++Synonymous with the
+ .B rnr
+ modifier.
+ .IP "\fBreason \fIcode\fR"

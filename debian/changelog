@@ -1,3 +1,10 @@
+tcpdump (3.9.4-2) unstable; urgency=low
+
+  * debian/patches/20_man_fixes.dpatch: Merge patch from A Costa
+    <agcosta@gis.net> fixing a few typos (closes: #342310).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 10 Dec 2005 14:26:20 +0100
+
 tcpdump (3.9.4-1) unstable; urgency=low
 
   * New upstream release.

@@ -24,8 +24,8 @@ exit 0
 
 @DPATCH@
 diff -urNad tcpdump-3.9.4~/tcpdump.1 tcpdump-3.9.4/tcpdump.1
---- tcpdump-3.9.4~/tcpdump.1	2005-12-10 14:23:01.000000000 +0100
-+++ tcpdump-3.9.4/tcpdump.1	2005-12-10 14:24:08.000000000 +0100
+--- tcpdump-3.9.4~/tcpdump.1	2006-02-02 22:21:06.000000000 +0100
++++ tcpdump-3.9.4/tcpdump.1	2006-02-02 22:22:26.000000000 +0100
 @@ -22,7 +22,7 @@
  .\" WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  .\" MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
@@ -92,3 +92,21 @@ diff -urNad tcpdump-3.9.4~/tcpdump.1 tcpdump-3.9.4/tcpdump.1
  .B rnr
  modifier.
  .IP "\fBreason \fIcode\fR"
+@@ -974,7 +974,7 @@
+ name of an anchored ruleset (applies only to packets logged by
+ .BR pf (4)).
+ .IP "\fBruleset \fIname\fR"
+-Synonomous with the
++Synonymous with the
+ .B rset
+ modifier.
+ .IP "\fBsrnr \fInum\fR"
+@@ -982,7 +982,7 @@
+ of an anchored ruleset (applies only to packets logged by
+ .BR pf (4)).
+ .IP "\fBsubrulenum \fInum\fR"
+-Synonomous with the
++Synonymous with the
+ .B srnr
+ modifier.
+ .IP "\fBaction \fIact\fR"

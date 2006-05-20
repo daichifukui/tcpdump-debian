@@ -4,7 +4,7 @@ include /usr/share/dpatch/dpatch.make
 
 export DH_VERBOSE=1
 
-dstdir := $(shell pwd)/debian/tcpdump
+dstdir := $(CURDIR)/debian/tcpdump
 
 export CFLAGS=-D_FILE_OFFSET_BITS=64
 
@@ -40,14 +40,10 @@ install: build
 
 	$(MAKE) install prefix=$(dstdir)/usr
 
-
-# Build architecture-independent files here.
 binary-indep: build install
 # We have nothing to do by default.
 
-# Build architecture-dependent files here.
 binary-arch: build install
-#	dh_testversion
 	dh_testdir
 	dh_testroot
 	dh_installdocs
@@ -58,9 +54,7 @@ binary-arch: build install
 	dh_strip
 	dh_compress
 	dh_fixperms
-#	dh_makeshlibs
 	dh_installdeb
-#	dh_perl
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums

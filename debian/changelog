@@ -1,3 +1,14 @@
+tcpdump (3.9.4-4) unstable; urgency=low
+
+  * debian/compat: Switch to debhelper compatibility level 5.
+  * debian/control:
+    + Build-Depend on debhelper (>= 5).
+    + Remove Uploaders field.
+    + Bump Standards-Version to 3.7.2, no changes needed.
+  * debian/rules: Misc. cleanups.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 20 May 2006 13:07:45 +0200
+
 tcpdump (3.9.4-3) unstable; urgency=low
 
   * debian/patches/20_man_fixes.dpatch: Merge patch from A Costa

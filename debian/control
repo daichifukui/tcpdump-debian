@@ -2,9 +2,8 @@ Source: tcpdump
 Section: net
 Priority: optional
 Maintainer: Romain Francoise <rfrancoise@debian.org>
-Uploaders: Torsten Landschoff <torsten@debian.org>
-Build-Depends: debhelper (>= 4), libpcap0.8-dev (>= 0.9.3-1), dpatch, libssl-dev
-Standards-Version: 3.6.2.1
+Build-Depends: debhelper (>= 5), libpcap0.8-dev (>= 0.9.3-1), dpatch, libssl-dev
+Standards-Version: 3.7.2
 
 Package: tcpdump
 Architecture: any

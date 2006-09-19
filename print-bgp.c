@@ -36,7 +36,7 @@
 
 #ifndef lint
 static const char rcsid[] _U_ =
-     "@(#) $Header: /tcpdump/master/tcpdump/print-bgp.c,v 1.91.2.6 2005/06/03 07:31:43 hannes Exp $";
+     "@(#) $Header: /tcpdump/master/tcpdump/print-bgp.c,v 1.91.2.9 2006/02/02 12:36:46 hannes Exp $";
 #endif
 
 #include <tcpdump-stdinc.h>
@@ -355,6 +355,7 @@ static struct tok bgp_safi_values[] = {
 #define AFNUM_DECNET	13
 #define AFNUM_BANYAN	14
 #define AFNUM_E164NSAP	15
+#define AFNUM_VPLS      25
 /* draft-kompella-ppvpn-l2vpn */
 #define AFNUM_L2VPN     196 /* still to be approved by IANA */
 
@@ -376,6 +377,7 @@ static struct tok bgp_afi_values[] = {
     { AFNUM_BANYAN,           "Banyan Vines"},
     { AFNUM_E164NSAP,         "E.164 with NSAP subaddress"},
     { AFNUM_L2VPN,            "Layer-2 VPN"},
+    { AFNUM_VPLS,             "VPLS"},
     { 0, NULL},
 };
 
@@ -403,6 +405,14 @@ static struct tok bgp_afi_values[] = {
 
 #define BGP_EXT_COM_L2INFO      0x800a  /* draft-kompella-ppvpn-l2vpn */
 
+/* http://www.cisco.com/en/US/tech/tk436/tk428/technologies_tech_note09186a00801eb09a.shtml  */
+#define BGP_EXT_COM_EIGRP_GEN   0x8800
+#define BGP_EXT_COM_EIGRP_METRIC_AS_DELAY  0x8801
+#define BGP_EXT_COM_EIGRP_METRIC_REL_NH_BW 0x8802
+#define BGP_EXT_COM_EIGRP_METRIC_LOAD_MTU  0x8803
+#define BGP_EXT_COM_EIGRP_EXT_REMAS_REMID  0x8804
+#define BGP_EXT_COM_EIGRP_EXT_REMPROTO_REMMETRIC 0x8805
+
 static struct tok bgp_extd_comm_flag_values[] = {
     { 0x8000,                  "vendor-specific"},
     { 0x4000,                  "non-transitive"},
@@ -427,6 +437,12 @@ static struct tok bgp_extd_comm_subtype_values[] = {
     { BGP_EXT_COM_OSPF_RID,    "ospf-router-id"},
     { BGP_EXT_COM_OSPF_RID2,   "ospf-router-id"},
     { BGP_EXT_COM_L2INFO,      "layer2-info"}, 
+    { BGP_EXT_COM_EIGRP_GEN , "eigrp-general-route (flag, tag)" },
+    { BGP_EXT_COM_EIGRP_METRIC_AS_DELAY , "eigrp-route-metric (AS, delay)" },
+    { BGP_EXT_COM_EIGRP_METRIC_REL_NH_BW , "eigrp-route-metric (reliability, nexthop, bandwidth)" },
+    { BGP_EXT_COM_EIGRP_METRIC_LOAD_MTU , "eigrp-route-metric (load, MTU)" },
+    { BGP_EXT_COM_EIGRP_EXT_REMAS_REMID , "eigrp-external-route (remote-AS, remote-ID)" },
+    { BGP_EXT_COM_EIGRP_EXT_REMPROTO_REMMETRIC , "eigrp-external-route (remote-proto, remote-metric)" },
     { 0, NULL},
 };
 
@@ -490,6 +506,9 @@ decode_labeled_prefix4(const u_char *pptr, char *buf, u_int buflen)
            there is no real application for advertisement of
            stacked labels in a a single BGP message
         */
+
+	if (24 > plen)
+		return -1;
 
         plen-=24; /* adjust prefixlen - labellength */
 
@@ -565,9 +584,15 @@ decode_rt_routing_info(const u_char *pptr, char *buf, u_int buflen)
 	TCHECK(pptr[0]);
 	plen = pptr[0];   /* get prefix length */
 
+	if (0 == plen)
+		return 1; /* default route target */
+
+	if (32 > plen)
+		return -1;
+
         plen-=32; /* adjust prefix length */
 
-	if (0 < plen)
+	if (64 < plen)
 		return -1;
 
 	memset(&route_target, 0, sizeof(route_target));
@@ -595,6 +620,9 @@ decode_labeled_vpn_prefix4(const u_char *pptr, char *buf, u_int buflen)
 
 	TCHECK(pptr[0]);
 	plen = pptr[0];   /* get prefix length */
+
+	if ((24+64) > plen)
+		return -1;
 
         plen-=(24+64); /* adjust prefixlen - labellength - RD len*/
 
@@ -710,6 +738,10 @@ decode_labeled_prefix6(const u_char *pptr, char *buf, u_int buflen)
 
 	TCHECK(pptr[0]);
 	plen = pptr[0]; /* get prefix length */
+
+	if (24 > plen)
+		return -1;
+
         plen-=24; /* adjust prefixlen - labellength */
 
 	if (128 < plen)
@@ -743,6 +775,9 @@ decode_labeled_vpn_prefix6(const u_char *pptr, char *buf, u_int buflen)
 
 	TCHECK(pptr[0]);
 	plen = pptr[0];   /* get prefix length */
+
+	if ((24+64) > plen)
+		return -1;
 
         plen-=(24+64); /* adjust prefixlen - labellength - RD len*/
 
@@ -808,6 +843,9 @@ decode_labeled_vpn_clnp_prefix(const u_char *pptr, char *buf, u_int buflen)
 
 	TCHECK(pptr[0]);
 	plen = pptr[0];   /* get prefix length */
+
+	if ((24+64) > plen)
+		return -1;
 
         plen-=(24+64); /* adjust prefixlen - labellength - RD len*/
 
@@ -1018,6 +1056,7 @@ bgp_attr_print(const struct bgp_attr *attr, const u_char *pptr, int len)
                 case (AFNUM_L2VPN<<8 | SAFNUM_VPNUNICAST):
                 case (AFNUM_L2VPN<<8 | SAFNUM_VPNMULTICAST):
                 case (AFNUM_L2VPN<<8 | SAFNUM_VPNUNIMULTICAST):
+                case (AFNUM_VPLS<<8 | SAFNUM_VPLS):
                     break;
                 default:
                     TCHECK2(tptr[0], tlen);
@@ -1101,6 +1140,7 @@ bgp_attr_print(const struct bgp_attr *attr, const u_char *pptr, int len)
                             }
                             break;
 #endif
+                        case (AFNUM_VPLS<<8 | SAFNUM_VPLS):
                         case (AFNUM_L2VPN<<8 | SAFNUM_VPNUNICAST):
                         case (AFNUM_L2VPN<<8 | SAFNUM_VPNMULTICAST):
                         case (AFNUM_L2VPN<<8 | SAFNUM_VPNUNIMULTICAST):
@@ -1260,6 +1300,7 @@ bgp_attr_print(const struct bgp_attr *attr, const u_char *pptr, int len)
                             printf("\n\t      %s", buf);
                         break;
 #endif
+                    case (AFNUM_VPLS<<8 | SAFNUM_VPLS):
                     case (AFNUM_L2VPN<<8 | SAFNUM_VPNUNICAST):
                     case (AFNUM_L2VPN<<8 | SAFNUM_VPNMULTICAST):
                     case (AFNUM_L2VPN<<8 | SAFNUM_VPNUNIMULTICAST):
@@ -1394,6 +1435,7 @@ bgp_attr_print(const struct bgp_attr *attr, const u_char *pptr, int len)
                             printf("\n\t      %s", buf);
                         break;
 #endif
+                    case (AFNUM_VPLS<<8 | SAFNUM_VPLS):
                     case (AFNUM_L2VPN<<8 | SAFNUM_VPNUNICAST):
                     case (AFNUM_L2VPN<<8 | SAFNUM_VPNMULTICAST):
                     case (AFNUM_L2VPN<<8 | SAFNUM_VPNUNIMULTICAST):

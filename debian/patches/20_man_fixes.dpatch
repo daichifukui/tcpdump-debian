@@ -62,15 +62,6 @@ diff -urNad tcpdump-3.9.4~/tcpdump.1 tcpdump-3.9.4/tcpdump.1
  for numeric format).
  .IP "\fBether src \fIehost\fP
  True if the Ethernet source address is \fIehost\fP.
-@@ -742,7 +742,7 @@
- True if the IPv4/v6 destination address of the packet has a network
- number of \fInet\fP.
- \fINet\fP may be either a name from /etc/networks
--or a network number (see \fInetworks(4)\fP for details).
-+or a network number (see \fInetworks(5)\fP for details).
- .IP "\fBsrc net \fInet\fR"
- True if the IPv4/v6 source address of the packet has a network
- number of \fInet\fP.
 @@ -761,9 +761,9 @@
  True if the packet is ip/tcp, ip/udp, ip6/tcp or ip6/udp and has a
  destination port value of \fIport\fP.

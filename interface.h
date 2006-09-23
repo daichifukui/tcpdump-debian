@@ -18,7 +18,7 @@
  * WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @(#) $Header: /tcpdump/master/tcpdump/interface.h,v 1.244.2.18 2005/09/29 07:46:45 hannes Exp $ (LBL)
+ * @(#) $Header: /tcpdump/master/tcpdump/interface.h,v 1.244.2.20 2006/02/08 01:40:09 hannes Exp $ (LBL)
  */
 
 #ifndef tcpdump_interface_h
@@ -152,7 +152,7 @@ extern char *read_infile(char *);
 extern char *copy_argv(char **);
 
 extern void safeputchar(int);
-extern void safeputs(const char *);
+extern void safeputs(const char *, int);
 
 extern const char *isonsap_string(const u_char *, register u_int);
 extern const char *protoid_string(const u_char *);
@@ -202,6 +202,7 @@ extern u_int token_if_print(const struct pcap_pkthdr *, const u_char *);
 extern void fddi_print(const u_char *, u_int, u_int);
 extern u_int fddi_if_print(const struct pcap_pkthdr *, const u_char *);
 extern u_int fr_if_print(const struct pcap_pkthdr *, const u_char *);
+extern u_int mfr_if_print(const struct pcap_pkthdr *, const u_char *);
 extern u_int fr_print(register const u_char *, u_int);
 extern u_int mfr_print(register const u_char *, u_int);
 extern u_int ieee802_11_if_print(const struct pcap_pkthdr *, const u_char *);

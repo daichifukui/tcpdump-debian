@@ -1,3 +1,12 @@
+tcpdump (3.9.5-2) unstable; urgency=medium
+
+  * debian/patches/40_cve-2007-1218.dpatch: New patch, fixes a potential
+    buffer overflow in the 802.11 printer (CVE-2007-1218), thanks to
+    Moritz Muehlenhoff <jmm@debian.org> (closes: #413430).
+  * debian/patches/00list: Update.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Mon,  5 Mar 2007 20:22:50 +0100
+
 tcpdump (3.9.5-1) unstable; urgency=low
 
   * New upstream release.

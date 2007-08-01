@@ -1,0 +1,14 @@
+Reverse test for eflag in print-ether.c to match the intended effect
+(hide vlan info if called with -e).
+
+--- tcpdump-3.9.5.orig/print-ether.c
++++ tcpdump-3.9.5/print-ether.c
+@@ -220,7 +220,7 @@
+ 		return (1);
+ 
+ 	case ETHERTYPE_8021Q:
+-	        if (eflag)
++	        if (!eflag)
+ 		    printf("vlan %u, p %u%s, ",
+ 			   ntohs(*(u_int16_t *)p) & 0xfff,
+ 			   ntohs(*(u_int16_t *)p) >> 13,

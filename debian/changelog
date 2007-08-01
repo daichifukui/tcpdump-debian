@@ -1,3 +1,17 @@
+tcpdump (3.9.5-3) unstable; urgency=medium
+
+  * Convert to quilt for patch management:
+    + debian/control: Build-Depend on quilt (>= 0.40) instead of dpatch.
+    + debian/rules: Include /usr/share/quilt/quilt.make.
+    + Convert all dpatch patches to regular patches.
+
+  * debian/patches/41_cve-2007-3798.diff: New patch, fixes an integer
+    overflow in the BGP dissector (CVE-2007-3798), thanks to Daniel Leidert
+    (closes: #434030).
+  * debian/patches/series: Update.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Wed, 01 Aug 2007 19:56:04 +0200
+
 tcpdump (3.9.5-2) unstable; urgency=medium
 
   * debian/patches/40_cve-2007-1218.dpatch: New patch, fixes a potential

@@ -1,3 +1,13 @@
+tcpdump (3.9.5-4) unstable; urgency=low
+
+  * debian/rules: Don't ignore errors in clean target.
+  * debian/patches/50_autotools-dev.diff: New patch, make config.{guess,sub}
+    exec newer versions of themselves if autotools-dev is installed.
+  * debian/patches/series: Update.
+  * debian/control: Add build-depends on autotools-dev.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 11 Aug 2007 20:18:34 +0200
+
 tcpdump (3.9.5-3) unstable; urgency=medium
 
   * Convert to quilt for patch management:

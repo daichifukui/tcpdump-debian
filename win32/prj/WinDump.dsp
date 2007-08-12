@@ -89,6 +89,10 @@ SOURCE=..\..\addrtoname.c
 # End Source File
 # Begin Source File
 
+SOURCE=..\..\af.c
+# End Source File
+# Begin Source File
+
 SOURCE=..\..\bpf_dump.c
 # End Source File
 # Begin Source File
@@ -398,6 +402,10 @@ SOURCE="..\..\print-ntp.c"
 # Begin Source File
 
 SOURCE="..\..\print-null.c"
+# End Source File
+# Begin Source File
+
+SOURCE="..\..\print-olsr.c"
 # End Source File
 # Begin Source File
 

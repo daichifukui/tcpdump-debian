@@ -1,7 +1,7 @@
 Misc. fixes to the upstream man page.
 
---- tcpdump-3.9.5.orig/tcpdump.1
-+++ tcpdump-3.9.5/tcpdump.1
+--- tcpdump-3.9.7.orig/tcpdump.1
++++ tcpdump-3.9.7/tcpdump.1
 @@ -22,7 +22,7 @@
  .\" WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  .\" MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
@@ -11,7 +11,7 @@ Misc. fixes to the upstream man page.
  .SH NAME
  tcpdump \- dump traffic on a network
  .SH SYNOPSIS
-@@ -307,7 +307,7 @@
+@@ -310,7 +310,7 @@
  .B \-E
  Use \fIspi@ipaddr algo:secret\fP for decrypting IPsec ESP packets that
  are addressed to \fIaddr\fP and contain Security Parameter Index value
@@ -20,7 +20,7 @@ Misc. fixes to the upstream man page.
  .IP
  Note that setting the secret for IPv4 ESP packets is supported at this time.
  .IP
-@@ -323,7 +323,7 @@
+@@ -326,7 +326,7 @@
  with cryptography enabled.
  .IP
  \fIsecret\fP is the ASCII text for ESP secret key. 
@@ -29,7 +29,7 @@ Misc. fixes to the upstream man page.
  .IP
  The option assumes RFC2406 ESP, not RFC1827 ESP.
  The option is only for debugging purposes, and
-@@ -724,7 +724,7 @@
+@@ -727,7 +727,7 @@
  True if the Ethernet destination address is \fIehost\fP.
  \fIEhost\fP
  may be either a name from /etc/ethers or a number (see
@@ -38,7 +38,7 @@ Misc. fixes to the upstream man page.
  for numeric format).
  .IP "\fBether src \fIehost\fP
  True if the Ethernet source address is \fIehost\fP.
-@@ -778,9 +778,9 @@
+@@ -781,9 +781,9 @@
  True if the packet is ip/tcp, ip/udp, ip6/tcp or ip6/udp and has a
  destination port value of \fIport\fP.
  The \fIport\fP can be a number or a name used in /etc/services (see
@@ -50,7 +50,7 @@ Misc. fixes to the upstream man page.
  If a name is used, both the port
  number and protocol are checked.
  If a number or ambiguous name is used,
-@@ -971,7 +971,7 @@
+@@ -974,7 +974,7 @@
  (applies only to packets logged by OpenBSD's
  .BR pf (4)).
  .IP "\fBrulenum \fInum\fR"
@@ -59,7 +59,7 @@ Misc. fixes to the upstream man page.
  .B rnr
  modifier.
  .IP "\fBreason \fIcode\fR"
-@@ -991,7 +991,7 @@
+@@ -994,7 +994,7 @@
  name of an anchored ruleset (applies only to packets logged by
  .BR pf (4)).
  .IP "\fBruleset \fIname\fR"
@@ -68,7 +68,7 @@ Misc. fixes to the upstream man page.
  .B rset
  modifier.
  .IP "\fBsrnr \fInum\fR"
-@@ -999,7 +999,7 @@
+@@ -1002,7 +1002,7 @@
  of an anchored ruleset (applies only to packets logged by
  .BR pf (4)).
  .IP "\fBsubrulenum \fInum\fR"

@@ -1,3 +1,12 @@
+tcpdump (3.9.7-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/patches/41_cve-2007-3798.diff: Deleted.
+  * debian/patches/40_cve-2007-1218.diff: Deleted.
+  * debian/patches/series: Update.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 12 Aug 2007 12:45:31 +0200
+
 tcpdump (3.9.5-4) unstable; urgency=low
 
   * debian/rules: Don't ignore errors in clean target.

@@ -1,3 +1,9 @@
+tcpdump (3.9.7-2) unstable; urgency=low
+
+  * debian/control: Move upstream URL to the Homepage header.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Fri, 21 Sep 2007 19:48:05 +0200
+
 tcpdump (3.9.7-1) unstable; urgency=low
 
   * New upstream release.

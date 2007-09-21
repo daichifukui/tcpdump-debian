@@ -4,6 +4,7 @@ Priority: optional
 Maintainer: Romain Francoise <rfrancoise@debian.org>
 Build-Depends: debhelper (>= 5), libpcap0.8-dev (>= 0.9.3-1), quilt (>= 0.40), libssl-dev, autotools-dev
 Standards-Version: 3.7.2
+Homepage: http://www.tcpdump.org/
 
 Package: tcpdump
 Architecture: any
@@ -18,5 +19,3 @@ Description: A powerful tool for network monitoring and data acquisition
  interface, filter packets that match a certain expression. You can 
  use this tool to track down network problems, to detect "ping attacks" 
  or to monitor network activities. 
- .
- Further information is available at <URL: http://www.tcpdump.org/>

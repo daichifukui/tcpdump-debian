@@ -32,7 +32,9 @@ Additional people who have contributed patches:
 	Charles M. Hannum		<mycroft@netbsd.org>
 	Chris Cogdon			<chris@cogdon.org>
 	Chris G. Demetriou		<cgd@netbsd.org>
+	Christian Sievers		<c_s@users.sourceforge.net>
 	Chris Jepeway			<jepeway@blasted-heath.com>
+	Chris Larson			<clarson@kergoth.com>
 	Craig Rodrigues			<rodrigc@mediaone.net>
 	Crist J. Clark			<cjclark@alum.mit.edu>
 	Daniel Hagerty 			<hag@ai.mit.edu>
@@ -90,6 +92,7 @@ Additional people who have contributed patches:
 	Markus Schöpflin		<schoepflin@sourceforge.net>
 	Marshall Rose			<mrose@dbc.mtview.ca.us>
 	Martin Husemann			<martin@netbsd.org>
+	Max Laier			<max@love2party.net>
 	Michael Madore			<mmadore@turbolinux.com>
 	Michael Shalayeff		<mickey@openbsd.org>
 	Michael Shields			<shields@msrl.com>
@@ -114,6 +117,7 @@ Additional people who have contributed patches:
 	Pekka Savola 			<pekkas@netcore.fi>	
 	Peter Fales			<peter@fales-lorenz.net>
 	Peter Jeremy			<peter.jeremy@alcatel.com.au>
+					<pfhunt@users.sourceforge.net>
 	Phil Wood			<cpw@lanl.gov>
 	Rafal Maszkowski		<rzm@icm.edu.pl>
 	Raphael Raimbault		<raphael.raimbault@netasq.com>
@@ -135,6 +139,7 @@ Additional people who have contributed patches:
 	Timo Koskiahde
 	Tony Li				<tli@procket.com>
 	Uns Lider			<unslider@miranda.org>
+	Victor Oppleman			<oppleman@users.sourceforge.net>
 	Wesley Griffin			<wgriffin@users.sourceforge.net>
 	Wilbert de Graaf		<wilbertdg@hetnet.nl>
 	Yen Yen Lim

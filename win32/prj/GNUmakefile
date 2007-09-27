@@ -24,6 +24,7 @@ CFLAGS = -I ${PCAP_DIR}/wpcap/libpcap/bpf \
 	-DSIZEOF_CHAR=1 -DSIZEOF_SHORT=2 -DSIZEOF_INT=4 \
 	-DSIZEOF_LONG_LONG=8 \
 	-D_U_="__attribute__((unused))" \
+	-D_WIN32_WINNT=0x0501 \
 	-mno-cygwin ${OPTFLAGS}
 LDFLAGS = 
 LIBS = -L ${PCAP_DIR}/WPCAP/LIB -lwpcap -lws2_32
@@ -100,7 +101,6 @@ OBJS = \
 	../../print-olsr.o \
 	../../print-ospf.o \
 	../../print-ospf6.o \
-	../../print-pflog.o \
 	../../print-pim.o \
 	../../print-pgm.o \
 	../../print-ppp.o \

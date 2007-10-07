@@ -5,6 +5,8 @@ Maintainer: Romain Francoise <rfrancoise@debian.org>
 Build-Depends: debhelper (>= 5), libpcap0.8-dev (>= 0.9.3-1), quilt (>= 0.40), libssl-dev, autotools-dev
 Standards-Version: 3.7.2
 Homepage: http://www.tcpdump.org/
+Vcs-Browser: http://git.debian.org/?p=users/rfrancoise/tcpdump.git
+Vcs-Git: git://git.debian.org/git/users/rfrancoise/tcpdump.git
 
 Package: tcpdump
 Architecture: any

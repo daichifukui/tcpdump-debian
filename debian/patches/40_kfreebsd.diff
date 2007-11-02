@@ -1,0 +1,22 @@
+Debian GNU/kFreeBSD porting patch, by Petr Salinger <Petr.Salinger@seznam.cz>.
+
+--- a/configure
++++ b/configure
+@@ -3991,6 +3991,7 @@
+ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+ #include <sys/types.h>
++#include <net/if_pflog.h>
+ #include <sys/socket.h>
+ #include <net/if.h>
+ 
+--- a/configure.in
++++ b/configure.in
+@@ -17,6 +17,7 @@
+ AC_C___ATTRIBUTE__
+ AC_CHECK_HEADERS(fcntl.h rpc/rpcent.h netdnet/dnetdb.h)
+ AC_CHECK_HEADERS(net/pfvar.h, , , [#include <sys/types.h>
++#include <net/if_pflog.h>
+ #include <sys/socket.h>
+ #include <net/if.h>])
+ if test "$ac_cv_header_net_pfvar_h" == yes; then

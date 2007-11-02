@@ -1,8 +1,10 @@
 tcpdump (3.9.8-2) UNRELEASED; urgency=low
 
   * debian/control: Add Vcs-Browser and Vcs-Git fields.
+  * debian/patches/40_kfreebsd.diff: New patch by Petr Salinger fixing
+    FTBFS on Debian GNU/kFreeBSD (closes: #448695).
 
- -- Romain Francoise <rfrancoise@debian.org>  Sun, 07 Oct 2007 12:06:04 +0200
+ -- Romain Francoise <rfrancoise@debian.org>  Fri, 02 Nov 2007 23:05:00 +0100
 
 tcpdump (3.9.8-1) unstable; urgency=low
 

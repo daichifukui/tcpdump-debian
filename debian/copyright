@@ -54,13 +54,13 @@ below:
 - print-telnet.c, Copyright (c) 1997, 1998 The NetBSD Foundation, Inc.
 - print-timed.c, Copyright (c) 2000 Ben Smithurst
 - missing/inet_aton.c, Copyright (c) 1995, 1996, 1997 Kungliga Tekniska
-  		       Högskolan (Royal Institute of Technology, Stockholm,
+  		       HÃ¶gskolan (Royal Institute of Technology, Stockholm,
 		       Sweden).
 - missing/inet_ntop.c, Copyright (c) 1995, 1996, 1997 Kungliga Tekniska
-  		       Högskolan (Royal Institute of Technology, Stockholm,
+  		       HÃ¶gskolan (Royal Institute of Technology, Stockholm,
 		       Sweden).
 - missing/inet_pton.c, Copyright (c) 1995, 1996, 1997 Kungliga Tekniska
-  		       Högskolan (Royal Institute of Technology, Stockholm,
+  		       HÃ¶gskolan (Royal Institute of Technology, Stockholm,
 		       Sweden).
 
 Current upstream maintainers:
@@ -114,7 +114,7 @@ Additional people who have contributed patches:
 	Krzysztof Halasa		<khc@pm.waw.pl>
 	Lorenzo Cavallaro		<sullivan@sikurezza.org>
 	Loris Degioanni			<loris@netgroup-serv.polito.it>
-	Love Hörnquist-Åstrand		<lha@stacken.kth.se>
+	Love HÃ¶rnquist-Ã…strand		<lha@stacken.kth.se>
 	Maciej W. Rozycki		<macro@ds2.pg.gda.pl>
 	Marcus Felipe Pereira		<marcus@task.com.br>
 	Martin Husemann			<martin@netbsd.org>

@@ -1,3 +1,10 @@
+tcpdump (3.9.8-4) unstable; urgency=low
+
+  * debian/control: Build-Depend on libpcap0.8-dev (>= 0.9.3),
+    not (>= 0.9.3-1).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 08 Mar 2008 19:24:02 +0100
+
 tcpdump (3.9.8-3) unstable; urgency=low
 
   * debian/copyright: Convert to UTF-8 encoding.

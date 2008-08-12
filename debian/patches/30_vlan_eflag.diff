@@ -1,8 +1,11 @@
 Reverse test for eflag in print-ether.c to match the intended effect
 (hide vlan info if called with -e).
+---
+ print-ether.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
---- tcpdump-3.9.5.orig/print-ether.c
-+++ tcpdump-3.9.5/print-ether.c
+--- a/print-ether.c
++++ b/print-ether.c
 @@ -220,7 +220,7 @@
  		return (1);
  

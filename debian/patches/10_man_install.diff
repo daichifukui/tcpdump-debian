@@ -1,7 +1,10 @@
 Change man page install paths for Debian.
+---
+ Makefile.in |    8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
---- tcpdump-3.9.5.orig/Makefile.in
-+++ tcpdump-3.9.5/Makefile.in
+--- a/Makefile.in
++++ b/Makefile.in
 @@ -160,13 +160,13 @@
  	[ -d $(DESTDIR)$(sbindir) ] || \
  	    (mkdir -p $(DESTDIR)$(sbindir); chmod 755 $(DESTDIR)$(sbindir))

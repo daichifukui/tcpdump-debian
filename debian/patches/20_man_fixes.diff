@@ -1,7 +1,10 @@
 Misc. fixes to the upstream man page.
+---
+ tcpdump.1 |   18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
---- tcpdump-3.9.7.orig/tcpdump.1
-+++ tcpdump-3.9.7/tcpdump.1
+--- a/tcpdump.1
++++ b/tcpdump.1
 @@ -22,7 +22,7 @@
  .\" WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  .\" MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.

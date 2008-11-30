@@ -6,7 +6,7 @@ Debian GNU/kFreeBSD porting patch, by Petr Salinger <Petr.Salinger@seznam.cz>.
 
 --- a/configure
 +++ b/configure
-@@ -3991,6 +3991,7 @@
+@@ -3993,6 +3993,7 @@
  cat >>conftest.$ac_ext <<_ACEOF
  /* end confdefs.h.  */
  #include <sys/types.h>
@@ -23,4 +23,4 @@ Debian GNU/kFreeBSD porting patch, by Petr Salinger <Petr.Salinger@seznam.cz>.
 +#include <net/if_pflog.h>
  #include <sys/socket.h>
  #include <net/if.h>])
- if test "$ac_cv_header_net_pfvar_h" == yes; then
+ if test "$ac_cv_header_net_pfvar_h" = yes; then

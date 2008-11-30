@@ -6,7 +6,7 @@ Reverse test for eflag in print-ether.c to match the intended effect
 
 --- a/print-ether.c
 +++ b/print-ether.c
-@@ -220,7 +220,7 @@
+@@ -225,7 +225,7 @@
  		return (1);
  
  	case ETHERTYPE_8021Q:

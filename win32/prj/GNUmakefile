@@ -31,6 +31,7 @@ LIBS = -L ${PCAP_DIR}/WPCAP/LIB -lwpcap -lws2_32
 OBJS = \
 	../../addrtoname.o \
 	../../af.o \
+	../../checksum.o \
 	../../gmpls.o \
 	../../gmt2local.o \
 	../../missing/inet_aton.o \
@@ -57,12 +58,14 @@ OBJS = \
 	../../print-bgp.o \
 	../../print-bootp.o \
 	../../print-cdp.o \
+	../../print-cfm.o \
 	../../print-chdlc.o \
 	../../print-cip.o \
 	../../print-cnfp.o \
 	../../print-decnet.o \
 	../../print-dhcp6.o \
 	../../print-domain.o \
+	../../print-dtp.o \
 	../../print-dvmrp.o \
 	../../print-egp.o \
 	../../print-enc.o \
@@ -89,10 +92,13 @@ OBJS = \
 	../../print-l2tp.o \
 	../../print-lane.o \
 	../../print-ldp.o \
+	../../print-lldp.o \
 	../../print-llc.o \
+	../../print-lwapp.o \
 	../../print-lwres.o \
 	../../print-mobile.o \
 	../../print-mobility.o \
+	../../print-mpcp.o \
 	../../print-mpls.o \
 	../../print-msdp.o \
 	../../print-nfs.o \
@@ -108,16 +114,18 @@ OBJS = \
 	../../print-pptp.o \
 	../../print-radius.o \
 	../../print-raw.o \
+	../../print-rrcp.o \
 	../../print-rip.o \
 	../../print-ripng.o \
 	../../print-rsvp.o \
 	../../print-rt6.o \
 	../../print-rx.o \
 	../../print-sctp.o \
+	../../print-sflow.o \
 	../../print-sl.o \
 	../../print-sll.o \
-	../../print-smb.o \
 	../../print-slow.o \
+	../../print-smb.o \
 	../../print-snmp.o \
 	../../print-stp.o \
 	../../print-sunatm.o \
@@ -128,9 +136,12 @@ OBJS = \
 	../../print-tftp.o \
 	../../print-timed.o \
 	../../print-token.o \
+	../../print-udld.o \
 	../../print-udp.o \
 	../../print-vjc.o \
+	../../print-vqp.o \
 	../../print-vrrp.o \
+        ../../print-vtp.o \
 	../../print-wb.o \
 	../../print-zephyr.o \
 	../../setsignal.o \
@@ -149,7 +160,8 @@ OBJS = \
 	../../print-eap.o \
 	../../print-lmp.o \
 	../../print-syslog.o \
-	../../print-dccp.o
+	../../print-dccp.o \
+	../../print-bt.o
 
 main: ${OBJS}
 	${CC} ${CFLAGS} ${LDFLAGS} -o windump.exe ${OBJS} ${LIBS}

@@ -1,7 +1,7 @@
 Misc. fixes to the upstream man page.
 ---
- tcpdump.1 |   18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
+ tcpdump.1 |    6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 --- a/tcpdump.1
 +++ b/tcpdump.1
@@ -9,12 +9,12 @@ Misc. fixes to the upstream man page.
  .\" WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  .\" MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  .\"
--.TH TCPDUMP 1  "18 April 2005"
-+.TH TCPDUMP 8  "18 April 2005"
+-.TH TCPDUMP 1  "07 January 2008"
++.TH TCPDUMP 8  "07 January 2008"
  .SH NAME
  tcpdump \- dump traffic on a network
  .SH SYNOPSIS
-@@ -310,7 +310,7 @@
+@@ -252,7 +252,7 @@
  .B \-E
  Use \fIspi@ipaddr algo:secret\fP for decrypting IPsec ESP packets that
  are addressed to \fIaddr\fP and contain Security Parameter Index value
@@ -23,7 +23,7 @@ Misc. fixes to the upstream man page.
  .IP
  Note that setting the secret for IPv4 ESP packets is supported at this time.
  .IP
-@@ -326,7 +326,7 @@
+@@ -268,7 +268,7 @@
  with cryptography enabled.
  .IP
  \fIsecret\fP is the ASCII text for ESP secret key. 
@@ -32,51 +32,3 @@ Misc. fixes to the upstream man page.
  .IP
  The option assumes RFC2406 ESP, not RFC1827 ESP.
  The option is only for debugging purposes, and
-@@ -727,7 +727,7 @@
- True if the Ethernet destination address is \fIehost\fP.
- \fIEhost\fP
- may be either a name from /etc/ethers or a number (see
--.IR ethers (3N)
-+.IR ethers (5)
- for numeric format).
- .IP "\fBether src \fIehost\fP
- True if the Ethernet source address is \fIehost\fP.
-@@ -781,9 +781,9 @@
- True if the packet is ip/tcp, ip/udp, ip6/tcp or ip6/udp and has a
- destination port value of \fIport\fP.
- The \fIport\fP can be a number or a name used in /etc/services (see
--.IR tcp (4P)
-+.IR tcp (7)
- and
--.IR udp (4P)).
-+.IR udp (7)).
- If a name is used, both the port
- number and protocol are checked.
- If a number or ambiguous name is used,
-@@ -974,7 +974,7 @@
- (applies only to packets logged by OpenBSD's
- .BR pf (4)).
- .IP "\fBrulenum \fInum\fR"
--Synonomous with the
-+Synonymous with the
- .B rnr
- modifier.
- .IP "\fBreason \fIcode\fR"
-@@ -994,7 +994,7 @@
- name of an anchored ruleset (applies only to packets logged by
- .BR pf (4)).
- .IP "\fBruleset \fIname\fR"
--Synonomous with the
-+Synonymous with the
- .B rset
- modifier.
- .IP "\fBsrnr \fInum\fR"
-@@ -1002,7 +1002,7 @@
- of an anchored ruleset (applies only to packets logged by
- .BR pf (4)).
- .IP "\fBsubrulenum \fInum\fR"
--Synonomous with the
-+Synonymous with the
- .B srnr
- modifier.
- .IP "\fBaction \fIact\fR"

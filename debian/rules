@@ -2,8 +2,6 @@
 
 include /usr/share/quilt/quilt.make
 
-export DH_VERBOSE=1
-
 dstdir := $(CURDIR)/debian/tcpdump
 
 export CFLAGS=-D_FILE_OFFSET_BITS=64

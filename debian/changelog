@@ -1,3 +1,13 @@
+tcpdump (4.0.0-1~exp1) experimental; urgency=low
+
+  * New upstream release.
+  * debian/control: Set Standards-Version to 3.8.0.
+  * debian/rules: Don't set DH_VERBOSE.
+  * debian/patches/15_install.diff: New patch, don't install two identical
+    tcpdump binaries.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 30 Nov 2008 22:55:39 +0100
+
 tcpdump (3.9.8-4) unstable; urgency=low
 
   * debian/control: Build-Depend on libpcap0.8-dev (>= 0.9.3),

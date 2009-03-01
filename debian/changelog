@@ -1,3 +1,11 @@
+tcpdump (4.0.0-2) unstable; urgency=low
+
+  * debian/patches/30_tcp_seq.diff: Patch from Ilpo Järvinen adding back
+    default display of sequence numbers in TCP printer (closes: #517661).
+  * debian/patches/series: Update.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 01 Mar 2009 14:51:25 +0100
+
 tcpdump (4.0.0-1) unstable; urgency=low
 
   * Upload to unstable.

@@ -1,3 +1,11 @@
+tcpdump (4.0.0-3) unstable; urgency=low
+
+  * debian/patches/20_man_fixes.diff: Update; pcap-filter is in section 7,
+    not 4 (closes: #527599).
+  * debian/control: Set Standards-Version to 3.8.1.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Tue, 16 Jun 2009 11:51:14 +0200
+
 tcpdump (4.0.0-2) unstable; urgency=low
 
   * debian/patches/30_tcp_seq.diff: Patch from Ilpo Järvinen adding back

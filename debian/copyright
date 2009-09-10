@@ -1,10 +1,8 @@
 This package was debianized by Anand Kumria <wildfire@progsoc.org> on
-Wed, 22 Nov 2000 13:19:33 +1100.
-It is now maintained by:
- + Torsten Landschoff <torsten@debian.org>
- + Romain Francoise <rfrancoise@debian.org>
+Wed, 22 Nov 2000 13:19:33 +1100, then maintained by Torsten Landschoff
+<torsten@debian.org> and Romain Francoise <rfrancoise@debian.org>.
 
-It was downloaded from http://tcpdump.org/release/tcpdump-3.8.3.tar.gz
+It was downloaded from http://www.tcpdump.org/
 
 Upstream Authors: tcpdump-workers@tcpdump.org
 

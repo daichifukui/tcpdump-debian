@@ -10,7 +10,7 @@ Vcs-Git: git://git.debian.org/git/users/rfrancoise/tcpdump.git
 
 Package: tcpdump
 Architecture: any
-Depends: ${shlibs:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: A powerful tool for network monitoring and data acquisition
  This program allows you to dump the traffic on a network. tcpdump 
  is able to examine IPv4, ICMPv4, IPv6, ICMPv6, UDP, TCP, SNMP, AFS

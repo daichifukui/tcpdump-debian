@@ -1,3 +1,13 @@
+tcpdump (4.0.0-4) unstable; urgency=low
+
+  * debian/control:
+    + Add ${misc:Depends} to Depends.
+    + Set Standards-Version to 3.8.3; no changes needed.
+  * debian/{watch,README.source}: New files.
+  * debian/copyright: Remove link to original file.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Thu, 08 Oct 2009 19:00:23 +0200
+
 tcpdump (4.0.0-3) unstable; urgency=low
 
   * debian/patches/20_man_fixes.diff: Update; pcap-filter is in section 7,

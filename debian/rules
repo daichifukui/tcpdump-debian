@@ -1,62 +1,9 @@
 #!/usr/bin/make -f
 
-include /usr/share/quilt/quilt.make
+export CFLAGS += -D_FILE_OFFSET_BITS=64
 
-dstdir := $(CURDIR)/debian/tcpdump
+%:
+	dh $@
 
-export CFLAGS=-D_FILE_OFFSET_BITS=64
-
-ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
-        CFLAGS += -O0
-endif
-
-build: patch build-stamp
-build-stamp:
-	dh_testdir
-
-	./configure --prefix=/usr --mandir=\$${prefix}/share/man 	\
-		--infodir=\$${prefix}/share/info --enable-ipv6
-	$(MAKE)
-
-	touch build-stamp
-
-clean: clean-patched unpatch
-clean-patched:
-	dh_testdir
-	dh_testroot
-	rm -f build-stamp
-
-	[ ! -f Makefile ] || $(MAKE) distclean
-
-	dh_clean
-
-install: build
-	dh_testdir
-	dh_testroot
-	dh_clean -k
-	dh_installdirs
-
-	$(MAKE) install prefix=$(dstdir)/usr
-
-binary-indep: build install
-# We have nothing to do by default.
-
-binary-arch: build install
-	dh_testdir
-	dh_testroot
-	dh_installdocs
-	dh_installexamples
-	dh_installinfo
-	dh_installchangelogs CHANGES
-	dh_link
-	dh_strip
-	dh_compress
-	dh_fixperms
-	dh_installdeb
-	dh_shlibdeps
-	dh_gencontrol
-	dh_md5sums
-	dh_builddeb
-
-binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install
+override_dh_auto_configure:
+	./configure --prefix=/usr --enable-ipv6

@@ -7,20 +7,16 @@ printed at all unless at least -v -v are given.
 Signed-off-by: Ilpo Järvinen <ilpo.jarvinen@helsinki.fi>
 ---
  print-tcp.c |    2 +-
- 1 files changed, 1 insertions(+), 1 deletions(-)
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/print-tcp.c b/print-tcp.c
-index 17c1775..c8c2b90 100644
 --- a/print-tcp.c
 +++ b/print-tcp.c
-@@ -452,7 +452,7 @@ tcp_print(register const u_char *bp, register u_int length,
+@@ -455,7 +455,7 @@
  #endif
-
+ 
          length -= hlen;
 -        if (vflag > 1 || flags & (TH_SYN | TH_FIN | TH_RST)) {
 +        if (vflag > 1 || length > 0 || flags & (TH_SYN | TH_FIN | TH_RST)) {
                  (void)printf(", seq %u", seq);
-
+ 
                  if (length > 0) {
---
-1.5.6.5

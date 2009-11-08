@@ -1,3 +1,18 @@
+tcpdump (4.0.0-5) unstable; urgency=low
+
+  * Switch to 3.0 (quilt) source format:
+    + Drop build-depends on quilt.
+    + Remove patch/unpatch logic from debian/rules.
+    + Remove README.source.
+    + Refresh debian/patches/30_tcp_seq.diff.
+  * Use dh(1):
+    + debian/compat: Bump to 7.
+    + debian/control: Build-depend on debhelper (>= 7.0.50~).
+    + debian/rules: Simplify.
+    + debian/tcpdump.dirs: Removed.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 08 Nov 2009 17:25:38 +0100
+
 tcpdump (4.0.0-4) unstable; urgency=low
 
   * debian/control:

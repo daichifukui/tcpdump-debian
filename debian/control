@@ -3,7 +3,7 @@ Section: net
 Priority: optional
 Maintainer: Romain Francoise <rfrancoise@debian.org>
 Build-Depends: debhelper (>= 7.0.50~), libpcap0.8-dev (>= 0.9.3), libssl-dev,
-               autotools-dev
+               autotools-dev, hardening-includes
 Standards-Version: 3.8.3
 Homepage: http://www.tcpdump.org/
 Vcs-Browser: http://git.debian.org/?p=users/rfrancoise/tcpdump.git

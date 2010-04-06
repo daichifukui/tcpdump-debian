@@ -1,7 +1,7 @@
 Misc. fixes to the upstream man page.
 ---
- tcpdump.1.in |    6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ tcpdump.1.in |   13 ++++++-------
+ 1 file changed, 6 insertions(+), 7 deletions(-)
 
 --- a/tcpdump.1.in
 +++ b/tcpdump.1.in
@@ -32,3 +32,24 @@ Misc. fixes to the upstream man page.
  .IP
  The option assumes RFC2406 ESP, not RFC1827 ESP.
  The option is only for debugging purposes, and
+@@ -871,8 +871,8 @@
+ \fISrc\fP and \fIdst\fP are the source and destination IP
+ addresses and ports.
+ \fIFlags\fP are some combination of S (SYN),
+-F (FIN), P (PUSH), R (RST), W (ECN CWR) or E (ECN-Echo), or a single
+-`.' (no flags).
++F (FIN), P (PUSH), R (RST), U (URG), W (ECN CWR), E (ECN-Echo) or
++`.' (ACK), or `none' if no flags are set.
+ \fIData-seqno\fP describes the portion of sequence space covered
+ by the data in this packet (see example below).
+ \fIAck\fP is sequence number of the next data expected the other
+@@ -919,8 +919,7 @@
+ Csam replies with a similar packet except it includes a piggy-backed
+ ack for rtsg's SYN.
+ Rtsg then acks csam's SYN.
+-The `.' means no
+-flags were set.
++The `.' means the ACK flag was set.
+ The packet contained no data so there is no data sequence number.
+ Note that the ack sequence
+ number is a small integer (1).

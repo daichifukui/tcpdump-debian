@@ -1,3 +1,16 @@
+tcpdump (4.1.1-1) unstable; urgency=low
+
+  * New upstream release (closes: #576001).
+  * debian/rules: Disable dh_auto_test (for now).
+  * debian/control: Set Standards-Version to 3.8.4.
+  * debian/patches/30_uflag_flushopen.diff: New patch: when saving to a
+    capture file with -U, flush the file immediately after opening it.
+    Suggested by Ferenc Wagner <wferi@niif.hu> (closes: #533625).
+  * debian/patches/20_man_fixes.diff: Fix TCP flags description, thanks to
+    Christophe Rhodes <csr21@cantab.net> (closes: #575724).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Tue, 06 Apr 2010 19:58:14 +0200
+
 tcpdump (4.0.0-6) unstable; urgency=low
 
   * debian/control: Build-depend on hardening-includes.

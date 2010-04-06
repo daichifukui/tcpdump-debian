@@ -6,7 +6,7 @@ Debian GNU/kFreeBSD porting patch, by Petr Salinger <Petr.Salinger@seznam.cz>.
 
 --- a/configure
 +++ b/configure
-@@ -3993,6 +3993,7 @@
+@@ -4141,6 +4141,7 @@
  cat >>conftest.$ac_ext <<_ACEOF
  /* end confdefs.h.  */
  #include <sys/types.h>
@@ -16,8 +16,8 @@ Debian GNU/kFreeBSD porting patch, by Petr Salinger <Petr.Salinger@seznam.cz>.
  
 --- a/configure.in
 +++ b/configure.in
-@@ -17,6 +17,7 @@
- AC_C___ATTRIBUTE__
+@@ -31,6 +31,7 @@
+ fi
  AC_CHECK_HEADERS(fcntl.h rpc/rpcent.h netdnet/dnetdb.h)
  AC_CHECK_HEADERS(net/pfvar.h, , , [#include <sys/types.h>
 +#include <net/if_pflog.h>

@@ -1,20 +1,20 @@
 Misc. fixes to the upstream man page.
 ---
- tcpdump.1 |   10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+ tcpdump.1.in |    6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
---- a/tcpdump.1
-+++ b/tcpdump.1
+--- a/tcpdump.1.in
++++ b/tcpdump.1.in
 @@ -22,7 +22,7 @@
  .\" WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  .\" MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
  .\"
--.TH TCPDUMP 1  "07 January 2008"
-+.TH TCPDUMP 8  "07 January 2008"
+-.TH TCPDUMP 1  "05 March 2009"
++.TH TCPDUMP 8  "05 March 2009"
  .SH NAME
  tcpdump \- dump traffic on a network
  .SH SYNOPSIS
-@@ -252,7 +252,7 @@
+@@ -256,7 +256,7 @@
  .B \-E
  Use \fIspi@ipaddr algo:secret\fP for decrypting IPsec ESP packets that
  are addressed to \fIaddr\fP and contain Security Parameter Index value
@@ -23,7 +23,7 @@ Misc. fixes to the upstream man page.
  .IP
  Note that setting the secret for IPv4 ESP packets is supported at this time.
  .IP
-@@ -268,7 +268,7 @@
+@@ -272,7 +272,7 @@
  with cryptography enabled.
  .IP
  \fIsecret\fP is the ASCII text for ESP secret key. 
@@ -32,21 +32,3 @@ Misc. fixes to the upstream man page.
  .IP
  The option assumes RFC2406 ESP, not RFC1827 ESP.
  The option is only for debugging purposes, and
-@@ -606,7 +606,7 @@
- only packets for which \fIexpression\fP is `true' will be dumped.
- .LP
- For the \fIexpression\fP syntax, see
--.BR pcap-filter (4).
-+.BR pcap-filter (7).
- .LP
- Expression arguments can be passed to \fItcpdump\fP as either a single
- argument or as multiple arguments, whichever is more convenient.
-@@ -1610,7 +1610,7 @@
- Ethernet interface removed the packet from the wire and when the kernel
- serviced the `new packet' interrupt.
- .SH "SEE ALSO"
--stty(1), pcap(3PCAP), pcap-filter(4), bpf(4), nit(4P)
-+stty(1), pcap(3PCAP), pcap-filter(7), bpf(4), nit(4P)
- .SH AUTHORS
- The original authors are:
- .LP

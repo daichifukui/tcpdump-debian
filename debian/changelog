@@ -1,3 +1,11 @@
+tcpdump (4.2.0~rc1-1) experimental; urgency=low
+
+  * New upstream beta release (closes: #636806); now switches to the -Z
+    user before opening the first output file (closes: #434603).
+  * debian/control: Set Standards-Version to 3.9.2.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 14 Aug 2011 10:44:58 +0200
+
 tcpdump (4.1.1-2) unstable; urgency=low
 
   * Fix FTBFS on GNU/Hurd; patch from Svante Signell (closes: #622287).

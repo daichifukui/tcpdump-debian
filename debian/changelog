@@ -1,5 +1,9 @@
 tcpdump (4.2.0~rc1-2) experimental; urgency=low
 
+  * Make sure OpenSSL support gets enabled: since it moved to multiarch
+    paths, the configure script doesn't find libcrypto.so and disables
+    crypto support. To fix this, simplify detection logic in configure.in
+    and run autoconf before configuring.
   * Redo build flags handling:
     + Enable hardening flags via dpkg-buildflags, not hardening-includes.
     + Switch to debhelper compat level 9 to have build flags exported
@@ -7,7 +11,7 @@ tcpdump (4.2.0~rc1-2) experimental; urgency=low
     + Adjust build-depends accordingly.
   * Enable parallel build in debhelper.
 
- -- Romain Francoise <rfrancoise@debian.org>  Sun, 06 Nov 2011 17:51:21 +0100
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 06 Nov 2011 19:14:23 +0100
 
 tcpdump (4.2.0~rc1-1) experimental; urgency=low
 

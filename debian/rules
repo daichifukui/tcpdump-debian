@@ -7,6 +7,7 @@ export DEB_CFLAGS_MAINT_APPEND = -D_FILE_OFFSET_BITS=64
 	dh $@ --parallel
 
 override_dh_auto_configure:
-	./configure --prefix=/usr --enable-ipv6
+	autoconf --force
+	./configure --prefix=/usr --enable-ipv6 --with-crypto
 
 override_dh_auto_test:

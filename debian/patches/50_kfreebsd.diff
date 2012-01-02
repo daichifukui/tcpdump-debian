@@ -8,7 +8,7 @@ Debian GNU/kFreeBSD porting patch, by Petr Salinger <Petr.Salinger@seznam.cz>.
 +++ b/configure.in
 @@ -31,6 +31,7 @@
  fi
- AC_CHECK_HEADERS(fcntl.h rpc/rpcent.h netdnet/dnetdb.h)
+ AC_CHECK_HEADERS(fcntl.h rpc/rpc.h rpc/rpcent.h netdnet/dnetdb.h)
  AC_CHECK_HEADERS(net/pfvar.h, , , [#include <sys/types.h>
 +#include <net/if_pflog.h>
  #include <sys/socket.h>

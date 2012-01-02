@@ -3989,7 +3989,8 @@ done
 
 
 
-for ac_header in fcntl.h rpc/rpcent.h netdnet/dnetdb.h
+
+for ac_header in fcntl.h rpc/rpc.h rpc/rpcent.h netdnet/dnetdb.h
 do
 as_ac_Header=`echo "ac_cv_header_$ac_header" | $as_tr_sh`
 if { as_var=$as_ac_Header; eval "test \"\${$as_var+set}\" = set"; }; then
@@ -4840,7 +4841,7 @@ if test "${enable_ipv6+set}" = set; then
   enableval=$enable_ipv6;  case "$enableval" in
 yes)   { echo "$as_me:$LINENO: result: yes" >&5
 echo "${ECHO_T}yes" >&6; }
-       LOCALSRC="print-ip6.c print-ip6opts.c print-mobility.c print-ripng.c print-icmp6.c print-frag6.c print-rt6.c print-ospf6.c print-dhcp6.c $LOCALSRC"
+       LOCALSRC="print-ip6.c print-ip6opts.c print-mobility.c print-ripng.c print-icmp6.c print-frag6.c print-rt6.c print-ospf6.c print-dhcp6.c print-babel.c $LOCALSRC"
        cat >>confdefs.h <<\_ACEOF
 #define INET6 1
 _ACEOF
@@ -4900,7 +4901,7 @@ eval "echo \"\$as_me:$LINENO: $ac_try_echo\"") >&5
   (exit $ac_status); }; }; then
    { echo "$as_me:$LINENO: result: yes" >&5
 echo "${ECHO_T}yes" >&6; }
-  LOCALSRC="print-ip6.c print-ip6opts.c print-mobility.c print-ripng.c print-icmp6.c print-frag6.c print-rt6.c print-ospf6.c print-dhcp6.c $LOCALSRC"
+  LOCALSRC="print-ip6.c print-ip6opts.c print-mobility.c print-ripng.c print-icmp6.c print-frag6.c print-rt6.c print-ospf6.c print-dhcp6.c print-babel.c $LOCALSRC"
   cat >>confdefs.h <<\_ACEOF
 #define INET6 1
 _ACEOF

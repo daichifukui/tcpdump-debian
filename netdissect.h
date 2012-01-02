@@ -298,7 +298,12 @@ extern void ether_print(netdissect_options *,
                         const u_char *);
 
 extern u_int ether_if_print(netdissect_options *, 
-                           const struct pcap_pkthdr *,const u_char *);
+                            const struct pcap_pkthdr *,const u_char *);
+extern u_int netanalyzer_if_print(netdissect_options *, 
+                                  const struct pcap_pkthdr *,const u_char *);
+extern u_int netanalyzer_transparent_if_print(netdissect_options *, 
+                                              const struct pcap_pkthdr *,
+                                              const u_char *);
 
 extern int ethertype_print(netdissect_options *,u_short, const u_char *,
 			     u_int, u_int);
@@ -444,6 +449,8 @@ extern void print_data(netdissect_options *,const unsigned char *, int);
 extern void l2tp_print(netdissect_options *,const u_char *, u_int);
 extern void lcp_print(netdissect_options *,const u_char *, u_int);
 extern void vrrp_print(netdissect_options *,const u_char *bp,
+		       u_int len, int ttl);
+extern void carp_print(netdissect_options *,const u_char *bp,
 		       u_int len, int ttl);
 extern void cdp_print(netdissect_options *,const u_char *,
 		      u_int, u_int, const u_char *, const u_char *);

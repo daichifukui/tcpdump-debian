@@ -1,3 +1,9 @@
+tcpdump (4.2.1-2) unstable; urgency=low
+
+  * Drop debian/patches/50_kfreebsd.diff (closes: #658848).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Mon, 06 Feb 2012 19:01:12 +0100
+
 tcpdump (4.2.1-1) unstable; urgency=low
 
   * New upstream release.

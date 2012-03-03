@@ -1,3 +1,13 @@
+tcpdump (4.2.1-3) unstable; urgency=low
+
+  * Fix CPPFLAGS handling in upstream configure.in to avoid losing
+    hardening flags, patch by Simon Ruderich <simon@ruderich.org>
+    (closes: #662016).
+  * Fix some misspellings pointed out by lintian.
+  * debian/control: Set Standards-Version to 3.9.3.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 03 Mar 2012 17:11:48 +0100
+
 tcpdump (4.2.1-2) unstable; urgency=low
 
   * Drop debian/patches/50_kfreebsd.diff (closes: #658848).

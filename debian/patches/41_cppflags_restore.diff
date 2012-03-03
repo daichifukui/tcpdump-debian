@@ -1,0 +1,17 @@
+Description: Fix incorrect restore of CPPFLAGS in configure.in.
+Author: Simon Ruderich <simon@ruderich.org>
+Last-Update: 2012-03-03
+
+Index: tcpdump-4.2.1/configure.in
+===================================================================
+--- tcpdump-4.2.1.orig/configure.in	2012-03-03 16:28:48.000000000 +0100
++++ tcpdump-4.2.1/configure.in	2012-03-03 16:33:56.000000000 +0100
+@@ -732,7 +732,7 @@
+ dnl Check for Mac OS X, which may ship pcap.h from 0.6 but libpcap may
+ dnl be 0.8; this means that lib has pcap_findalldevs but header doesn't
+ dnl have pcap_if_t.
+-    savedppflags="$CPPLAGS"
++    savedcppflags="$CPPFLAGS"
+     CPPFLAGS="$CPPFLAGS $V_INCLS"
+     AC_CHECK_TYPES(pcap_if_t, , , [#include <pcap.h>])
+     CPPFLAGS="$savedcppflags"

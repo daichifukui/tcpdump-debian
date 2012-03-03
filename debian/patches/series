@@ -1,6 +1,7 @@
 10_man_install.diff
 15_install.diff
 20_man_fixes.diff
+20_spelling.diff
 40_openssl.diff
 41_cppflags_restore.diff
 50_hurd.diff

@@ -1,0 +1,33 @@
+Spelling fixes pointed out by lintian.
+
+--- a/print-802_11.c
++++ b/print-802_11.c
+@@ -485,7 +485,7 @@
+ #define NUM_AUTH_ALGS	(sizeof auth_alg_text / sizeof auth_alg_text[0])
+ 
+ static const char *status_text[] = {
+-	"Succesful",						/*  0 */
++	"Successful",						/*  0 */
+ 	"Unspecified failure",					/*  1 */
+ 	"Reserved",						/*  2 */
+ 	"Reserved",						/*  3 */
+--- a/print-pim.c
++++ b/print-pim.c
+@@ -667,7 +667,7 @@
+ 
+ 			case PIMV2_HELLO_OPTION_LANPRUNEDELAY:
+ 				if (olen != 4) {
+-					(void)printf("ERROR: Option Lenght != 4 Bytes (%u)", olen);
++					(void)printf("ERROR: Option Length != 4 Bytes (%u)", olen);
+ 				} else {
+ 					char t_bit;
+ 					u_int16_t lan_delay, override_interval;
+@@ -690,7 +690,7 @@
+                                     printf("%u", EXTRACT_32BITS(bp));
+                                     break;
+                                 default:
+-                                    printf("ERROR: Option Lenght != 4 Bytes (%u)", olen);
++                                    printf("ERROR: Option Length != 4 Bytes (%u)", olen);
+                                     break;
+                                 }
+                                 break;

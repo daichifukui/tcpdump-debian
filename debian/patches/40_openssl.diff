@@ -50,7 +50,7 @@ Simplify OpenSSL detection logic to make sure it gets enabled.
 -		fi
 -		AC_CHECK_LIB(crypto, DES_cbc_encrypt)
 -
--		savedppflags="$CPPLAGS"
+-		savedcppflags="$CPPFLAGS"
 -		CPPFLAGS="$CPPFLAGS $V_INCLS"
 -		AC_CHECK_HEADERS(openssl/evp.h)
 -		CPPFLAGS="$savedcppflags"

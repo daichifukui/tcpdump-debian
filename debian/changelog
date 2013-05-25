@@ -1,3 +1,12 @@
+tcpdump (4.4.0-1) unstable; urgency=low
+
+  * New upstream release:
+    + Fixes format error in NTP printer (closes: #686276).
+    + Rewords -e description (closes: #648768).
+  * debian/control: Set Standards-Version to 3.9.4.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 25 May 2013 13:44:47 +0200
+
 tcpdump (4.3.0-1) unstable; urgency=low
 
   * New upstream release.

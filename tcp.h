@@ -85,7 +85,8 @@ struct tcphdr {
 #define TCPOPT_AUTH             20      /* Enhanced AUTH option */
 #define	TCPOPT_UTO		28	/* tcp user timeout (rfc5482) */
 #define	   TCPOLEN_UTO			4
-
+#define	TCPOPT_MPTCP		30	/* MPTCP options */
+#define TCPOPT_EXPERIMENT2	254	/* experimental headers (rfc4727) */
 
 #define TCPOPT_TSTAMP_HDR	\
     (TCPOPT_NOP<<24|TCPOPT_NOP<<16|TCPOPT_TIMESTAMP<<8|TCPOLEN_TIMESTAMP)
@@ -97,6 +98,9 @@ struct tcphdr {
 #define BGP_PORT                179
 #endif
 #define NETBIOS_SSN_PORT        139
+#ifndef OPENFLOW_PORT
+#define OPENFLOW_PORT           6633
+#endif
 #ifndef PPTP_PORT
 #define PPTP_PORT	        1723
 #endif

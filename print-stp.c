@@ -54,7 +54,7 @@ struct stp_bpdu_ {
 #define STP_PROTO_MSTP    0x03
 #define STP_PROTO_SPB     0x04
 
-struct tok stp_proto_values[] = {
+static const struct tok stp_proto_values[] = {
     { STP_PROTO_REGULAR, "802.1d" },
     { STP_PROTO_RAPID, "802.1w" },
     { STP_PROTO_MSTP, "802.1s" },
@@ -66,7 +66,7 @@ struct tok stp_proto_values[] = {
 #define STP_BPDU_TYPE_RSTP        0x02
 #define STP_BPDU_TYPE_TOPO_CHANGE 0x80
 
-struct tok stp_bpdu_flag_values[] = {
+static const struct tok stp_bpdu_flag_values[] = {
     { 0x01, "Topology change" },
     { 0x02, "Proposal" },
     { 0x10, "Learn" },
@@ -76,14 +76,14 @@ struct tok stp_bpdu_flag_values[] = {
     { 0, NULL}
 };
 
-struct tok stp_bpdu_type_values[] = {
+static const struct tok stp_bpdu_type_values[] = {
     { STP_BPDU_TYPE_CONFIG, "Config" },
     { STP_BPDU_TYPE_RSTP, "Rapid STP" },
     { STP_BPDU_TYPE_TOPO_CHANGE, "Topology Change" },
     { 0, NULL}
 };
 
-struct tok rstp_obj_port_role_values[] = {
+static const struct tok rstp_obj_port_role_values[] = {
     { 0x00, "Unknown" },
     { 0x01, "Alternate" },
     { 0x02, "Root" },
@@ -240,15 +240,14 @@ stp_print_mstp_bpdu(const struct stp_bpdu_ *stp_bpdu, u_int length)
     u_int16_t	    v3len;
     u_int16_t	    len;
     u_int16_t	    msti;
-    u_int16_t	    offset;
+    u_int	    offset;
 
     ptr = (const u_char *)stp_bpdu;
     printf(", CIST Flags [%s], length %u",
            bittok2str(stp_bpdu_flag_values, "none", stp_bpdu->flags), length);
 
     /*
-     * in non-verbose mode just print the flags. We dont read that much
-     * of the packet (DEFAULT_SNAPLEN) to print out cist bridge-id
+     * in non-verbose mode just print the flags.
      */
     if (!vflag) {
         return;
@@ -320,37 +319,48 @@ stp_print_mstp_bpdu(const struct stp_bpdu_ *stp_bpdu, u_int length)
             offset += MST_BPDU_MSTI_LENGTH;
         }
     }
+}
 
-    if ((length-offset) >= SPB_BPDU_MIN_LEN)
-    {
-      printf("\n\tv4len %d AUXMCID Name %s, Rev %u, \n\t\tdigest %08x%08x%08x%08x",
-              EXTRACT_16BITS (ptr + offset),
-              ptr + offset + SPB_BPDU_CONFIG_NAME_OFFSET,
-              EXTRACT_16BITS(ptr + offset + SPB_BPDU_CONFIG_REV_OFFSET),
-              EXTRACT_32BITS(ptr + offset + SPB_BPDU_CONFIG_DIGEST_OFFSET),
-              EXTRACT_32BITS(ptr + offset + SPB_BPDU_CONFIG_DIGEST_OFFSET + 4),
-              EXTRACT_32BITS(ptr + offset + SPB_BPDU_CONFIG_DIGEST_OFFSET + 8),
-              EXTRACT_32BITS(ptr + offset + SPB_BPDU_CONFIG_DIGEST_OFFSET + 12));
+static void
+stp_print_spb_bpdu(const struct stp_bpdu_ *stp_bpdu, u_int offset)
+{
+    const u_char *ptr;
+
+    /*
+     * in non-verbose mode don't print anything.
+     */
+    if (!vflag) {
+        return;
+    }
+
+    ptr = (const u_char *)stp_bpdu;
+    printf("\n\tv4len %d AUXMCID Name %s, Rev %u, \n\t\tdigest %08x%08x%08x%08x",
+            EXTRACT_16BITS (ptr + offset),
+            ptr + offset + SPB_BPDU_CONFIG_NAME_OFFSET,
+            EXTRACT_16BITS(ptr + offset + SPB_BPDU_CONFIG_REV_OFFSET),
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_CONFIG_DIGEST_OFFSET),
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_CONFIG_DIGEST_OFFSET + 4),
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_CONFIG_DIGEST_OFFSET + 8),
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_CONFIG_DIGEST_OFFSET + 12));
      
-      printf("\n\tAgreement num %d, Discarded Agreement num %d, Agreement valid-"
-              "flag %d, \n\tRestricted role-flag: %d, Format id %d cap %d, "
-              "Convention id %d cap %d, \n\tEdge count %d, "
-              "Agreement digest %08x%08x%08x%08x%08x\n",
-              ptr[offset + SPB_BPDU_AGREEMENT_OFFSET]>>6, 
-              ptr[offset + SPB_BPDU_AGREEMENT_OFFSET]>>4 & 0x3,
-              ptr[offset + SPB_BPDU_AGREEMENT_OFFSET]>>3 & 0x1,
-              ptr[offset + SPB_BPDU_AGREEMENT_OFFSET]>>2 & 0x1,
-              ptr[offset + SPB_BPDU_AGREEMENT_FORMAT_OFFSET]>>4,
-              ptr[offset + SPB_BPDU_AGREEMENT_FORMAT_OFFSET]&0x00ff,
-              ptr[offset + SPB_BPDU_AGREEMENT_CON_OFFSET]>>4,
-              ptr[offset + SPB_BPDU_AGREEMENT_CON_OFFSET]&0x00ff,
-              EXTRACT_16BITS(ptr + offset + SPB_BPDU_AGREEMENT_EDGE_OFFSET),
-              EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET),
-              EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET)+4,
-              EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET)+8,
-              EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET)+12,
-              EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET)+16);
-      }
+    printf("\n\tAgreement num %d, Discarded Agreement num %d, Agreement valid-"
+            "flag %d, \n\tRestricted role-flag: %d, Format id %d cap %d, "
+            "Convention id %d cap %d, \n\tEdge count %d, "
+            "Agreement digest %08x%08x%08x%08x%08x\n",
+            ptr[offset + SPB_BPDU_AGREEMENT_OFFSET]>>6, 
+            ptr[offset + SPB_BPDU_AGREEMENT_OFFSET]>>4 & 0x3,
+            ptr[offset + SPB_BPDU_AGREEMENT_OFFSET]>>3 & 0x1,
+            ptr[offset + SPB_BPDU_AGREEMENT_OFFSET]>>2 & 0x1,
+            ptr[offset + SPB_BPDU_AGREEMENT_FORMAT_OFFSET]>>4,
+            ptr[offset + SPB_BPDU_AGREEMENT_FORMAT_OFFSET]&0x00ff,
+            ptr[offset + SPB_BPDU_AGREEMENT_CON_OFFSET]>>4,
+            ptr[offset + SPB_BPDU_AGREEMENT_CON_OFFSET]&0x00ff,
+            EXTRACT_16BITS(ptr + offset + SPB_BPDU_AGREEMENT_EDGE_OFFSET),
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET),
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET)+4,
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET)+8,
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET)+12,
+            EXTRACT_32BITS(ptr + offset + SPB_BPDU_AGREEMENT_DIGEST_OFFSET)+16);
 }
 
 /*
@@ -360,8 +370,8 @@ void
 stp_print(const u_char *p, u_int length)
 {
     const struct stp_bpdu_ *stp_bpdu;
-    u_int16_t              mstp_len;
-    u_int16_t              spb_len;
+    u_int                  mstp_len;
+    u_int                  spb_len;
     
     stp_bpdu = (struct stp_bpdu_*)p;
 
@@ -421,6 +431,7 @@ stp_print(const u_char *p, u_int length)
             if (length < (sizeof(struct stp_bpdu_) + mstp_len)) {
                 goto trunc;
             }
+            stp_print_mstp_bpdu(stp_bpdu, length);
 
             if (stp_bpdu->protocol_version == STP_PROTO_SPB)
             {
@@ -431,9 +442,8 @@ stp_print(const u_char *p, u_int length)
                   spb_len < SPB_BPDU_MIN_LEN) {
                 goto trunc;
               }
+              stp_print_spb_bpdu(stp_bpdu, (sizeof(struct stp_bpdu_) + mstp_len));
             }
-
-            stp_print_mstp_bpdu(stp_bpdu, length);
         }
         break;
 

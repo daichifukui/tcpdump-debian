@@ -42,13 +42,19 @@
 
 #if !defined(HAVE_SNPRINTF)
 int snprintf (char *str, size_t sz, const char *format, ...)
-     __attribute__ ((format (printf, 3, 4)));
-#endif
+#ifdef __ATTRIBUTE___FORMAT_OK
+     __attribute__((format (printf, 3, 4)))
+#endif /* __ATTRIBUTE___FORMAT_OK */
+     ;
+#endif /* !defined(HAVE_SNPRINTF) */
 
 #if !defined(HAVE_VSNPRINTF)
 int vsnprintf (char *str, size_t sz, const char *format, va_list ap)
-     __attribute__((format (printf, 3, 0)));
-#endif
+#ifdef __ATTRIBUTE___FORMAT_OK
+     __attribute__((format (printf, 3, 0)))
+#endif /* __ATTRIBUTE___FORMAT_OK */
+     ;
+#endif /* !defined(HAVE_SNPRINTF) */
 
 #ifndef HAVE_STRLCAT
 extern size_t strlcat (char *, const char *, size_t);
@@ -158,9 +164,12 @@ struct netdissect_options {
 		     ;
   void (*ndo_error)(netdissect_options *,
 		    const char *fmt, ...)
+#ifdef __ATTRIBUTE___NORETURN_OK_FOR_FUNCTION_POINTERS
+		     __attribute__ ((noreturn))
+#endif /* __ATTRIBUTE___NORETURN_OK_FOR_FUNCTION_POINTERS */
 #ifdef __ATTRIBUTE___FORMAT_OK_FOR_FUNCTION_POINTERS
-		     __attribute__ ((noreturn, format (printf, 2, 3)))
-#endif
+		     __attribute__ ((format (printf, 2, 3)))
+#endif /* __ATTRIBUTE___FORMAT_OK_FOR_FUNCTION_POINTERS */
 		     ;
   void (*ndo_warning)(netdissect_options *,
 		      const char *fmt, ...)
@@ -183,6 +192,9 @@ struct netdissect_options {
 #define PT_RADIUS	11	/* RADIUS authentication Protocol */
 #define PT_ZMTP1	12	/* ZeroMQ Message Transport Protocol 1.0 */
 #define PT_VXLAN	13	/* Virtual eXtensible Local Area Network */
+#define PT_PGM		14	/* [UDP-encapsulated] Pragmatic General Multicast */
+#define PT_PGM_ZMTP1	15	/* ZMTP/1.0 inside PGM (native or UDP-encapsulated) */
+#define PT_LMP		16	/* Link Management Protocol */
 
 #ifndef min
 #define min(a,b) ((a)>(b)?(b):(a))
@@ -287,7 +299,7 @@ extern int esp_print(netdissect_options *,
 		     int *nhdr, int *padlen);
 extern void arp_print(netdissect_options *,const u_char *, u_int, u_int);
 extern void tipc_print(netdissect_options *, const u_char *, u_int, u_int);
-extern void msnlb_print(netdissect_options *, const u_char *, u_int);
+extern void msnlb_print(netdissect_options *, const u_char *);
 extern void icmp6_print(netdissect_options *ndo, const u_char *,
                         u_int, const u_char *, int);
 extern void isakmp_print(netdissect_options *,const u_char *,
@@ -470,7 +482,7 @@ extern void pptp_print(netdissect_options *,const u_char *, u_int);
 
 extern u_int ipnet_if_print(netdissect_options *,const struct pcap_pkthdr *, const u_char *);
 extern u_int ppi_if_print(netdissect_options *,const struct pcap_pkthdr *, const u_char *);
-
+extern u_int nflog_if_print(netdissect_options *,const struct pcap_pkthdr *, const u_char *);
 extern u_int ieee802_15_4_if_print(netdissect_options *,const struct pcap_pkthdr *, const u_char *);
 
 #ifdef INET6
@@ -511,5 +523,8 @@ extern int esp_print_decrypt_buffer_by_ikev2(netdissect_options *ndo,
 					     u_char spii[8], u_char spir[8],
 					     u_char *buf, u_char *end);
 
+
+extern void geonet_print(netdissect_options *ndo,const u_char *eth_hdr,const u_char *geo_pck, u_int len);
+extern void calm_fast_print(netdissect_options *ndo,const u_char *eth_hdr,const u_char *calm_pck, u_int len);
 
 #endif  /* netdissect_h */

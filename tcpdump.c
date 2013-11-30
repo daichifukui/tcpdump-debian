@@ -105,6 +105,9 @@ static int Lflag;			/* list available data link types and exit */
 #ifdef HAVE_PCAP_SET_TSTAMP_TYPE
 static int Jflag;			/* list available time stamp types */
 #endif
+#ifdef HAVE_PCAP_SETDIRECTION
+int Pflag = -1;	/* Restrict captured packet by sent/receive direction */
+#endif
 static char *zflag = NULL;		/* compress each savefile using a specified command (like gzip or bzip2) */
 
 static int infodelay;
@@ -331,6 +334,9 @@ static struct ndo_printer ndo_printers[] = {
 #ifdef DLT_NETANALYZER_TRANSPARENT
 	{ netanalyzer_transparent_if_print, DLT_NETANALYZER_TRANSPARENT },
 #endif
+#ifdef DLT_NFLOG
+	{ nflog_if_print,	DLT_NFLOG},
+#endif
 	{ NULL,			0 },
 };
 
@@ -515,6 +521,12 @@ show_dlts_and_exit(const char *device, pcap_t *pd)
 #define U_FLAG	"U"
 #else
 #define U_FLAG
+#endif
+
+#ifdef HAVE_PCAP_SETDIRECTION
+#define P_FLAG "P:"
+#else
+#define P_FLAG
 #endif
 
 #ifndef WIN32
@@ -735,7 +747,7 @@ main(int argc, char **argv)
 #endif
 
 	while (
-	    (op = getopt(argc, argv, "aAb" B_FLAG "c:C:d" D_FLAG "eE:fF:G:hHi:" I_FLAG j_FLAG J_FLAG "KlLm:M:nNOpqr:Rs:StT:u" U_FLAG "V:vw:W:xXy:Yz:Z:")) != -1)
+	    (op = getopt(argc, argv, "aAb" B_FLAG "c:C:d" D_FLAG "eE:fF:G:hHi:" I_FLAG j_FLAG J_FLAG "KlLm:M:nNOp" P_FLAG "qr:Rs:StT:u" U_FLAG "vV:w:W:xXy:Yz:Z:")) != -1)
 		switch (op) {
 
 		case 'a':
@@ -957,7 +969,18 @@ main(int argc, char **argv)
 		case 'p':
 			++pflag;
 			break;
-
+#ifdef HAVE_PCAP_SETDIRECTION
+		case 'P':
+			if (strcasecmp(optarg, "in") == 0)
+				Pflag = PCAP_D_IN;
+			else if (strcasecmp(optarg, "out") == 0)
+				Pflag = PCAP_D_OUT;
+			else if (strcasecmp(optarg, "inout") == 0)
+				Pflag = PCAP_D_INOUT;
+			else
+				error("unknown capture direction `%s'", optarg);
+			break;
+#endif /* HAVE_PCAP_SETDIRECTION */
 		case 'q':
 			++qflag;
 			++suppress_default_print;
@@ -1015,6 +1038,12 @@ main(int argc, char **argv)
 				packettype = PT_ZMTP1;
 			else if (strcasecmp(optarg, "vxlan") == 0)
 				packettype = PT_VXLAN;
+			else if (strcasecmp(optarg, "pgm") == 0)
+				packettype = PT_PGM;
+			else if (strcasecmp(optarg, "pgm_zmtp1") == 0)
+				packettype = PT_PGM_ZMTP1;
+			else if (strcasecmp(optarg, "lmp") == 0)
+				packettype = PT_LMP;
 			else
 				error("unknown packet type `%s'", optarg);
 			break;
@@ -1214,8 +1243,8 @@ main(int argc, char **argv)
 		 * Print a message to the standard error on Windows.
 		 * XXX - why do it here, with a different message?
 		 */
-		if(strlen(device) == 1)	//we assume that an ASCII string is always longer than 1 char
-		{						//a Unicode string has a \0 as second byte (so strlen() is 1)
+		if(strlen(device) == 1)	/* we assume that an ASCII string is always longer than 1 char */
+		{						/* a Unicode string has a \0 as second byte (so strlen() is 1) */
 			fprintf(stderr, "%s: listening on %ws\n", program_name, device);
 		}
 		else
@@ -1304,6 +1333,14 @@ main(int argc, char **argv)
 				warning("%s: %s", device,
 				    pcap_statustostr(status));
 		}
+#ifdef HAVE_PCAP_SETDIRECTION
+		if (Pflag != -1) {
+			status = pcap_setdirection(pd, Pflag);
+			if (status != 0)
+				error("%s: pcap_setdirection() failed: %s",
+				      device,  pcap_geterr(pd));
+		}
+#endif
 #else
 		*ebuf = '\0';
 		pd = pcap_open_live(device, snaplen, !pflag, 1000, ebuf);
@@ -1544,6 +1581,14 @@ main(int argc, char **argv)
 				putchar('\n');
 			}
 			(void)fflush(stdout);
+		}
+                if (status == -2) {
+			/*
+			 * We got interrupted. If we are reading multiple
+			 * files (via -V) set these so that we stop.
+			 */
+			VFileName = NULL;
+			ret = NULL;
 		}
 		if (status == -1) {
 			/*
@@ -2081,6 +2126,10 @@ usage(void)
 "\t\t[ -C file_size ] [ -E algo:secret ] [ -F file ] [ -G seconds ]\n");
 	(void)fprintf(stderr,
 "\t\t[ -i interface ]" j_FLAG_USAGE " [ -M secret ]\n");
+#ifdef HAVE_PCAP_SETDIRECTION
+	(void)fprintf(stderr,
+"\t\t[ -P in|out|inout ]\n");
+#endif
 	(void)fprintf(stderr,
 "\t\t[ -r file ] [ -s snaplen ] [ -T type ] [ -V file ] [ -w file ]\n");
 	(void)fprintf(stderr,

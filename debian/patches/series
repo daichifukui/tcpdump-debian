@@ -1,3 +1,4 @@
+00_disable-pppoes-id-test.diff
 10_man_install.diff
 15_install.diff
 20_man_fixes.diff

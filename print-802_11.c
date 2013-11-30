@@ -2184,6 +2184,11 @@ print_radiotap_field(struct cpack_state *s, u_int32_t bit, u_int8_t *flags,
 				(u2.u8 & IEEE80211_RADIOTAP_MCS_FEC_LDPC) ?
 				"LDPC" : "BCC");
 		}
+		if (u.u8 & IEEE80211_RADIOTAP_MCS_STBC_KNOWN) {
+			printf("RX-STBC%u ",
+				(u2.u8 & IEEE80211_RADIOTAP_MCS_STBC_MASK) >> IEEE80211_RADIOTAP_MCS_STBC_SHIFT);
+		}
+
 		break;
 		}
 	}
@@ -2209,7 +2214,6 @@ ieee802_11_radio_print(const u_char *p, u_int length, u_int caplen)
 	u_int32_t *presentp, *last_presentp;
 	enum ieee80211_radiotap_type bit;
 	int bit0;
-	const u_char *iter;
 	u_int len;
 	u_int8_t flags;
 	int pad;
@@ -2229,21 +2233,16 @@ ieee802_11_radio_print(const u_char *p, u_int length, u_int caplen)
 		printf("[|802.11]");
 		return caplen;
 	}
+	cpack_init(&cpacker, (u_int8_t *)hdr, len); /* align against header start */
+	cpack_advance(&cpacker, sizeof(*hdr)); /* includes the 1st bitmap */
 	for (last_presentp = &hdr->it_present;
 	     IS_EXTENDED(last_presentp) &&
 	     (u_char*)(last_presentp + 1) <= p + len;
-	     last_presentp++);
+	     last_presentp++)
+	  cpack_advance(&cpacker, sizeof(hdr->it_present)); /* more bitmaps */
 
 	/* are there more bitmap extensions than bytes in header? */
 	if (IS_EXTENDED(last_presentp)) {
-		printf("[|802.11]");
-		return caplen;
-	}
-
-	iter = (u_char*)(last_presentp + 1);
-
-	if (cpack_init(&cpacker, (u_int8_t*)iter, len - (iter - p)) != 0) {
-		/* XXX */
 		printf("[|802.11]");
 		return caplen;
 	}

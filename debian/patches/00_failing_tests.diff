@@ -1,5 +1,5 @@
 Disable failing tests:
-* pppoes_id requires libpcap >= 4.5
+* pppoes_id requires libpcap >= 1.5
 * nflog-e requires little-endian build host
 
 --- a/tests/TESTLIST

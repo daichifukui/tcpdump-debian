@@ -1,3 +1,10 @@
+tcpdump (4.5.1-2) unstable; urgency=low
+
+  * Disable nflog-e testcase, the NFLOG header length is specified in host
+    byte order which makes capture files order-dependent (closes: #731031).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 01 Dec 2013 12:13:16 +0100
+
 tcpdump (4.5.1-1) unstable; urgency=low
 
   * New upstream release.

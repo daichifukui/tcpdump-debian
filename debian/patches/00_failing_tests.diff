@@ -1,3 +1,7 @@
+Disable failing tests:
+* pppoes_id requires libpcap >= 4.5
+* nflog-e requires little-endian build host
+
 --- a/tests/TESTLIST
 +++ b/tests/TESTLIST
 @@ -86,7 +86,7 @@
@@ -9,3 +13,12 @@
  
  # IGMP tests
  igmpv3-queries  igmpv3-queries.pcap     igmpv3-queries.out      -t
+@@ -156,7 +156,7 @@
+ geonet-calm-fast	geonet_and_calm_fast.pcap	geonet_and_calm_fast.out	-t -vv -n
+ 
+ # NFLOG test case
+-nflog-e		nflog.pcap		nflog-e.out		-t -e
++#nflog-e		nflog.pcap		nflog-e.out		-t -e
+ 
+ # syslog test case
+ syslog-v	syslog_udp.pcap		syslog-v.out		-t -v

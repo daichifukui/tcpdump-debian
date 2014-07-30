@@ -1,9 +1,9 @@
-tcpdump (4.6.1-1) UNRELEASED; urgency=medium
+tcpdump (4.6.1-1) unstable; urgency=medium
 
   * New upstream release.
   * debian/control: Mark tcpdump 'Multi-Arch: foreign' (closes: #700727).
 
- -- Romain Francoise <rfrancoise@debian.org>  Wed, 30 Jul 2014 19:09:49 +0200
+ -- Romain Francoise <rfrancoise@debian.org>  Wed, 30 Jul 2014 19:16:49 +0200
 
 tcpdump (4.5.1-2) unstable; urgency=low
 

@@ -1,3 +1,11 @@
+tcpdump (4.6.1-2) unstable; urgency=medium
+
+  * Expand configure check for net/pfvar.h to also check for existence of
+    net/if_pflog.h to fix build on GNU/kFreeBSD, which ships the former
+    but not the latter, see #756553 (closes: #756790).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Mon, 04 Aug 2014 22:37:24 +0200
+
 tcpdump (4.6.1-1) unstable; urgency=medium
 
   * New upstream release.

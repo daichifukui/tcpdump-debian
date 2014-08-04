@@ -2,4 +2,5 @@
 15_install.diff
 20_man_fixes.diff
 50_hurd.diff
+50_kfreebsd.diff
 50_autotools-dev.diff

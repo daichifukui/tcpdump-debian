@@ -1,3 +1,15 @@
+tcpdump (4.6.2-2) unstable; urgency=high
+
+  * Urgency high due to security fixes.
+  * Add three patches extracted from various upstream commits fixing
+    vulnerabilities in three dissectors:
+    + CVE-2014-8767: missing bounds checks in OLSR dissector (closes: #770434).
+    + CVE-2014-8768: missing bounds checks in Geonet dissector
+      (closes: #770415).
+    + CVE-2014-8769: missing bounds checks in AOVD dissector (closes: #770424).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 22 Nov 2014 11:48:08 +0100
+
 tcpdump (4.6.2-1) unstable; urgency=medium
 
   * New upstream release.

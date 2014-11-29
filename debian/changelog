@@ -1,3 +1,10 @@
+tcpdump (4.6.2-3) unstable; urgency=high
+
+  * Cherry-pick commit 0f95d441e4 from upstream Git to fix a buffer overflow
+    in the PPP dissector (CVE-2014-9140).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 29 Nov 2014 12:23:53 +0100
+
 tcpdump (4.6.2-2) unstable; urgency=high
 
   * Urgency high due to security fixes.

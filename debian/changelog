@@ -1,3 +1,11 @@
+tcpdump (4.6.2-5) unstable; urgency=high
+
+  * Cherry-pick commit fb6e5377f3 from upstream Git to fix regressions in the
+    RPKI/RTR printer after the CVE-2015-2153 changes. Thanks to Artur Rona
+    from Ubuntu for the heads-up (closes: #781362).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 04 Apr 2015 19:10:27 +0200
+
 tcpdump (4.6.2-4) unstable; urgency=high
 
   * Cherry-pick changes from upstream Git to fix the following security

@@ -4,3 +4,4 @@
 50_hurd.diff
 50_kfreebsd.diff
 50_autotools-dev.diff
+60_disable_geneve_tests.diff

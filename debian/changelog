@@ -1,6 +1,7 @@
 tcpdump (4.7.4-1) unstable; urgency=medium
 
   * New upstream release. 
+  * Disable two geneve tests that require libpcap 1.7+.
   * Bump Standards-Version to 3.9.6.
 
  -- Romain Francoise <rfrancoise@debian.org>  Sat, 23 May 2015 18:25:01 +0200

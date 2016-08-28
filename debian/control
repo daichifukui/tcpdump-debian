@@ -8,7 +8,7 @@ Build-Depends: dpkg-dev (>= 1.16.1~),
                libssl-dev,
                autotools-dev,
                autoconf,
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 Homepage: http://www.tcpdump.org/
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=users/rfrancoise/tcpdump.git
 Vcs-Git: git://anonscm.debian.org/users/rfrancoise/tcpdump.git

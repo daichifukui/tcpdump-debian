@@ -1,6 +1,15 @@
+tcpdump (4.7.4-2) unstable; urgency=medium
+
+  * Disable crypto support as it causes FTBFS with OpenSSL 1.1.x and we
+    don't have a working fix upstream yet (closes: #828569).
+  * Bump Standards-Version to 3.9.8.
+  * Use cgit URL for Vcs-Browser.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 28 Aug 2016 18:16:50 +0200
+
 tcpdump (4.7.4-1) unstable; urgency=medium
 
-  * New upstream release. 
+  * New upstream release.
   * Disable two geneve tests that require libpcap 1.7+.
   * Bump Standards-Version to 3.9.6.
 

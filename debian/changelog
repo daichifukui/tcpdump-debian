@@ -1,3 +1,12 @@
+tcpdump (4.7.4-3) unstable; urgency=medium
+
+  * Use dh-autoreconf instead of calling autoconf directly and patching
+    config.{guess,sub}.
+  * Call dh_auto_configure instead of configure in override target, patch
+    by Helmut Grohne (closes: #837951).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 17 Sep 2016 11:18:45 +0200
+
 tcpdump (4.7.4-2) unstable; urgency=medium
 
   * Disable crypto support as it causes FTBFS with OpenSSL 1.1.x and we

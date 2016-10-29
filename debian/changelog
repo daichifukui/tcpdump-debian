@@ -1,3 +1,10 @@
+tcpdump (4.8.1-2) unstable; urgency=medium
+
+  * Disable new HNCP test, which fails on some buildds for some
+    as-of-yet unexplained reason.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 29 Oct 2016 19:40:01 +0200
+
 tcpdump (4.8.1-1) unstable; urgency=medium
 
   * New upstream release.

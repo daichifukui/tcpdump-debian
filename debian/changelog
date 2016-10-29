@@ -1,9 +1,11 @@
 tcpdump (4.8.1-1) unstable; urgency=medium
 
   * New upstream release.
+  * Re-enable Geneve tests (disabled in 4.7.4-1) and bump build-dep on
+    libpcap0.8-dev to >= 1.7 accordingly.
   * Disable new pcap version tests which require libpcap 1.8+.
 
- -- Romain Francoise <rfrancoise@debian.org>  Sat, 29 Oct 2016 16:58:31 +0200
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 29 Oct 2016 17:16:06 +0200
 
 tcpdump (4.7.4-3) unstable; urgency=medium
 

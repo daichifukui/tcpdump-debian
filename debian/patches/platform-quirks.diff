@@ -1,4 +1,4 @@
-Support build on GNU/Hurd; from Svante Signell.
+Build changes for GNU/Hurd.
 
 --- a/netdissect-stdinc.h
 +++ b/netdissect-stdinc.h

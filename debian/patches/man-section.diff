@@ -1,4 +1,4 @@
-Misc. fixes to the upstream man page.
+Change man page section.
 
 --- a/tcpdump.1.in
 +++ b/tcpdump.1.in

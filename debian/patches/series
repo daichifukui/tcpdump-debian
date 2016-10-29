@@ -2,5 +2,3 @@
 15_install.diff
 20_man_fixes.diff
 50_hurd.diff
-50_kfreebsd.diff
-60_disable_geneve_tests.diff

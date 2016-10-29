@@ -1,11 +1,8 @@
 Support build on GNU/Hurd; from Svante Signell.
----
- tcpdump-stdinc.h |    4 ++++
- 1 file changed, 4 insertions(+)
 
---- a/tcpdump-stdinc.h
-+++ b/tcpdump-stdinc.h
-@@ -186,7 +186,11 @@
+--- a/netdissect-stdinc.h
++++ b/netdissect-stdinc.h
+@@ -199,7 +199,11 @@
  #elif HAVE_STDINT_H
  #include <stdint.h>
  #endif

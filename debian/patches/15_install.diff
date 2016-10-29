@@ -1,11 +1,8 @@
 Don't install a versioned binary.
----
- Makefile.in |    1 -
- 1 file changed, 1 deletion(-)
 
 --- a/Makefile.in
 +++ b/Makefile.in
-@@ -407,7 +407,6 @@
+@@ -406,7 +406,6 @@
  	[ -d $(DESTDIR)$(sbindir) ] || \
  	    (mkdir -p $(DESTDIR)$(sbindir); chmod 755 $(DESTDIR)$(sbindir))
  	$(INSTALL_PROGRAM) $(PROG) $(DESTDIR)$(sbindir)/$(PROG)

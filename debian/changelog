@@ -1,4 +1,4 @@
-tcpdump (4.9.0-1) UNRELEASED; urgency=high
+tcpdump (4.9.0-1) unstable; urgency=high
 
   * New upstream security release, fixing the following:
     + CVE-2016-7922: buffer overflow in print-ah.c:ah_print().
@@ -51,7 +51,7 @@ tcpdump (4.9.0-1) UNRELEASED; urgency=high
   * Switch Vcs-Git URL to the https one.
   * Adjust lintian override name about dh 9.
 
- -- Romain Francoise <rfrancoise@debian.org>  Thu, 26 Jan 2017 19:59:06 +0100
+ -- Romain Francoise <rfrancoise@debian.org>  Thu, 26 Jan 2017 20:04:11 +0100
 
 tcpdump (4.8.1-2) unstable; urgency=medium
 

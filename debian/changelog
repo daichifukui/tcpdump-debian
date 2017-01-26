@@ -46,10 +46,12 @@ tcpdump (4.9.0-1) UNRELEASED; urgency=high
     + CVE-2017-5484: buffer overflow in print-atm.c:sig_print().
     + CVE-2017-5485: buffer overflow in addrtoname.c:lookup_nsap().
     + CVE-2017-5486: buffer overflow in print-isoclns.c:clnp_print().
+  * Re-enable all tests and bump build-dep on libpcap0.8-dev to >= 1.8
+    accordingly.
   * Switch Vcs-Git URL to the https one.
   * Adjust lintian override name about dh 9.
 
- -- Romain Francoise <rfrancoise@debian.org>  Thu, 26 Jan 2017 19:57:16 +0100
+ -- Romain Francoise <rfrancoise@debian.org>  Thu, 26 Jan 2017 19:59:06 +0100
 
 tcpdump (4.8.1-2) unstable; urgency=medium
 

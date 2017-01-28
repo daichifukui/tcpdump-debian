@@ -2,8 +2,10 @@ tcpdump (4.9.0-1~deb8u1) stable; urgency=medium
 
   * Backport to jessie:
     + Re-enable crypto support.
+    + Disable tests that require newer libpcap features: Geneve (1.7) and
+      file format version checks (1.8).
 
- -- Romain Francoise <rfrancoise@debian.org>  Sat, 28 Jan 2017 11:50:00 +0100
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 28 Jan 2017 12:11:29 +0100
 
 tcpdump (4.9.0-1) unstable; urgency=high
 

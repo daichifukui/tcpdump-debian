@@ -1,3 +1,10 @@
+tcpdump (4.9.0-1~deb8u1) stable; urgency=medium
+
+  * Backport to jessie:
+    + Re-enable crypto support.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 28 Jan 2017 11:50:00 +0100
+
 tcpdump (4.9.0-1) unstable; urgency=high
 
   * New upstream security release, fixing the following:

@@ -1,3 +1,12 @@
+tcpdump (4.9.0-2) unstable; urgency=medium
+
+  * Re-enable crypto support, targeting OpenSSL 1.0 as upstream still
+    doesn't support OpenSSL 1.1.
+  * Drop --enable-ipv6 from configure line, it has been the default for
+    years now.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 11 Feb 2017 16:40:05 +0100
+
 tcpdump (4.9.0-1) unstable; urgency=high
 
   * New upstream security release, fixing the following:

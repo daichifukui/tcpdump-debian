@@ -1,3 +1,11 @@
+tcpdump (4.9.0-1~deb7u1) wheezy-security; urgency=high
+
+  * Backport to wheezy.
+  * Disable the pppoes_id test, and reset B-D on libpcap-dev to what it
+    was in wheezy.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 29 Jan 2017 22:17:21 +0100
+
 tcpdump (4.9.0-1~deb8u1) jessie-security; urgency=high
 
   * Backport to jessie:

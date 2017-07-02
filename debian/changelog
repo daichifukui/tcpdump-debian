@@ -1,3 +1,13 @@
+tcpdump (4.9.0-3) unstable; urgency=medium
+
+  [ intrigeri ]
+  * Include AppArmor profile from Ubuntu (closes: #866682).
+
+  [ Romain Francoise ]
+  * Bump Standards-Version to 4.0.0.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 02 Jul 2017 12:13:53 +0200
+
 tcpdump (4.9.0-2) unstable; urgency=medium
 
   * Re-enable crypto support, targeting OpenSSL 1.0 as upstream still

@@ -8,3 +8,7 @@ export DEB_CFLAGS_MAINT_APPEND = -D_FILE_OFFSET_BITS=64
 
 override_dh_auto_configure:
 	dh_auto_configure -- --with-crypto=yes
+
+override_dh_installdeb:
+	dh_apparmor --profile-name=usr.sbin.tcpdump -ptcpdump
+	dh_installdeb

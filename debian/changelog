@@ -1,3 +1,12 @@
+tcpdump (4.9.1-1) unstable; urgency=medium
+
+  * New upstream release, fixes CVE-2017-11108 (closes: #867718).
+  * Bump Standards-Version to 4.1.0.
+  * debian/watch: add pgpsigurlmangle option.
+  * Add upstream signing key in debian/upstream.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 26 Aug 2017 18:48:32 +0200
+
 tcpdump (4.9.0-3) unstable; urgency=medium
 
   [ intrigeri ]

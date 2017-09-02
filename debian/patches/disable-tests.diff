@@ -1,0 +1,13 @@
+--- a/tests/crypto.sh
++++ b/tests/crypto.sh
+@@ -28,8 +28,8 @@
+ 		[ $? -eq 0 ] || exitcode=1
+ 		./TESTonce espudp1 espudp1.pcap espudp1.out '-nnnn -E "file esp-secrets.txt"'
+ 		[ $? -eq 0 ] || exitcode=1
+-		./TESTonce ikev2pI2 ikev2pI2.pcap ikev2pI2.out '-E "file ikev2pI2-secrets.txt" -v -v -v -v'
+-		[ $? -eq 0 ] || exitcode=1
++#		./TESTonce ikev2pI2 ikev2pI2.pcap ikev2pI2.out '-E "file ikev2pI2-secrets.txt" -v -v -v -v'
++#		[ $? -eq 0 ] || exitcode=1
+ 		./TESTonce isakmp4 isakmp4500.pcap isakmp4.out '-E "file esp-secrets.txt"'
+ 		[ $? -eq 0 ] || exitcode=1
+ 	fi

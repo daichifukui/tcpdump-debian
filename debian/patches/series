@@ -2,3 +2,6 @@ install.diff
 man-section.diff
 platform-quirks.diff
 disable-tests.diff
+upstream-CVE-2017-11541.diff
+upstream-CVE-2017-11542.diff
+upstream-CVE-2017-11543.diff

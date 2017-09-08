@@ -1,3 +1,12 @@
+tcpdump (4.9.2-1) unstable; urgency=high
+
+  * New upstream release:
+    + Fixes 86 new CVEs, see the upstream changelog for the full list.
+    + Now supports OpenSSL 1.1, so move back to libssl-dev (closes: #859740).
+  * Urgency high due to security fixes.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Fri, 08 Sep 2017 21:30:47 +0200
+
 tcpdump (4.9.1-3) unstable; urgency=high
 
   * Cherry-pick three upstream commits to fix the following:

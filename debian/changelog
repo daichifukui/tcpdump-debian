@@ -1,3 +1,10 @@
+tcpdump (4.9.2-1~deb9u1) stretch-security; urgency=high
+
+  * New upstream release, fixing 90 new CVEs. See the upstream changelog
+    for the full list.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 09 Sep 2017 11:51:01 +0200
+
 tcpdump (4.9.0-2) unstable; urgency=medium
 
   * Re-enable crypto support, targeting OpenSSL 1.0 as upstream still

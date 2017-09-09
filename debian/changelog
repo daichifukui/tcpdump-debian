@@ -1,9 +1,9 @@
 tcpdump (4.9.2-1~deb9u1) stretch-security; urgency=high
 
   * New upstream release, fixing 90 new CVEs. See the upstream changelog
-    for the full list.
+    for the full list (closes: #867718, #873804, #873805, #873806).
 
- -- Romain Francoise <rfrancoise@debian.org>  Sat, 09 Sep 2017 11:51:01 +0200
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 09 Sep 2017 20:33:48 +0200
 
 tcpdump (4.9.0-2) unstable; urgency=medium
 

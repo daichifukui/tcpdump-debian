@@ -2,6 +2,15 @@ Disable tests that require newer libpcap versions.
 
 --- a/tests/TESTLIST
 +++ b/tests/TESTLIST
+@@ -111,7 +111,7 @@
+ # PPPoE tests
+ pppoe           pppoe.pcap             pppoe.out
+ pppoes          pppoes.pcap            pppoes.out
+-pppoes_id       pppoes.pcap            pppoes_id.out   pppoes 0x3b
++#pppoes_id       pppoes.pcap            pppoes_id.out   pppoes 0x3b
+ 
+ # PPP tests
+ truncated_aack  truncated-aack.pcap    trunc_aack.out
 @@ -301,8 +301,8 @@
  
  # Geneve tests

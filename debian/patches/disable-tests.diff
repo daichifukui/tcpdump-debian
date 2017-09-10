@@ -36,6 +36,15 @@ Disable tests that require newer libpcap versions.
  
  # NSH over VxLAN-GPE
  nsh-over-vxlan-gpe     nsh-over-vxlan-gpe.pcap nsh-over-vxlan-gpe.out
+@@ -502,7 +502,7 @@
+ 
+ # bad packets from Yannick Formaggio
+ l2tp-avp-overflow	l2tp-avp-overflow.pcap		l2tp-avp-overflow.out	-v
+-pktap-heap-overflow	pktap-heap-overflow.pcap	pktap-heap-overflow.out	-v
++#pktap-heap-overflow	pktap-heap-overflow.pcap	pktap-heap-overflow.out	-v
+ wb-oobr			wb-oobr.pcap			wb-oobr.out	-v
+ 
+ # bad packets from Bhargava Shastry
 --- a/tests/crypto.sh
 +++ b/tests/crypto.sh
 @@ -72,7 +72,7 @@

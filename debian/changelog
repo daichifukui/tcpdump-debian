@@ -1,3 +1,12 @@
+tcpdump (4.9.2-3) UNRELEASED; urgency=medium
+
+  [ Jamie Strandboge ]
+  * debian/usr.sbin.tcpdump: drop 'capability sys_module' since we already
+    have 'net_admin' and network module loading (which happens with -D) is
+    allowed with 'net_admin' (LP: #1759029) (closes: #894161)
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 31 Mar 2018 22:15:02 +0200
+
 tcpdump (4.9.2-2) unstable; urgency=medium
 
   * Use new URLs on salsa.debian.org for Vcs-* fields.

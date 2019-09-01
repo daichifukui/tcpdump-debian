@@ -1,5 +1,7 @@
-tcpdump (4.9.2-4) UNRELEASED; urgency=medium
+tcpdump (4.9.3~git20190901-1) UNRELEASED; urgency=medium
 
+  * New upstream snapshot from the tcpdump-4.9 branch:
+    + Includes fix for CVE-2017-16808 (closes: #881862).
   * Drop root privileges by default (closes: #935112):
     + debian/rules: Configure --with-user=tcpdump.
     + debian/tcpdump.post{inst,rm}: Create/delete a 'tcpdump' system group
@@ -13,9 +15,10 @@ tcpdump (4.9.2-4) UNRELEASED; urgency=medium
       drop root privileges silently.
     + debian/usr.sbin.tcpdump: Add chown capability, and update rules
       about device discovery.
+    + debian/NEWS: Mention how to run tcpdump as root.
   * Bump Standards-Version to 4.4.0.
 
- -- Romain Francoise <rfrancoise@debian.org>  Sun, 01 Sep 2019 12:37:51 +0200
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 01 Sep 2019 12:55:22 +0200
 
 tcpdump (4.9.2-3) unstable; urgency=medium
 

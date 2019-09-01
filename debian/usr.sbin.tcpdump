@@ -10,6 +10,7 @@
   capability setuid,
   capability setgid,
   capability dac_override,
+  capability chown,
   network raw,
   network packet,
 
@@ -18,10 +19,11 @@
   @{PROC}/bus/usb/** r,
 
   # for finding an interface
+  /dev/ r,
   @{PROC}/[0-9]*/net/dev r,
   /sys/bus/usb/devices/ r,
   /sys/class/net/ r,
-  /sys/devices/**/net/* r,
+  /sys/devices/**/net/** r,
 
   # for -j
   capability net_admin,

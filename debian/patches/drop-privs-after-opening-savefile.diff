@@ -19,7 +19,13 @@ Origin: https://src.fedoraproject.org/rpms/tcpdump/raw/master/f/0003-Drop-root-p
  .TP
  .B \-d
  Dump the compiled packet-matching code in a human readable form to
-@@ -860,7 +863,9 @@
+@@ -855,12 +858,14 @@
+ If
+ .I tcpdump
+ is running as root, after opening the capture device or input savefile,
+-but before opening any savefiles for output, change the user ID to
++change the user ID to
+ .I user
  and the group ID to the primary group of
  .IR user .
  .IP

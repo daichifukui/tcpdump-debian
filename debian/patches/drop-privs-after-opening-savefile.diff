@@ -38,7 +38,7 @@ Origin: https://src.fedoraproject.org/rpms/tcpdump/raw/master/f/0003-Drop-root-p
  selects which packets will be dumped.
 --- a/tcpdump.c
 +++ b/tcpdump.c
-@@ -1127,6 +1127,7 @@
+@@ -1129,6 +1129,7 @@
  	cap_rights_t rights;
  	int cansandbox;
  #endif	/* HAVE_CAPSICUM */
@@ -46,7 +46,7 @@ Origin: https://src.fedoraproject.org/rpms/tcpdump/raw/master/f/0003-Drop-root-p
  	int Oflag = 1;			/* run filter code optimizer */
  	int yflag_dlt = -1;
  	const char *yflag_dlt_name = NULL;
-@@ -1837,6 +1838,19 @@
+@@ -1839,6 +1840,19 @@
  		}
  		capng_apply(CAPNG_SELECT_BOTH);
  #endif /* HAVE_LIBCAP_NG */
@@ -66,7 +66,7 @@ Origin: https://src.fedoraproject.org/rpms/tcpdump/raw/master/f/0003-Drop-root-p
  		if (username || chroot_dir)
  			droproot(username, chroot_dir);
  
-@@ -1880,6 +1894,22 @@
+@@ -1882,6 +1896,22 @@
  		  MakeFilename(dumpinfo.CurrentFileName, WFileName, 0, 0);
  
  		p = pcap_dump_open(pd, dumpinfo.CurrentFileName);

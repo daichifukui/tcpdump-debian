@@ -1,3 +1,11 @@
+tcpdump (4.9.3-1) unstable; urgency=medium
+
+  * New upstream release, with fixes for 24 different CVEs (closes: #941698).
+  * Build-depend on libpcap >= 1.9.1 to make all build-time tests pass.
+  * Bump Standards-Version to 4.4.1.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Thu, 10 Oct 2019 21:31:38 +0200
+
 tcpdump (4.9.3~git20190901-2) unstable; urgency=medium
 
   * Disable failing IKEv2 test again to fix build on ppc64el.

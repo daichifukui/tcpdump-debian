@@ -1,10 +1,11 @@
 tcpdump (4.9.3-1~deb10u1) buster-security; urgency=high
 
   * New upstream release, with fixes for 24 different CVEs (closes: #941698).
-  * This is an upstream update on top of the 4.9.2-3 package and does not
+    This is an upstream update on top of the 4.9.2-3 package and does not
     include other changes from the 4.9.3 package in bullseye.
+  * Disable tests that require a newer libpcap version.
 
- -- Romain Francoise <rfrancoise@debian.org>  Sat, 19 Oct 2019 00:36:08 +0200
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 19 Oct 2019 16:55:18 +0200
 
 tcpdump (4.9.2-3) unstable; urgency=medium
 

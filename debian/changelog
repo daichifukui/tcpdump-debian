@@ -3,6 +3,7 @@ tcpdump (4.9.3-3) UNRELEASED; urgency=medium
   * Use secure URI in debian/watch.
   * Use secure URI in Homepage field.
   * Bump debhelper from old 11 to 12.
+  * Set debhelper-compat version in Build-Depends.
 
  -- Romain Francoise <rfrancoise@debian.org>  Sat, 07 Dec 2019 17:33:08 +0100
 

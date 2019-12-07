@@ -8,7 +8,7 @@ Build-Depends: debhelper (>= 11~),
                libpcap0.8-dev (>= 1.9.1),
                libssl-dev
 Standards-Version: 4.4.1
-Homepage: http://www.tcpdump.org/
+Homepage: https://www.tcpdump.org/
 Vcs-Browser: https://salsa.debian.org/rfrancoise/tcpdump
 Vcs-Git: https://salsa.debian.org/rfrancoise/tcpdump.git
 

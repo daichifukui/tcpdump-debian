@@ -1,3 +1,9 @@
+tcpdump (4.9.3-3) UNRELEASED; urgency=medium
+
+  * Use secure URI in debian/watch.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 07 Dec 2019 17:33:08 +0100
+
 tcpdump (4.9.3-2) unstable; urgency=medium
 
   * Disable failing IKEv2 test yet again to fix build on ppc64el (again)

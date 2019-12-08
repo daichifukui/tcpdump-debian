@@ -1,11 +1,13 @@
-tcpdump (4.9.3-3) UNRELEASED; urgency=medium
+tcpdump (4.9.3-3) unstable; urgency=medium
 
-  * Use secure URI in debian/watch.
-  * Use secure URI in Homepage field.
-  * Bump debhelper from old 11 to 12.
-  * Set debhelper-compat version in Build-Depends.
+  * Minor packaging fixes courtesy of the Janitor bot and lintian-brush:
+    + Use secure URI in debian/watch.
+    + Use secure URI in Homepage field.
+    + Bump debhelper from old 11 to 12.
+    + Set debhelper-compat version in Build-Depends.
+    + Re-export upstream signing key without extra signatures.
 
- -- Romain Francoise <rfrancoise@debian.org>  Sat, 07 Dec 2019 17:33:08 +0100
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 08 Dec 2019 13:56:42 +0100
 
 tcpdump (4.9.3-2) unstable; urgency=medium
 

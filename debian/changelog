@@ -1,8 +1,8 @@
-tcpdump (4.9.3-4) UNRELEASED; urgency=medium
+tcpdump (4.9.3-4) unstable; urgency=medium
 
   * Set upstream metadata fields: Bug-Database.
 
- -- Debian Janitor <janitor@jelmer.uk>  Tue, 17 Dec 2019 00:52:14 +0000
+ -- Romain Francoise <rfrancoise@debian.org>  Tue, 31 Dec 2019 19:24:04 +0100
 
 tcpdump (4.9.3-3) unstable; urgency=medium
 

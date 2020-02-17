@@ -1,3 +1,9 @@
+tcpdump (4.9.3-5) unstable; urgency=medium
+
+  * Bump Standards-Version to 4.5.0.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Mon, 17 Feb 2020 22:11:00 +0100
+
 tcpdump (4.9.3-4) unstable; urgency=medium
 
   * Set upstream metadata fields: Bug-Database.

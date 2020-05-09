@@ -1,3 +1,10 @@
+tcpdump (4.9.3-6) UNRELEASED; urgency=medium
+
+  * Set upstream metadata fields: Bug-Submit, Repository, Repository-
+    Browse.
+
+ -- Debian Janitor <janitor@jelmer.uk>  Fri, 08 May 2020 08:33:27 +0000
+
 tcpdump (4.9.3-5) unstable; urgency=medium
 
   * Bump Standards-Version to 4.5.0.

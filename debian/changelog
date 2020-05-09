@@ -1,15 +1,11 @@
-tcpdump (4.9.3-6) UNRELEASED; urgency=medium
-
-  * Set upstream metadata fields: Bug-Submit, Repository, Repository-
-    Browse.
-
- -- Debian Janitor <janitor@jelmer.uk>  Fri, 08 May 2020 08:33:27 +0000
-
 tcpdump (4.9.3-5) unstable; urgency=medium
 
+  * Minor packaging fixes courtesy of the Janitor bot and lintian-brush:
+    + Set upstream metadata fields: Bug-Submit, Repository, Repository-
+      Browse.
   * Bump Standards-Version to 4.5.0.
 
- -- Romain Francoise <rfrancoise@debian.org>  Mon, 17 Feb 2020 22:11:00 +0100
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 09 May 2020 20:42:57 +0200
 
 tcpdump (4.9.3-4) unstable; urgency=medium
 

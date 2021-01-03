@@ -1,3 +1,18 @@
+tcpdump (4.99.0-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Mention in debian/NEWS that tcpdump is now installed to /usr/bin
+    instead of /usr/sbin.
+  * Rename AppArmor profile to match new binary location and add
+    maintscript stanza to move the previous conffile if present.
+  * Temporarily disable tests that require the just-released libpcap 1.10,
+    we don't want to tie the migration of the two just before the bullseye
+    freeze.
+  * Drop unused lintian override.
+  * Bump Standards-Version to 4.5.1.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 03 Jan 2021 21:28:16 +0100
+
 tcpdump (4.9.3-7) unstable; urgency=high
 
   * Cherry-pick commit 32027e1993 from the upstream tcpdump-4.9 branch to fix

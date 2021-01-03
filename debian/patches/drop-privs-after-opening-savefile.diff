@@ -9,7 +9,7 @@ Origin: https://src.fedoraproject.org/rpms/tcpdump/raw/master/f/0003-Drop-root-p
 
 --- a/tcpdump.1.in
 +++ b/tcpdump.1.in
-@@ -249,6 +249,9 @@
+@@ -267,6 +267,9 @@
  flag, with a number after it, starting at 1 and continuing upward.
  The units of \fIfile_size\fP are millions of bytes (1,000,000 bytes,
  not 1,048,576 bytes).
@@ -19,7 +19,7 @@ Origin: https://src.fedoraproject.org/rpms/tcpdump/raw/master/f/0003-Drop-root-p
  .TP
  .B \-d
  Dump the compiled packet-matching code in a human readable form to
-@@ -855,12 +858,14 @@
+@@ -962,12 +965,14 @@
  If
  .I tcpdump
  is running as root, after opening the capture device or input savefile,
@@ -38,7 +38,7 @@ Origin: https://src.fedoraproject.org/rpms/tcpdump/raw/master/f/0003-Drop-root-p
  selects which packets will be dumped.
 --- a/tcpdump.c
 +++ b/tcpdump.c
-@@ -1129,6 +1129,7 @@
+@@ -1492,6 +1492,7 @@
  	cap_rights_t rights;
  	int cansandbox;
  #endif	/* HAVE_CAPSICUM */
@@ -46,7 +46,7 @@ Origin: https://src.fedoraproject.org/rpms/tcpdump/raw/master/f/0003-Drop-root-p
  	int Oflag = 1;			/* run filter code optimizer */
  	int yflag_dlt = -1;
  	const char *yflag_dlt_name = NULL;
-@@ -1839,6 +1840,19 @@
+@@ -2320,6 +2321,19 @@
  		}
  		capng_apply(CAPNG_SELECT_BOTH);
  #endif /* HAVE_LIBCAP_NG */
@@ -66,26 +66,26 @@ Origin: https://src.fedoraproject.org/rpms/tcpdump/raw/master/f/0003-Drop-root-p
  		if (username || chroot_dir)
  			droproot(username, chroot_dir);
  
-@@ -1882,6 +1896,22 @@
- 		  MakeFilename(dumpinfo.CurrentFileName, WFileName, 0, 0);
- 
- 		p = pcap_dump_open(pd, dumpinfo.CurrentFileName);
+@@ -2377,6 +2391,22 @@
+ #endif /* HAVE_LIBCAP_NG */
+ 		if (pdd == NULL)
+ 			error("%s", pcap_geterr(pd));
 +
-+	/* Change ownership of file and drop root privileges */
-+	if (chown_flag) {
-+		struct passwd *pwd;
++		/* Change ownership of file and drop root privileges */
++		if (chown_flag) {
++			struct passwd *pwd;
 +
-+		pwd = getpwnam(username);
-+		if (!pwd)
-+			error("Couldn't find user '%s'", username);
++			pwd = getpwnam(username);
++			if (!pwd)
++				error("Couldn't find user '%s'", username);
 +
-+		if (strcmp(WFileName, "-") && chown(dumpinfo.CurrentFileName, pwd->pw_uid, pwd->pw_gid) < 0)
-+			error("Couldn't change ownership of savefile");
++			if (strcmp(WFileName, "-") && chown(dumpinfo.CurrentFileName, pwd->pw_uid, pwd->pw_gid) < 0)
++				error("Couldn't change ownership of savefile");
 +
-+		if (username || chroot_dir)
-+			droproot(username, chroot_dir);
-+    }
++			if (username || chroot_dir)
++				droproot(username, chroot_dir);
++	    }
 +
- #ifdef HAVE_LIBCAP_NG
- 		/* Give up CAP_DAC_OVERRIDE capability.
- 		 * Only allow it to be restored if the -C or -G flag have been
+ #ifdef HAVE_CAPSICUM
+ 		set_dumper_capsicum_rights(pdd);
+ #endif

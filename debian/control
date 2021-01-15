@@ -14,9 +14,9 @@ Vcs-Git: https://salsa.debian.org/rfrancoise/tcpdump.git
 
 Package: tcpdump
 Architecture: any
-Depends: ${misc:Depends},
-         ${shlibs:Depends},
-	 adduser
+Depends: adduser,
+         ${misc:Depends},
+         ${shlibs:Depends}
 Breaks: apparmor-profiles-extra (<< 1.12~)
 Replaces: apparmor-profiles-extra (<< 1.12~)
 Suggests: apparmor (>= 2.3)

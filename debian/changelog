@@ -1,3 +1,10 @@
+tcpdump (4.99.1-1) experimental; urgency=medium
+
+  * New upstream release.
+  * debian/usr.bin.tcpdump: grant access to *.cap (closes: #989433).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 20 Jun 2021 20:48:30 +0200
+
 tcpdump (4.99.0-2) unstable; urgency=medium
 
   * Add autopkgtest support, running the upstream test suite.

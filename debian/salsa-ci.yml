@@ -5,3 +5,6 @@ include:
 
 variables:
   SALSA_CI_DISABLE_REPROTEST: 1
+  RELEASE: 'bullseye-backports'
+  SALSA_CI_DISABLE_VERSION_BUMP: "true"
+  SALSA_CI_DISABLE_AUTOPKGTEST: 1

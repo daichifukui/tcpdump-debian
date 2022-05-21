@@ -1,3 +1,9 @@
+tcpdump (4.99.1-4~bpo11+1) bullseye-backports; urgency=medium
+
+  * Rebuild for bullseye-backports.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 21 May 2022 11:08:38 +0200
+
 tcpdump (4.99.1-4) unstable; urgency=medium
 
   * debian/usr.bin.tcpdump: account for numerical suffix in filenames

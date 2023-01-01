@@ -193,6 +193,7 @@ LIBNETDISSECT_SRC=\
 	print-ospf.c \
 	print-ospf6.c \
 	print-otv.c \
+	print-pflog.c \
 	print-pgm.c \
 	print-pim.c \
 	print-pktap.c \
@@ -203,11 +204,11 @@ LIBNETDISSECT_SRC=\
 	print-ptp.c \
 	print-radius.c \
 	print-raw.c \
+	print-realtek.c \
 	print-resp.c \
 	print-rip.c \
 	print-ripng.c \
 	print-rpki-rtr.c \
-	print-rrcp.c \
 	print-rsvp.c \
 	print-rt6.c \
 	print-rtsp.c \
@@ -245,6 +246,7 @@ LIBNETDISSECT_SRC=\
 	print-vxlan-gpe.c \
 	print-vxlan.c \
 	print-wb.c \
+	print-whois.c \
 	print-zep.c \
 	print-zephyr.c \
 	print-zeromq.c \
@@ -275,6 +277,7 @@ HDR = \
 	chdlc.h \
 	compiler-tests.h \
 	cpack.h \
+	diag-control.h \
 	ethertype.h \
 	extract.h \
 	fptype.h \
@@ -304,6 +307,7 @@ HDR = \
 	ospf.h \
 	oui.h \
 	pcap-missing.h \
+	pflog.h \
 	ppp.h \
 	print.h \
 	rpc_auth.h \
@@ -329,28 +333,30 @@ CLEANFILES = $(PROG) $(OBJ) $(LIBNETDISSECT_OBJ)
 
 EXTRA_DIST = \
 	CHANGES \
+	CMakeLists.txt \
 	CONTRIBUTING \
 	CREDITS \
-	CMakeLists.txt \
 	INSTALL.txt \
 	LICENSE \
-	Makefile.in \
 	Makefile-devel-adds \
+	Makefile.in \
 	README.md \
 	VERSION \
 	aclocal.m4 \
 	atime.awk \
 	bpf_dump.c \
-	cmake_uninstall.cmake.in \
-	cmakeconfig.h.in \
 	cmake/Modules/FindCRYPTO.cmake \
 	cmake/Modules/FindPCAP.cmake \
 	cmake/Modules/FindSMI.cmake \
+	cmake_uninstall.cmake.in \
+	cmakeconfig.h.in \
 	config.guess \
 	config.h.in \
 	config.sub \
 	configure \
 	configure.ac \
+	doc/README.aix.md \
+	doc/README.solaris.md \
 	doc/README.Win32.md \
 	install-sh \
 	lbl/os-osf4.h \
@@ -358,10 +364,10 @@ EXTRA_DIST = \
 	lbl/os-sunos4.h \
 	lbl/os-ultrix4.h \
 	makemib \
-	missing/dlnames.c \
 	missing/datalinks.c \
-	missing/getopt_long.h \
+	missing/dlnames.c \
 	missing/getopt_long.c \
+	missing/getopt_long.h \
 	missing/getservent.c \
 	missing/pcap_dump_ftell.c \
 	missing/snprintf.c \
@@ -369,8 +375,6 @@ EXTRA_DIST = \
 	missing/strlcat.c \
 	missing/strlcpy.c \
 	missing/strsep.c \
-	missing/win_ether_ntohost.c \
-	missing/win_ether_ntohost.h \
 	mkdep \
 	packetdat.awk \
 	print-pflog.c \
@@ -381,6 +385,8 @@ EXTRA_DIST = \
 	tcpdump.1.in
 
 TEST_DIST= `git ls-files tests | grep -v 'tests/\..*'`
+
+RELEASE_FILES = $(CSRC) $(HDR) $(LIBNETDISSECT_SRC) $(EXTRA_DIST) $(TEST_DIST)
 
 all: $(PROG)
 
@@ -456,18 +462,16 @@ TAGS: $(TAGFILES)
 	etags $(TAGFILES)
 
 releasetar:
-	@autoreconf -f; \
-	name=$(PROG)-`cat VERSION` ; \
-	   mkdir $$name; \
-	   tar cf - $(CSRC) $(HDR) $(LIBNETDISSECT_SRC) $(EXTRA_DIST) $(TEST_DIST) | (cd $$name; tar xf -); \
-	   tar -c -z -f $$name.tar.gz $$name; \
-	   rm -rf $$name
-
-rc1 rc2 rc3 rc4 rc5:
-	@VER=`cat $(srcdir)/VERSION`; \
-	sed -i "s/$$VER/$${VER}$@/" VERSION ; \
-	make releasetar; \
-	git checkout VERSION configure
+	@TAG=$(PROG)-`cat VERSION` && \
+	if git show-ref --tags --quiet --verify -- "refs/tags/$$TAG"; then \
+	    git archive --prefix="$$TAG"/ -o "$$TAG".tar.gz "$$TAG" \
+	    $(RELEASE_FILES) && \
+	    echo "Archive build from tag $$TAG."; \
+	else \
+	    git archive --prefix="$$TAG"/ -o "$$TAG".tar.gz HEAD \
+	    $(RELEASE_FILES) && \
+	    echo "No $$TAG tag. Archive build from HEAD."; \
+	fi
 
 testlist:
 	echo $(TEST_DIST)
@@ -476,4 +480,4 @@ depend:
 	$(MKDEP) -c "$(CC)" -m "$(DEPENDENCY_CFLAG)" -s "$(srcdir)" $(DEFS) $(INCLS) $(SRC) $(LIBNETDISSECT_SRC)
 
 shellcheck:
-	shellcheck -f gcc build.sh build_matrix.sh
+	shellcheck -f gcc -e SC2006 build.sh build_matrix.sh build_common.sh

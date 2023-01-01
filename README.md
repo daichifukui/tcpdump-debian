@@ -30,6 +30,7 @@ tcpdump compiles and works on at least the following platforms:
 * FreeBSD
 * Haiku
 * HP-UX 11i
+* illumos (OmniOS, OpenIndiana)
 * GNU/Linux
 * {Mac} OS X / macOS
 * NetBSD

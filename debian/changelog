@@ -1,3 +1,9 @@
+tcpdump (4.99.3-1~bpo11+1) bullseye-backports; urgency=medium
+
+  * Rebuild for bullseye-backports.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 21 Jan 2023 23:32:57 +0100
+
 tcpdump (4.99.3-1) unstable; urgency=medium
 
   * New upstream release.

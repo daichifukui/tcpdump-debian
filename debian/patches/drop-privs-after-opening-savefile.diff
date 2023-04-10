@@ -1,5 +1,5 @@
 Description: Drop root privileges after opening savefile
-Forwarded: no
+Forwarded: not-needed
 Bug-Debian: https://bugs.debian.org/935112
 Origin: https://src.fedoraproject.org/rpms/tcpdump/raw/master/f/0003-Drop-root-priviledges-before-opening-first-savefile-.patch
 ---

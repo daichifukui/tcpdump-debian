@@ -1,5 +1,6 @@
-Change man page install paths for Debian and don't install
-a versioned binary.
+Description: Change man page install paths for Debian and don't install a versioned binary.
+Forwarded: not-needed
+Author: Romain Francoise <rfrancoise@debian.org>
 
 --- a/Makefile.in
 +++ b/Makefile.in

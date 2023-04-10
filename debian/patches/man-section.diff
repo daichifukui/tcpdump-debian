@@ -1,4 +1,6 @@
-Change man page section.
+Description: Change man page section
+Forwarded: not-needed
+Author: Romain Francoise <rfrancoise@debian.org>
 
 --- a/tcpdump.1.in
 +++ b/tcpdump.1.in

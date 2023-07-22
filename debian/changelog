@@ -1,3 +1,13 @@
+tcpdump (4.99.4-3) unstable; urgency=medium
+
+  * Allow *.pcapng in AppArmor policy, thanks to Chris Kuethe for the
+    patch (closes: #1039993).
+  * Pick up patch from upstream PR#812 to avoid the call to droproot()
+    altogether if called with `-Z root', thanks to Tj (closes: #1035842).
+  * Override 'spelling-error-in-binary' and move 'set -e' inside maintscripts.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 22 Jul 2023 17:23:56 +0200
+
 tcpdump (4.99.4-2) unstable; urgency=medium
 
   * Upload to unstable.

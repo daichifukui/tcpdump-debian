@@ -1,3 +1,12 @@
+tcpdump (4.99.4-4) unstable; urgency=medium
+
+  * debian/watch: switch to .tar.xz URLs as upstream homepage no longer
+    lists the .tar.gz.
+  * Mark latest patch as "Forwarded: not-needed".
+  * Bump Standards-Version to 4.7.0.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 28 Apr 2024 17:07:15 +0200
+
 tcpdump (4.99.4-3) unstable; urgency=medium
 
   * Allow *.pcapng in AppArmor policy, thanks to Chris Kuethe for the

@@ -3,6 +3,7 @@ From: Martin Willi <martin@strongswan.org>
 Date: Tue, 12 Nov 2019 13:43:31 +0100
 Subject: [PATCH] Skip privilege dropping when using -Z root on --with-user
  builds
+Forwarded: not-needed
 
 Distributions which started building --with-user to switch to an
 unpriviliged user claim that the old behavior of running under root

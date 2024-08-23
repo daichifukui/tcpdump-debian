@@ -72,7 +72,7 @@ Origin: https://src.fedoraproject.org/rpms/tcpdump/raw/master/f/0003-Drop-root-p
  			error("%s", pcap_geterr(pd));
 +
 +		/* Change ownership of file and drop root privileges */
-+		if (chown_flag) {
++		if (chown_flag && username) {
 +			struct passwd *pwd;
 +
 +			pwd = getpwnam(username);

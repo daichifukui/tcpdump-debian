@@ -1,3 +1,10 @@
+tcpdump (4.99.4-5) unstable; urgency=medium
+
+  * Avoid getpwnam(NULL) when called with `-Z root', thanks to Rodney
+    Dawes <dobey@ubuntu.com> for the report and patch (closes: #1078771).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Fri, 23 Aug 2024 18:53:46 +0200
+
 tcpdump (4.99.4-4) unstable; urgency=medium
 
   * debian/watch: switch to .tar.xz URLs as upstream homepage no longer

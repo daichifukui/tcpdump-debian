@@ -1,3 +1,10 @@
+tcpdump (4.99.5-1) unstable; urgency=low
+
+  * New upstream release.
+  * Drop upstream patch related to #1035842, now included.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 01 Sep 2024 12:49:43 +0200
+
 tcpdump (4.99.4-5) unstable; urgency=medium
 
   * Avoid getpwnam(NULL) when called with `-Z root', thanks to Rodney

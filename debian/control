@@ -1,7 +1,7 @@
 Source: tcpdump
 Section: net
 Priority: optional
-Maintainer: Romain Francoise <rfrancoise@debian.org>
+Maintainer: Debian Security Tools <team+pkg-security@tracker.debian.org>
 Build-Depends: debhelper-compat (= 13),
                dh-apparmor,
                dpkg-dev (>= 1.16.1~),

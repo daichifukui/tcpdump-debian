@@ -1,3 +1,10 @@
+tcpdump (4.99.5-2) unstable; urgency=medium
+
+  * Transfer ownership to pkg-security team.
+  * Set Vcs-* fields to new locations in Debian group.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 09 Feb 2025 12:03:02 +0100
+
 tcpdump (4.99.5-1) unstable; urgency=low
 
   * New upstream release.

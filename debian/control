@@ -3,6 +3,7 @@ Section: net
 Priority: optional
 Maintainer: Debian Security Tools <team+pkg-security@tracker.debian.org>
 Build-Depends: debhelper-compat (= 13),
+               dh-sequence-installsysusers,
                dh-apparmor,
                dpkg-dev (>= 1.16.1~),
                libpcap0.8-dev (>= 1.9.1),
@@ -15,8 +16,7 @@ Vcs-Git: https://salsa.debian.org/debian/tcpdump.git
 
 Package: tcpdump
 Architecture: any
-Depends: adduser,
-         ${misc:Depends},
+Depends: ${misc:Depends},
          ${shlibs:Depends}
 Breaks: apparmor-profiles-extra (<< 1.12~)
 Replaces: apparmor-profiles-extra (<< 1.12~)

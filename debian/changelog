@@ -1,3 +1,15 @@
+tcpdump (4.99.6-1) experimental; urgency=medium
+
+  * Team upload
+  * Bump std-version to 4.7.3, no changes required
+  * Drop R^3: no, default now
+  * Drop version constraint on libpcap version,
+    satisfied already since old-old-old-stable
+  * New upstream version 4.99.6
+  * Refresh patches
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Fri, 27 Feb 2026 09:52:22 +0100
+
 tcpdump (4.99.5-3) unstable; urgency=medium
 
   [ Luca Boccassi ]

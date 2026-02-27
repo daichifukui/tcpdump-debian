@@ -6,7 +6,7 @@ Build-Depends: debhelper-compat (= 13),
                dh-sequence-installsysusers,
                dh-apparmor,
                dpkg-dev (>= 1.16.1~),
-               libpcap0.8-dev (>= 1.9.1),
+               libpcap0.8-dev,
                libssl-dev
 Standards-Version: 4.7.3
 Homepage: https://www.tcpdump.org/

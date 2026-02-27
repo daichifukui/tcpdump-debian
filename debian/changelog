@@ -1,3 +1,15 @@
+tcpdump (4.99.5-3) unstable; urgency=medium
+
+  [ Luca Boccassi ]
+  * Stop deleting tcpdump user/group on purge
+  * Install and use sysusers.d config file
+
+  [ Gianfranco Costamagna, Georgia Garcia ]
+  * debian/usr.sbin.tcpdump: allow tcpdump printing to stdout/stderr when
+    running from a container (LP: #1667016) (Closes: #1032298)
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Fri, 27 Feb 2026 08:41:50 +0100
+
 tcpdump (4.99.5-2) unstable; urgency=medium
 
   * Transfer ownership to pkg-security team.

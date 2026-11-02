@@ -1,3 +1,14 @@
+tcpdump (4.99.6-3) UNRELEASED; urgency=medium
+
+  * Backport upstream commit b4c1686936 changing the license of the Sun RPC
+    code (print-sunrpc.c, rpc_auth.h, rpc_msg.h) to BSD-3-Clause.
+  * debian/copyright: convert to the machine-readable format 1.0 and
+    document that print-sunrpc.c, rpc_auth.h and rpc_msg.h are distributed
+    under the BSD-3-Clause terms they were relicensed under, instead of the
+    non-free Sun RPC license. (Closes: #1147928)
+
+ -- Claude <noreply@anthropic.com>  Mon, 02 Nov 2026 06:04:28 +0000
+
 tcpdump (4.99.6-2) unstable; urgency=medium
 
   * Upload to sid

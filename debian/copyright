@@ -1,149 +1,374 @@
-This package was debianized by Anand Kumria <wildfire@progsoc.org> on
-Wed, 22 Nov 2000 13:19:33 +1100, then maintained by Torsten Landschoff
-<torsten@debian.org> and Romain Francoise <rfrancoise@debian.org>.
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: tcpdump
+Upstream-Contact: tcpdump-workers@tcpdump.org
+Source: https://www.tcpdump.org/
+Comment:
+ This package was debianized by Anand Kumria <wildfire@progsoc.org> on
+ Wed, 22 Nov 2000 13:19:33 +1100, then maintained by Torsten Landschoff
+ <torsten@debian.org> and Romain Francoise <rfrancoise@debian.org>.
+ .
+ Current upstream maintainers:
+   Bill Fenner                  <fenner@research.att.com>
+   Fulvio Risso                 <risso@polito.it>
+   Guy Harris                   <guy@alum.mit.edu>
+   Hannes Gredler               <hannes@juniper.net>
+   Jun-ichiro itojun Hagino     <itojun@iijlab.net>
+   Michael Richardson           <mcr@sandelman.ottawa.on.ca>
+ .
+ Additional people who have contributed patches:
+   Alan Bawden                  <Alan@LCS.MIT.EDU>
+   Alexey Kuznetsov             <kuznet@ms2.inr.ac.ru>
+   Albert Chin                  <china@thewrittenword.com>
+   Andrew Brown                 <atatat@atatdot.net>
+   Antti Kantee                 <pooka@netbsd.org>
+   Arkadiusz Miskiewicz         <misiek@pld.org.pl>
+   Armando L. Caro Jr.          <acaro@mail.eecis.udel.edu>
+   Assar Westerlund             <assar@sics.se>
+   Brian Ginsbach               <ginsbach@cray.com>
+   Charles M. Hannum            <mycroft@netbsd.org>
+   Chris G. Demetriou           <cgd@netbsd.org>
+   Chris Pepper                 <pepper@mail.reppep.com>
+   Darren Reed                  <darrenr@reed.wattle.id.au>
+   David Kaelbling              <drk@sgi.com>
+   David Young                  <dyoung@ojctech.com>
+   Don Ebright                  <Don.Ebright@compuware.com>
+   Eric Anderson                <anderse@hpl.hp.com>
+   Franz Schaefer               <schaefer@mond.at>
+   Gianluca Varenni             <varenni@netgroup-serv.polito.it>
+   Gisle Vanem                  <giva@bgnett.no>
+   Graeme Hewson                <ghewson@cix.compulink.co.uk>
+   Greg Stark                   <gsstark@mit.edu>
+   Greg Troxel                  <gdt@ir.bbn.com>
+   Guillaume Pelat              <endymion_@users.sourceforge.net>
+   Hyung Sik Yoon               <hsyn@kr.ibm.com>
+   Igor Khristophorov           <igor@atdot.org>
+   Jan-Philip Velders           <jpv@veldersjes.net>
+   Jason R. Thorpe              <thorpej@netbsd.org>
+   Javier Achirica              <achirica@ttd.net>
+   Jean Tourrilhes              <jt@hpl.hp.com>
+   Jefferson Ogata              <jogata@nodc.noaa.gov>
+   Jesper Peterson              <jesper@endace.com>
+   John Bankier                 <jbankier@rainfinity.com>
+   Jon Lindgren                 <jonl@yubyub.net>
+   Juergen Schoenwaelder        <schoenw@ibr.cs.tu-bs.de>
+   Kazushi Sugyo                <sugyo@pb.jp.nec.com>
+   Klaus Klein                  <kleink@netbsd.org>
+   Koryn Grant                  <koryn@endace.com>
+   Krzysztof Halasa             <khc@pm.waw.pl>
+   Lorenzo Cavallaro            <sullivan@sikurezza.org>
+   Loris Degioanni              <loris@netgroup-serv.polito.it>
+   Love Hörnquist-Åstrand       <lha@stacken.kth.se>
+   Maciej W. Rozycki            <macro@ds2.pg.gda.pl>
+   Marcus Felipe Pereira        <marcus@task.com.br>
+   Martin Husemann              <martin@netbsd.org>
+   Mike Wiacek                  <mike@iroot.net>
+   Monroe Williams              <monroe@pobox.com>
+   Octavian Cerna               <tavy@ylabs.com>
+   Olaf Kirch                   <okir@caldera.de>
+   Onno van der Linden          <onno@simplex.nl>
+   Paul Mundt                   <lethal@linux-sh.org>
+   Pavel Kankovsky              <kan@dcit.cz>
+   Peter Fales                  <peter@fales-lorenz.net>
+   Peter Jeremy                 <peter.jeremy@alcatel.com.au>
+   Phil Wood                    <cpw@lanl.gov>
+   Rafal Maszkowski             <rzm@icm.edu.pl>
+   Rick Jones                   <raj@cup.hp.com>
+   Scott Barron                 <sb125499@ohiou.edu>
+   Scott Gifford                <sgifford@tir.com>
+   Sebastian Krahmer            <krahmer@cs.uni-potsdam.de>
+   Shaun Clowes                 <delius@progsoc.uts.edu.au>
+   Solomon Peachy               <pizza@shaftnet.org>
+   Stefan Hudson                <hudson@mbay.net>
+   Takashi Yamamoto             <yamt@mwd.biglobe.ne.jp>
+   Tony Li                      <tli@procket.com>
+   Torsten Landschoff           <torsten@debian.org>
+   Uns Lider                    <unslider@miranda.org>
+   Uwe Girlich                  <Uwe.Girlich@philosys.de>
+   Xianjie Zhang                <xzhang@cup.hp.com>
+   Yen Yen Lim
+   Yoann Vandoorselaere         <yoann@prelude-ids.org>
+ .
+ The original LBL crew:
+   Steve McCanne
+   Craig Leres
+   Van Jacobson
 
-It was downloaded from http://www.tcpdump.org/
-
-Upstream Authors: tcpdump-workers@tcpdump.org
-
-Licensed under the 3-clause BSD license:
-
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions
-  are met:
-
-    1. Redistributions of source code must retain the above copyright
-       notice, this list of conditions and the following disclaimer.
-    2. Redistributions in binary form must reproduce the above copyright
-       notice, this list of conditions and the following disclaimer in
-       the documentation and/or other materials provided with the
-       distribution.
-    3. The names of the authors may not be used to endorse or promote
-       products derived from this software without specific prior
-       written permission.
-
-  THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
-  IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-
-Some files in this package are licensed under the 4-clause BSD license,
-the copyright on most of them belongs to The Regents of the University
-of California.  Since the license was retroactively changed in 1999 to
-remove the advertising clause, they are effectively under the 3-clause
-license even if the text of the license in the files hasn't been
-updated.  See the following document for more details:
-
+Files: *
+Copyright: 1982-2012 The Regents of the University of California
+           1998-2020 The TCPDUMP project
+           The tcpdump contributors; see the individual source files
+License: BSD-3-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ .
+   1. Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+   2. Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in
+      the documentation and/or other materials provided with the
+      distribution.
+   3. The names of the authors may not be used to endorse or promote
+      products derived from this software without specific prior
+      written permission.
+ .
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+Comment:
+ Some files in this package are licensed under the 4-clause BSD license,
+ the copyright on most of them belongs to The Regents of the University
+ of California.  Since the license was retroactively changed in 1999 to
+ remove the advertising clause, they are effectively under the 3-clause
+ license even if the text of the license in the files hasn't been
+ updated.  See the following document for more details:
+ .
    <URL: ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change>
+ .
+ Other files under the 4-clause BSD license and whose copyright doesn't
+ belong to The Regents of the University of California are listed in
+ the Files stanzas below.
 
-Other files under the 4-clause BSD license and whose copyright doesn't
-belong to the The Regents of the University of California are listed
-below:
-- aodv.h, Copyright (c) 2003 Bruce M. Simpson
-- atmuni31.h, Copyright (c) 1997 Yen Yen Lim and North Dakota State University
-- ieee802_11.h, Copyright (c) 2001 Fortress Technologies and Charlie Lenahan
-- print-802_11.c, Copyright (c) 2001 Fortress Technologies and Charlie Lenahan
-- print-aodv.c, Copyright (c) 2003 Bruce M. Simpson
-- print-ascii.c, Copyright (c) 1997, 1998 The NetBSD Foundation, Inc.
-- print-cnfp.c, Copyright (c) 1998 Michael Shalayeff
-- print-gre.c, Copyright (c) 2002 Jason L. Wright
-- print-mobile.c, Copyright (c) 1998 The NetBSD Foundation, Inc.
-- print-sunatm.c, Copyright (c) 1997 Yen Yen Lim and North Dakota State
-  		  University
-- print-telnet.c, Copyright (c) 1997, 1998 The NetBSD Foundation, Inc.
-- print-timed.c, Copyright (c) 2000 Ben Smithurst
-- missing/inet_aton.c, Copyright (c) 1995, 1996, 1997 Kungliga Tekniska
-  		       Högskolan (Royal Institute of Technology, Stockholm,
-		       Sweden).
-- missing/inet_ntop.c, Copyright (c) 1995, 1996, 1997 Kungliga Tekniska
-  		       Högskolan (Royal Institute of Technology, Stockholm,
-		       Sweden).
-- missing/inet_pton.c, Copyright (c) 1995, 1996, 1997 Kungliga Tekniska
-  		       Högskolan (Royal Institute of Technology, Stockholm,
-		       Sweden).
+Files: print-sunrpc.c
+       rpc_auth.h
+       rpc_msg.h
+Copyright: 1984, 2009 Sun Microsystems, Inc.
+           1992-1996 The Regents of the University of California
+License: BSD-3-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ - Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+ - Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+ - Neither the name of Sun Microsystems, Inc. nor the names of its
+   contributors may be used to endorse or promote products derived
+   from this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+Comment:
+ These files contain code derived from Sun RPC. In the upstream tarball
+ the Sun RPC portions still carry the original Sun RPC license notice,
+ which is not DFSG-free. The copyright holder, Sun Microsystems, Inc.,
+ has relicensed that code under the 3-clause BSD license reproduced
+ above. The same relicensing was applied in FreeBSD:
+   https://cgit.freebsd.org/src/commit/?id=2e322d379631c3bd6107e295f3e5d814c7845fc7
+ and adopted by upstream tcpdump in:
+   https://github.com/the-tcpdump-group/tcpdump/commit/b4c1686936096a305faadc866333c11b81e3c2f9
+ The Debian package distributes these files under the 3-clause BSD
+ license terms only. The upstream change is applied by the patch
+ debian/patches/sunrpc-relicense-bsd-3-clause.patch. See
+ https://bugs.debian.org/1147928.
+ .
+ print-sunrpc.c also contains code copyright The Regents of the
+ University of California, which is licensed under the terms given for
+ "Files: *" above.
 
-Current upstream maintainers:
-	Bill Fenner			<fenner@research.att.com>
-	Fulvio Risso			<risso@polito.it>
-	Guy Harris	 		<guy@alum.mit.edu>
-	Hannes Gredler			<hannes@juniper.net>
-	Jun-ichiro itojun Hagino	<itojun@iijlab.net>
-	Michael Richardson	 	<mcr@sandelman.ottawa.on.ca>
+Files: print-802_11.c
+       print-timed.c
+Copyright: 2001 Fortress Technologies, Inc.
+           2001 Charlie Lenahan <clenahan@fortresstech.com>
+           2000 Ben Smithurst <ben@scientia.demon.co.uk>
+License: BSD-4-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that: (1) source code distributions
+ retain the above copyright notice and this paragraph in its entirety, (2)
+ distributions including binary code include the above copyright notice and
+ this paragraph in its entirety in the documentation or other materials
+ provided with the distribution, and (3) all advertising materials mentioning
+ features or use of this software display the following acknowledgement:
+ ``This product includes software developed by the University of California,
+ Lawrence Berkeley Laboratory and its contributors.'' Neither the name of
+ the University nor the names of its contributors may be used to endorse
+ or promote products derived from this software without specific prior
+ written permission.
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-Additional people who have contributed patches:
+Files: print-ascii.c
+       print-mobile.c
+       print-telnet.c
+Copyright: 1997, 1998 The NetBSD Foundation, Inc.
+License: BSD-4-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. All advertising materials mentioning features or use of this software
+    must display the following acknowledgement:
+        This product includes software developed by the NetBSD
+        Foundation, Inc. and its contributors.
+ 4. Neither the name of The NetBSD Foundation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE NETBSD FOUNDATION, INC. AND CONTRIBUTORS
+ ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+ TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE FOUNDATION OR CONTRIBUTORS
+ BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
 
-	Alan Bawden			<Alan@LCS.MIT.EDU>
-	Alexey Kuznetsov		<kuznet@ms2.inr.ac.ru>
-	Albert Chin			<china@thewrittenword.com>
-	Andrew Brown			<atatat@atatdot.net>
-	Antti Kantee			<pooka@netbsd.org>
-	Arkadiusz Miskiewicz		<misiek@pld.org.pl>
-	Armando L. Caro Jr.		<acaro@mail.eecis.udel.edu>
-	Assar Westerlund	 	<assar@sics.se>
-	Brian Ginsbach			<ginsbach@cray.com>
-	Charles M. Hannum		<mycroft@netbsd.org>
-	Chris G. Demetriou		<cgd@netbsd.org>
-	Chris Pepper			<pepper@mail.reppep.com>
-	Darren Reed			<darrenr@reed.wattle.id.au>
-	David Kaelbling			<drk@sgi.com>
-	David Young			<dyoung@ojctech.com>
-	Don Ebright			<Don.Ebright@compuware.com>
-	Eric Anderson			<anderse@hpl.hp.com>
-	Franz Schaefer			<schaefer@mond.at>
-	Gianluca Varenni		<varenni@netgroup-serv.polito.it>
-	Gisle Vanem			<giva@bgnett.no>
-	Graeme Hewson			<ghewson@cix.compulink.co.uk>
-	Greg Stark			<gsstark@mit.edu>
-	Greg Troxel			<gdt@ir.bbn.com>
-	Guillaume Pelat			<endymion_@users.sourceforge.net>
-	Hyung Sik Yoon			<hsyn@kr.ibm.com>
-	Igor Khristophorov		<igor@atdot.org>
-	Jan-Philip Velders		<jpv@veldersjes.net>
-	Jason R. Thorpe			<thorpej@netbsd.org>
-	Javier Achirica			<achirica@ttd.net>
-	Jean Tourrilhes			<jt@hpl.hp.com>
-	Jefferson Ogata			<jogata@nodc.noaa.gov>
-	Jesper Peterson			<jesper@endace.com>
-	John Bankier			<jbankier@rainfinity.com>
-	Jon Lindgren			<jonl@yubyub.net>
-	Juergen Schoenwaelder		<schoenw@ibr.cs.tu-bs.de>
-	Kazushi Sugyo			<sugyo@pb.jp.nec.com>
-	Klaus Klein			<kleink@netbsd.org>
-	Koryn Grant			<koryn@endace.com>
-	Krzysztof Halasa		<khc@pm.waw.pl>
-	Lorenzo Cavallaro		<sullivan@sikurezza.org>
-	Loris Degioanni			<loris@netgroup-serv.polito.it>
-	Love Hörnquist-Åstrand		<lha@stacken.kth.se>
-	Maciej W. Rozycki		<macro@ds2.pg.gda.pl>
-	Marcus Felipe Pereira		<marcus@task.com.br>
-	Martin Husemann			<martin@netbsd.org>
-	Mike Wiacek			<mike@iroot.net>
-	Monroe Williams			<monroe@pobox.com>
-	Octavian Cerna			<tavy@ylabs.com>
-	Olaf Kirch			<okir@caldera.de>
-	Onno van der Linden		<onno@simplex.nl>
-	Paul Mundt			<lethal@linux-sh.org>
-	Pavel Kankovsky			<kan@dcit.cz>
-	Peter Fales			<peter@fales-lorenz.net>
-	Peter Jeremy			<peter.jeremy@alcatel.com.au>
-	Phil Wood			<cpw@lanl.gov>
-	Rafal Maszkowski		<rzm@icm.edu.pl>
-	Rick Jones			<raj@cup.hp.com>
-	Scott Barron			<sb125499@ohiou.edu>
-	Scott Gifford			<sgifford@tir.com>
-	Sebastian Krahmer		<krahmer@cs.uni-potsdam.de>
-	Shaun Clowes			<delius@progsoc.uts.edu.au>
-	Solomon Peachy			<pizza@shaftnet.org>
-	Stefan Hudson			<hudson@mbay.net>
-	Takashi Yamamoto		<yamt@mwd.biglobe.ne.jp>
-	Tony Li				<tli@procket.com>
-	Torsten Landschoff	 	<torsten@debian.org>
-	Uns Lider			<unslider@miranda.org>
-	Uwe Girlich			<Uwe.Girlich@philosys.de>
-	Xianjie Zhang			<xzhang@cup.hp.com>
-	Yen Yen Lim
-	Yoann Vandoorselaere		<yoann@prelude-ids.org>
+Files: print-aodv.c
+Copyright: 2003 Bruce M. Simpson <bms@spc.org>
+License: BSD-4-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. All advertising materials mentioning features or use of this software
+    must display the following acknowledgement:
+        This product includes software developed by Bruce M. Simpson.
+ 4. Neither the name of Bruce M. Simpson nor the names of co-
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY Bruce M. Simpson AND CONTRIBUTORS
+ ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+ TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL Bruce M. Simpson OR CONTRIBUTORS
+ BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
 
-The original LBL crew:
-	Steve McCanne
-	Craig Leres
-	Van Jacobson
+Files: print-cnfp.c
+Copyright: 1998 Michael Shalayeff
+License: BSD-4-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. All advertising materials mentioning features or use of this software
+    must display the following acknowledgement:
+        This product includes software developed by Michael Shalayeff.
+ 4. The name of the author may not be used to endorse or promote products
+    derived from this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Files: print-sunatm.c
+Copyright: 1997 Yen Yen Lim and North Dakota State University
+License: BSD-4-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. All advertising materials mentioning features or use of this software
+    must display the following acknowledgement:
+      This product includes software developed by Yen Yen Lim and
+      North Dakota State University
+ 4. The name of the author may not be used to endorse or promote products
+    derived from this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+
+Files: print-gre.c
+Copyright: 2002 Jason L. Wright <jason@thought.net>
+License: BSD-2-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
+ ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ POSSIBILITY OF SUCH DAMAGE.
+
+Files: debian/*
+Copyright: 1997-1998 Peter Tobias <tobias@et-inf.fho-emden.de>
+           2000 Anand Kumria <wildfire@progsoc.org>
+           1999-2003 Torsten Landschoff <torsten@debian.org>
+           2002 LaMont Jones <lamont@debian.org>
+           2003 Matt Zimmerman <mdz@debian.org>
+           2003-2025 Romain Francoise <rfrancoise@debian.org>
+           2026 Gianfranco Costamagna <locutusofborg@debian.org>
+License: BSD-3-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ .
+   1. Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+   2. Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in
+      the documentation and/or other materials provided with the
+      distribution.
+   3. The names of the authors may not be used to endorse or promote
+      products derived from this software without specific prior
+      written permission.
+ .
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
+ WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+Comment:
+ The previous, non machine-readable, version of this file did not state
+ a license for the Debian packaging. It is assumed to be distributed
+ under the same terms as the upstream package.

@@ -1,6 +1,5 @@
 Source: tcpdump
 Section: net
-Priority: optional
 Maintainer: Debian Security Tools <team+pkg-security@tracker.debian.org>
 Build-Depends: debhelper-compat (= 13),
                dh-sequence-installsysusers,

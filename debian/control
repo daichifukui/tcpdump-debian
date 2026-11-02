@@ -1,7 +1,7 @@
 Source: tcpdump
 Section: net
 Maintainer: Debian Security Tools <team+pkg-security@tracker.debian.org>
-Build-Depends: debhelper-compat (= 13),
+Build-Depends: debhelper-compat (= 14),
                dh-sequence-installsysusers,
                dh-apparmor,
                dpkg-dev (>= 1.16.1~),
@@ -14,8 +14,6 @@ Vcs-Git: https://salsa.debian.org/debian/tcpdump.git
 
 Package: tcpdump
 Architecture: any
-Depends: ${misc:Depends},
-         ${shlibs:Depends}
 Breaks: apparmor-profiles-extra (<< 1.12~)
 Replaces: apparmor-profiles-extra (<< 1.12~)
 Suggests: apparmor (>= 2.3)

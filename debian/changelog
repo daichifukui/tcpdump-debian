@@ -17,11 +17,13 @@ tcpdump (4.99.6-3) UNRELEASED; urgency=medium
     - d/tcpdump.install: Add path 'usr'.
   * d/salsa-ci.yml: Disable test-build-all and ignore lintian complaining
     no-human-maintainers.
+  * Add missing 'Team upload' to previous changelog stanza.
 
  -- Sven Geuer <sge@debian.org>  Mon, 02 Nov 2026 21:29:30 +0100
 
 tcpdump (4.99.6-2) unstable; urgency=medium
 
+  * Team upload
   * Upload to sid
 
  -- Gianfranco Costamagna <locutusofborg@debian.org>  Fri, 27 Feb 2026 19:23:01 +0100

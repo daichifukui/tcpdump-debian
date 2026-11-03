@@ -6,6 +6,18 @@ tcpdump (4.99.6-3) UNRELEASED; urgency=medium
     document that print-sunrpc.c, rpc_auth.h and rpc_msg.h are distributed
     under the BSD-3-Clause terms they were relicensed under, instead of the
     non-free Sun RPC license. (Closes: #1147928)
+  * debian/copyright: audit the license of every upstream file and document
+    each license text actually used, instead of claiming BSD-3-Clause for
+    the whole package:
+    - The LBL "paragraph" license (BSD-4-Clause-Shortened) keeps its
+      advertising clause; the UC Berkeley amendments of 1999 and 2012 do not
+      clearly cover it.
+    - The 4.4BSD UC license (BSD-4-Clause-UC) is documented with the 1999
+      amendment that deleted its advertising clause.
+    - Add the previously undocumented files and licenses: other 4-clause,
+      3-clause and 2-clause BSD variants, ISC, CMU, DEC, TUT, X11, FSFUL,
+      GPL-2+/GPL-3+ with Autoconf exception and the BSD-or-GPL dual licenses.
+    - Drop the outdated ftp.cs.berkeley.edu reference.
 
  -- Claude <noreply@anthropic.com>  Mon, 02 Nov 2026 06:04:28 +0000
 

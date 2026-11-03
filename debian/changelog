@@ -1,4 +1,4 @@
-tcpdump (4.99.6-3) UNRELEASED; urgency=medium
+tcpdump (4.99.6-3) unstable; urgency=medium
 
   * Team upload.
   * d/copyright: Create a machine-readable file from scratch.
@@ -15,11 +15,12 @@ tcpdump (4.99.6-3) UNRELEASED; urgency=medium
     - d/rules:
       - Add '--without single-binary' to the dh sequencer call.
     - d/tcpdump.install: Add path 'usr'.
-  * d/salsa-ci.yml: Disable test-build-all and ignore lintian complaining
-    no-human-maintainers.
+  * d/salsa-ci.yml:
+    - Disable test-build-all.
+    - Ignore lintian tag no-human-maintainers.
   * Add missing 'Team upload' to previous changelog stanza.
 
- -- Sven Geuer <sge@debian.org>  Mon, 02 Nov 2026 21:29:30 +0100
+ -- Sven Geuer <sge@debian.org>  Tue, 03 Nov 2026 20:07:22 +0100
 
 tcpdump (4.99.6-2) unstable; urgency=medium
 

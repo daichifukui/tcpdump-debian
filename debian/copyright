@@ -28,16 +28,6 @@ Copyright: 1988-1997 The Regents of the University of California
            2018 Arista Networks, Inc.
            The Tcpdump Group and contributors (see CREDITS)
 License: BSD-3-clause
-Comment:
- This stanza covers the files without a notice of their own (documentation,
- build files, test data, and for example print-ipnet.c, print-ppi.c and
- mib.h), which are distributed under the upstream LICENSE file. configure.ac
- and print-arista.c have a copyright line but no license notice and are
- distributed under LICENSE as well. It also covers the files whose own
- notice is a 3-clause BSD license, such as the WIDE Project files.
- cmake/Modules/FindPCAP.cmake contains code based on CMake 3.12.4
- FindPkgConfig.cmake, distributed under the BSD-3-clause license of CMake
- (https://github.com/Kitware/CMake/blob/v3.12.4/Copyright.txt).
 
 Files: Makefile.in addrtoname.c addrtoname.h appletalk.h ascii_strcasecmp.h
        bpf_dump.c chdlc.h ethertype.h extract.h interface.h lbl/os-osf4.h
@@ -87,10 +77,6 @@ Copyright: 1998-2020 The TCPDUMP project
            Francesco Fondelli
            Manu Pathak <mapathak@cisco.com>
 License: BSD-paragraph
-Comment:
- Several of these files have no copyright line and name their original
- authors instead ("Original code by ..."); those authors are listed
- without years.
 
 Files: fptype.c fptype.h getservent.h ip.h ipproto.h missing/getservent.c
        missing/strdup.c missing/strsep.c nfs.h pflog.h tcp.h udp.h
@@ -252,9 +238,6 @@ Files: print-cip.c print-lane.c
 Copyright: Marko Kiiskila <carnil@cs.tut.fi>,
            Tampere University of Technology - Telecommunications Laboratory
 License: TUT
-Comment:
- These files have no copyright line; the notice names the author and
- institution.
 
 Files: ppp.h
 Copyright: 1989 Carnegie Mellon
@@ -262,9 +245,8 @@ License: CMU
 
 Files: install-sh
 Copyright: 1994 X Consortium
+           FSF changes to this file are in the public domain.
 License: X11
-Comment:
- FSF changes to this file are in the public domain.
 
 Files: configure
 Copyright: 1992-1996, 1998-2017, 2020-2021 Free Software Foundation, Inc.
@@ -278,10 +260,6 @@ Files: print-beep.c print-smb.c smb.h smbutil.c
 Copyright: 1995-1999 Andrew Tridgell
            2000 Richard Sharpe
 License: BSD-3-clause or GPL-2+
-Comment:
- "This software may be distributed either under the terms of the BSD-style
- license that accompanies tcpdump or under the GNU GPL version 2 or
- later." The BSD-style license is the upstream LICENSE file.
 
 Files: print-dccp.c
 Copyright: 2004 Arnaldo Carvalho de Melo
@@ -292,9 +270,6 @@ License: BSD-3-clause or GPL-2
 Files: print-stp.c
 Copyright: 2000 Lennert Buytenhek
 License: BSD-3-clause or GPL-1+
-Comment:
- The notice names no version of the GNU General Public License, so any
- version may be chosen.
 
 Files: debian/*
 Copyright: 1997-1998 Peter Tobias <tobias@et-inf.fho-emden.de>
@@ -331,10 +306,6 @@ License: BSD-2-clause
  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
-Comment:
- Files under this license use the same terms; they differ only in the name
- of the copyright holder or author, and some use a different disclaimer
- wording. The text above is the one from print-gre.c.
 
 License: BSD-3-clause
  Redistribution and use in source and binary forms, with or without
@@ -354,10 +325,6 @@ License: BSD-3-clause
  THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR
  IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-Comment:
- This is the upstream LICENSE file. The other files under this license use
- the same three conditions with the name of their copyright holder in the
- third, and most of them the longer standard BSD warranty disclaimer.
 
 License: BSD-4-clause
  Redistribution and use in source and binary forms, with or without
@@ -525,9 +492,6 @@ License: BSD-paragraph
  WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT
  LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
  FOR A PARTICULAR PURPOSE.
-Comment:
- The two-condition "paragraph" form of the BSD license used by many
- tcpdump files. It has no advertising and no endorsement clause.
 
 License: BSD-paragraph-advertising
  Redistribution and use in source and binary forms, with or without
@@ -556,10 +520,6 @@ License: BSD-paragraph-endorsement
  THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR IMPLIED
  WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
-Comment:
- The text above is the one from atm.h. In print-carp.c, print-msdp.c and
- print-vrrp.c the name is William C. Fenner, in print-zephyr.c "the
- author(s)".
 
 License: BSD-UC-credit
  Redistribution and use in source and binary forms are permitted
@@ -568,9 +528,6 @@ License: BSD-UC-credit
  may not be used to endorse or promote products derived from this
  software without specific prior written permission. This software
  is provided ``as is'' without express or implied warranty.
-Comment:
- The text above is the one from mkdep; ascii_strcasecmp.c has the same
- text with "specific written prior permission".
 
 License: CMU
  Permission to use, copy, modify, and distribute this program for any
@@ -691,9 +648,6 @@ License: ISC
  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT
  OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-Comment:
- The text above is the one from strtoaddr.c; missing/getopt_long.c has the
- same text with "THE AUTHOR" in place of "ISC".
 
 License: Ioannidis-Keromytis
  The authors of this code are John Ioannidis (ji@tla.org),

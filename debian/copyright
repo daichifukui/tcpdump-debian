@@ -133,27 +133,34 @@ Comment:
  file"; that notice permits copying and use provided the notice and any
  statement of authorship are reproduced.
 
-Files: print-802_11.c print-esp.c print-icmp6.c print-ripng.c print-sunrpc.c
-Copyright: 1988-1996 The Regents of the University of California
-           1984, 2009 Sun Microsystems, Inc.
+Files: print-802_11.c print-esp.c print-icmp6.c print-ripng.c
+Copyright: 1988-1994 The Regents of the University of California
            1995-1998 WIDE Project
            2001 Fortress Technologies, Inc.
            2001 Charlie Lenahan <clenahan@fortresstech.com>
            2003, 2004 David Young
 License: BSD-4-Clause-Shortened and BSD-3-clause
+
+Files: print-sunrpc.c
+Copyright: 1992-1996 The Regents of the University of California
+           1984, 2009 Sun Microsystems, Inc.
+License: BSD-4-Clause-Shortened and BSD-3-clause
 Comment:
- For the Sun RPC code in print-sunrpc.c see the rpc_auth.h and rpc_msg.h
- stanza.
+ The portmapper protocol definitions in this file are derived from Sun RPC
+ (pmap_prot.h) and are under the BSD-3-clause license of Sun Microsystems,
+ Inc.; see the next stanza. The rest of the file is under the
+ BSD-4-Clause-Shortened license of the University of California.
 
 Files: rpc_auth.h rpc_msg.h
 Copyright: 1984, 2009 Sun Microsystems, Inc.
 License: BSD-3-clause
 Comment:
- These files, and part of print-sunrpc.c, contain code derived from Sun
- RPC. In the upstream tarball the Sun RPC portions still carry the original
- Sun RPC license notice, which is not DFSG-free. The copyright holder, Sun
- Microsystems, Inc., has relicensed that code under the 3-clause BSD
- license. The same relicensing was applied in FreeBSD:
+ These files, and the portmapper protocol definitions in print-sunrpc.c,
+ contain code derived from Sun RPC. In the upstream tarball the Sun RPC
+ portions still carry the original Sun RPC license notice, which is not
+ DFSG-free. The copyright holder, Sun Microsystems, Inc., has relicensed
+ that code under the 3-clause BSD license. The same relicensing was
+ applied in FreeBSD:
    https://cgit.freebsd.org/src/commit/?id=2e322d379631c3bd6107e295f3e5d814c7845fc7
  and adopted by upstream tcpdump in:
    https://github.com/the-tcpdump-group/tcpdump/commit/b4c1686936096a305faadc866333c11b81e3c2f9
@@ -685,8 +692,8 @@ License: ISC
  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT
  OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 Comment:
- Files under this license use the same terms; they differ only in the name
- of the copyright holder or author, and missing/getopt_long.c names "THE AUTHOR". The text above is the one from strtoaddr.c.
+ The text above is the one from strtoaddr.c; missing/getopt_long.c has the
+ same text with "THE AUTHOR" in place of "ISC".
 
 License: Ioannidis-Keromytis
  The authors of this code are John Ioannidis (ji@tla.org),

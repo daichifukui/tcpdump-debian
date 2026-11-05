@@ -4,8 +4,8 @@ Upstream-Contact: tcpdump-workers@tcpdump.org
 Source: https://www.tcpdump.org/
 
 Files: *
-Copyright: 1988-1997 The Regents of the University of California
-           1995-2002 WIDE Project
+Copyright: 1988, 1992-1997 The Regents of the University of California
+           1995-1999, 2001, 2002 WIDE Project
            1998 Todd C. Miller <Todd.Miller@courtesan.com>
            1999 Cisco And Motorola
            2000 Alfredo Andres Omella
@@ -67,7 +67,7 @@ Files: af.c af.h checksum.c gmpls.c gmpls.h instrument-functions.c ipproto.c
        print-sip.c print-slow.c print-smtp.c print-someip.c print-ssh.c
        print-syslog.c print-udld.c print-unsupported.c print-vqp.c print-vtp.c
        print-vxlan.c print-whois.c signature.c signature.h status-exit-codes.h
-Copyright: 1998-2020 The TCPDUMP project
+Copyright: 1998-2011, 2013, 2018, 2020 The TCPDUMP project
            1998-2004 Hannes Gredler <hannes@gredler.at>
            2009 Florian Forster
            2009 Mojatatu Networks, Inc
@@ -80,7 +80,7 @@ License: BSD-paragraph
 
 Files: fptype.c fptype.h getservent.h ip.h ipproto.h missing/getservent.c
        missing/strdup.c missing/strsep.c nfs.h pflog.h tcp.h udp.h
-Copyright: 1982-1993 The Regents of the University of California
+Copyright: 1982, 1983, 1986, 1988-1990, 1993 The Regents of the University of California
            1993 Digital Equipment Corporation
            2012 G. Vanem <gvanem@yahoo.no>
            2017 Ali Abdulkadir <autostart.ini@gmail.com>
@@ -109,7 +109,7 @@ Copyright: 1990, 1996 John Robert LoVerso
            2002 Jason L. Wright <jason@thought.net>
            2013 Petar Alilovic, Faculty of Electrical Engineering and Computing,
                 University of Zagreb
-           2013-2020 The TCPDUMP project
+           2013-2015, 2020 The TCPDUMP project
            2015 bugyo
 License: BSD-2-clause
 
@@ -185,12 +185,12 @@ Copyright: 1994-1997 The Regents of the University of California
 License: BSD-4-Clause-Shortened and BSD-4-clause
 
 Files: print-bootp.c
-Copyright: 1990-1997 The Regents of the University of California
+Copyright: 1990, 1991, 1993-1997 The Regents of the University of California
            1988 Carnegie Mellon
 License: BSD-4-Clause-Shortened and CMU
 
 Files: print-enc.c
-Copyright: 1990-1996 The Regents of the University of California
+Copyright: 1990, 1991, 1993-1996 The Regents of the University of California
            1995-1998 John Ioannidis, Angelos D. Keromytis and Niels Provos
            2001 Angelos D. Keromytis
 License: BSD-4-Clause-Shortened and Ioannidis-Keromytis
@@ -201,7 +201,7 @@ Copyright: 1988-1996 The Regents of the University of California
 License: BSD-4-Clause-Shortened and BSD-2-clause
 
 Files: util-print.c
-Copyright: 1990-1997 The Regents of the University of California
+Copyright: 1990, 1991, 1993-1997 The Regents of the University of California
            Hannes Gredler <hannes@gredler.at>
 License: BSD-4-Clause-Shortened and BSD-paragraph
 

@@ -114,14 +114,19 @@ Copyright: 1990, 1996 John Robert LoVerso
 License: BSD-2-clause
 
 Files: print-snmp.c
-Copyright: 1990-1997 John Robert LoVerso
+Copyright: 1990, 1991, 1993-1997 John Robert LoVerso
            1999 Juergen Schoenwaelder
 License: BSD-2-clause
 Comment:
- Earlier forms of this file were derived from or inspired by an awk script
- by C. Philip Wood of Los Alamos National Laboratory (LANL). print-snmp.c
- preserves the notice of that script "even though it may not rightly apply
- to this file". The notice is reproduced here, as it requires:
+ The upstream header states that "Earlier forms of this implementation
+ were derived and/or inspired by an awk script originally written by
+ C. Philip Wood of LANL" (Los Alamos National Laboratory), and that "The
+ copyright notice for that work is preserved below, even though it may not
+ rightly apply to this file."
+ .
+ The notice is reproduced here to preserve the historical attribution and
+ out of caution. Its applicability to the present implementation has not
+ been established.
  .
    Los Alamos National Laboratory
  .
@@ -136,6 +141,7 @@ Comment:
    on all copies.  Neither the Government nor the University makes
    any warranty, express or implied, or assumes any liability or
    responsibility for the use of this software.
+   @(#)snmp.awk.x 1.1 (LANL) 1/15/90
 
 Files: print-802_11.c print-esp.c print-icmp6.c print-ripng.c
 Copyright: 1988-1994 The Regents of the University of California

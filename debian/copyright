@@ -102,9 +102,8 @@ License: BSD-4-clause
 Files: makemib missing/getopt_long.h openflow.h print-ahcp.c print-aoe.c
        print-gre.c print-loopback.c print-m3ua.c print-nflog.c print-nsh.c
        print-openflow-1.0.c print-openflow-1.3.c print-openflow.c print-resp.c
-       print-snmp.c print-vxlan-gpe.c print-zeromq.c timeval-operations.h
-Copyright: 1990-1997 John Robert LoVerso
-           1999 Juergen Schoenwaelder
+       print-vxlan-gpe.c print-zeromq.c timeval-operations.h
+Copyright: 1990, 1996 John Robert LoVerso
            1999 William C. Fenner
            2000 The NetBSD Foundation, Inc.
            2002 Jason L. Wright <jason@thought.net>
@@ -113,11 +112,30 @@ Copyright: 1990-1997 John Robert LoVerso
            2013-2020 The TCPDUMP project
            2015 bugyo
 License: BSD-2-clause
+
+Files: print-snmp.c
+Copyright: 1990-1997 John Robert LoVerso
+           1999 Juergen Schoenwaelder
+License: BSD-2-clause
 Comment:
- print-snmp.c also reproduces a notice of an earlier awk script by Los
- Alamos National Laboratory, which it says "may not rightly apply to this
- file"; that notice permits copying and use provided the notice and any
- statement of authorship are reproduced.
+ Earlier forms of this file were derived from or inspired by an awk script
+ by C. Philip Wood of Los Alamos National Laboratory (LANL). print-snmp.c
+ preserves the notice of that script "even though it may not rightly apply
+ to this file". The notice is reproduced here, as it requires:
+ .
+   Los Alamos National Laboratory
+ .
+   Copyright (c) 1990, 1991, 1993, 1994, 1995, 1996, 1997
+   This software was produced under a U.S. Government contract
+   (W-7405-ENG-36) by Los Alamos National Laboratory, which is
+   operated by the University of California for the U.S. Department
+   of Energy.  The U.S. Government is licensed to use, reproduce,
+   and distribute this software.  Permission is granted to the
+   public to copy and use this software without charge, provided
+   that this Notice and any statement of authorship are reproduced
+   on all copies.  Neither the Government nor the University makes
+   any warranty, express or implied, or assumes any liability or
+   responsibility for the use of this software.
 
 Files: print-802_11.c print-esp.c print-icmp6.c print-ripng.c
 Copyright: 1988-1994 The Regents of the University of California

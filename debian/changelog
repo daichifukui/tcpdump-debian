@@ -1,5 +1,30 @@
+tcpdump (4.99.6-3) unstable; urgency=medium
+
+  * Team upload.
+  * d/copyright: Create a machine-readable file from scratch.
+  * d/watch: Update watch file to version 5 format.
+  * d/p/*: Fix typo in patch name: priviledges -> privileges.
+  * d/control:
+    - Drop 'Priority: optional'.
+    - Bump Standards-Version to 4.7.4.
+  * d/gbp.conf: Introduce gbp configuration file.
+  * Bump debhelper-compat.
+    - d/control:
+      - Update debhelper-compat to 14.
+      - Drop all ${*:Depends} substvar.
+    - d/rules:
+      - Add '--without single-binary' to the dh sequencer call.
+    - d/tcpdump.install: Add path 'usr'.
+  * d/salsa-ci.yml:
+    - Disable test-build-all.
+    - Ignore lintian tag no-human-maintainers.
+  * Add missing 'Team upload' to previous changelog stanza.
+
+ -- Sven Geuer <sge@debian.org>  Tue, 03 Nov 2026 20:07:22 +0100
+
 tcpdump (4.99.6-2) unstable; urgency=medium
 
+  * Team upload
   * Upload to sid
 
  -- Gianfranco Costamagna <locutusofborg@debian.org>  Fri, 27 Feb 2026 19:23:01 +0100

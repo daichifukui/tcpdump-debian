@@ -1,2 +1,4 @@
-version=4
-opts="pgpsigurlmangle=s%$%.sig%" https://www.tcpdump.org release/tcpdump-([\d\.]*).tar.xz
+Version: 5
+Pgp-Sig-Url-Mangle: s/$/.sig/
+Source: https://www.tcpdump.org/release/
+Matching-Pattern: @PACKAGE@@ANY_VERSION@@ARCHIVE_EXT@

@@ -2,8 +2,7 @@ Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Source: https://www.tcpdump.org/release/
 
 Files: *
-Copyright: 1984,      Sun Microsystems, Inc
-           1986-2008, Cisco Systems, Inc
+Copyright: 1986-2008, Cisco Systems, Inc
            1995-1999, Andrew Tridgell
            1993-1994, Jeffrey C. Mogul, Digital Equipment Corporation
            1994-1997, The Regents of the University of California
@@ -142,8 +141,7 @@ Files: Makefile.in
        tcpdump.1.in
        tcpdump.c
        util-print.c
-Copyright: 1984,      Sun Microsystems, Inc
-           1987-2012, The Regents of the University of California
+Copyright: 1987-2012, The Regents of the University of California
            1990-1997, John Robert LoVerso
            1990-1997, Los Alamos National Laboratory
            1995-2002, WIDE Project
@@ -183,6 +181,30 @@ Copyright: 1984,      Sun Microsystems, Inc
            2017,      Red Hat, Inc
            2017,      Sabrina Dubroca <sd@queasysnail.net>
 License: BSD-3-clause
+
+Files: print-sunrpc.c
+       rpc_auth.h
+       rpc_msg.h
+Copyright: 1984, 2009, Sun Microsystems, Inc
+           1992-1996, The Regents of the University of California
+License: BSD-3-clause
+Comment:
+ rpc_auth.h, rpc_msg.h and the portmapper protocol definitions in
+ print-sunrpc.c contain code derived from Sun RPC. In the upstream tarball
+ the Sun RPC portions still carry the original Sun RPC license notice,
+ which is not DFSG-free. The copyright holder, Sun Microsystems, Inc., has
+ relicensed that code under the 3-clause BSD license. The same relicensing
+ was applied in FreeBSD:
+   https://cgit.freebsd.org/src/commit/?id=2e322d379631c3bd6107e295f3e5d814c7845fc7
+ and adopted by upstream tcpdump in:
+   https://github.com/the-tcpdump-group/tcpdump/commit/b4c1686936096a305faadc866333c11b81e3c2f9
+ The Debian package distributes this code under the 3-clause BSD license
+ terms only. The upstream change is applied by the patch
+ debian/patches/sunrpc-relicense-bsd-3-clause.patch. See
+ https://bugs.debian.org/1147928.
+ .
+ The rest of print-sunrpc.c is copyright The Regents of the University of
+ California.
 
 Files: addrtostr.c
        addrtostr.h

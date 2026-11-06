@@ -6,7 +6,3 @@ include:
 variables:
   SALSA_CI_DISABLE_REPROTEST: 1
   SALSA_CI_DISABLE_BUILD_PACKAGE_ALL: 1
-  # lintian currently fails with no-human-maintainers error what we ignore
-  # for now. Please remove this configuration as soon as there is a human
-  # listed as Uploader or Maintainer.
-  SALSA_CI_LINTIAN_SUPPRESS_TAGS: 'no-human-maintainers'

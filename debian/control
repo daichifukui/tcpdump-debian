@@ -1,6 +1,7 @@
 Source: tcpdump
 Section: net
 Maintainer: Debian Security Tools <team+pkg-security@tracker.debian.org>
+Uploaders: Fukui Daichi <a.dog.will.talk@akane.waseda.jp>
 Build-Depends: debhelper-compat (= 14),
                dh-sequence-installsysusers,
                dh-apparmor,

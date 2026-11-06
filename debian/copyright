@@ -121,7 +121,6 @@ Files: Makefile.in
        print-rx.c
        print-sl.c
        print-sll.c
-       print-sunrpc.c
        print-symantec.c
        print-tcp.c
        print-tftp.c

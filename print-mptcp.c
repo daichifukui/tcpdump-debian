@@ -54,6 +54,7 @@
 #define MPTCP_SUB_PRIO          0x5
 #define MPTCP_SUB_FAIL          0x6
 #define MPTCP_SUB_FCLOSE        0x7
+#define MPTCP_SUB_TCPRST        0x8
 
 struct mptcp_option {
         nd_uint8_t     kind;
@@ -63,6 +64,20 @@ struct mptcp_option {
 
 #define MPTCP_OPT_SUBTYPE(sub_etc)      (((sub_etc) >> 4) & 0xF)
 
+#define MP_CAPABLE_A                    0x80
+
+static const struct tok mp_capable_flags[] = {
+        { MP_CAPABLE_A, "A" },
+        { 0x40, "B" },
+        { 0x20, "C" },
+        { 0x10, "D" },
+        { 0x08, "E" },
+        { 0x04, "F" },
+        { 0x02, "G" },
+        { 0x01, "H" },
+        { 0, NULL }
+};
+
 struct mp_capable {
         nd_uint8_t     kind;
         nd_uint8_t     len;
@@ -70,11 +85,10 @@ struct mp_capable {
         nd_uint8_t     flags;
         nd_uint64_t    sender_key;
         nd_uint64_t    receiver_key;
+        nd_uint16_t    data_len;
 };
 
 #define MP_CAPABLE_OPT_VERSION(sub_ver) (((sub_ver) >> 0) & 0xF)
-#define MP_CAPABLE_C                    0x80
-#define MP_CAPABLE_S                    0x01
 
 struct mp_join {
         nd_uint8_t     kind;
@@ -179,22 +193,48 @@ struct mp_prio {
 
 #define MP_PRIO_B                       0x01
 
+static const struct tok mp_tcprst_flags[] = {
+        { 0x08, "U" },
+        { 0x04, "V" },
+        { 0x02, "W" },
+        { 0x01, "T" },
+        { 0, NULL }
+};
+
+static const struct tok mp_tcprst_reasons[] = {
+        { 0x06, "Middlebox interference" },
+        { 0x05, "Unacceptable performance" },
+        { 0x04, "Too much outstanding data" },
+        { 0x03, "Administratively prohibited" },
+        { 0x02, "Lack of resources" },
+        { 0x01, "MPTCP-specific error" },
+        { 0x00, "Unspecified error" },
+        { 0, NULL }
+};
+
+struct mp_tcprst {
+        nd_uint8_t     kind;
+        nd_uint8_t     len;
+        nd_uint8_t     sub_b;
+        nd_uint8_t     reason;
+};
+
 static int
 dummy_print(netdissect_options *ndo _U_,
-            const u_char *opt _U_, u_int opt_len _U_, u_char flags _U_)
+            const u_char *opt _U_, u_int opt_len _U_, uint16_t flags _U_)
 {
         return 1;
 }
 
 static int
 mp_capable_print(netdissect_options *ndo,
-                 const u_char *opt, u_int opt_len, u_char flags)
+                 const u_char *opt, u_int opt_len, uint16_t flags)
 {
         const struct mp_capable *mpc = (const struct mp_capable *) opt;
-        uint8_t version;
+        uint8_t version, csum_enabled;
 
         if (!((opt_len == 12 || opt_len == 4) && flags & TH_SYN) &&
-            !((opt_len == 20 || opt_len == 22) && (flags & (TH_SYN | TH_ACK)) ==
+            !((opt_len == 20 || opt_len == 22 || opt_len == 24) && (flags & (TH_SYN | TH_ACK)) ==
               TH_ACK))
                 return 0;
 
@@ -209,12 +249,20 @@ mp_capable_print(netdissect_options *ndo,
                         return 1;
         }
 
-        if (GET_U_1(mpc->flags) & MP_CAPABLE_C)
+        ND_PRINT(" flags [%s]", bittok2str_nosep(mp_capable_flags, "none",
+                 GET_U_1(mpc->flags)));
+
+        csum_enabled = GET_U_1(mpc->flags) & MP_CAPABLE_A;
+        if (csum_enabled)
                 ND_PRINT(" csum");
         if (opt_len == 12 || opt_len >= 20) {
                 ND_PRINT(" {0x%" PRIx64, GET_BE_U_8(mpc->sender_key));
                 if (opt_len >= 20)
                         ND_PRINT(",0x%" PRIx64, GET_BE_U_8(mpc->receiver_key));
+
+                /* RFC 8684 Section 3.1 */
+                if ((opt_len == 22 && !csum_enabled) || opt_len == 24)
+                        ND_PRINT(",data_len=%u", GET_BE_U_2(mpc->data_len));
                 ND_PRINT("}");
         }
         return 1;
@@ -222,7 +270,7 @@ mp_capable_print(netdissect_options *ndo,
 
 static int
 mp_join_print(netdissect_options *ndo,
-              const u_char *opt, u_int opt_len, u_char flags)
+              const u_char *opt, u_int opt_len, uint16_t flags)
 {
         const struct mp_join *mpj = (const struct mp_join *) opt;
 
@@ -262,7 +310,7 @@ mp_join_print(netdissect_options *ndo,
 
 static int
 mp_dss_print(netdissect_options *ndo,
-             const u_char *opt, u_int opt_len, u_char flags)
+             const u_char *opt, u_int opt_len, uint16_t flags)
 {
         const struct mp_dss *mdss = (const struct mp_dss *) opt;
         uint8_t mdss_flags;
@@ -353,7 +401,7 @@ mp_dss_print(netdissect_options *ndo,
 
 static int
 add_addr_print(netdissect_options *ndo,
-               const u_char *opt, u_int opt_len, u_char flags _U_)
+               const u_char *opt, u_int opt_len, uint16_t flags _U_)
 {
         const struct mp_add_addr *add_addr = (const struct mp_add_addr *) opt;
 
@@ -390,7 +438,7 @@ add_addr_print(netdissect_options *ndo,
 
 static int
 remove_addr_print(netdissect_options *ndo,
-                  const u_char *opt, u_int opt_len, u_char flags _U_)
+                  const u_char *opt, u_int opt_len, uint16_t flags _U_)
 {
         const struct mp_remove_addr *remove_addr = (const struct mp_remove_addr *) opt;
         u_int i;
@@ -407,7 +455,7 @@ remove_addr_print(netdissect_options *ndo,
 
 static int
 mp_prio_print(netdissect_options *ndo,
-              const u_char *opt, u_int opt_len, u_char flags _U_)
+              const u_char *opt, u_int opt_len, uint16_t flags _U_)
 {
         const struct mp_prio *mpp = (const struct mp_prio *) opt;
 
@@ -426,7 +474,7 @@ mp_prio_print(netdissect_options *ndo,
 
 static int
 mp_fail_print(netdissect_options *ndo,
-              const u_char *opt, u_int opt_len, u_char flags _U_)
+              const u_char *opt, u_int opt_len, uint16_t flags _U_)
 {
         if (opt_len != 12)
                 return 0;
@@ -437,7 +485,7 @@ mp_fail_print(netdissect_options *ndo,
 
 static int
 mp_fast_close_print(netdissect_options *ndo,
-                    const u_char *opt, u_int opt_len, u_char flags _U_)
+                    const u_char *opt, u_int opt_len, uint16_t flags _U_)
 {
         if (opt_len != 12)
                 return 0;
@@ -446,9 +494,26 @@ mp_fast_close_print(netdissect_options *ndo,
         return 1;
 }
 
+static int
+mp_tcprst_print(netdissect_options *ndo,
+                const u_char *opt, u_int opt_len, uint16_t flags _U_)
+{
+        const struct mp_tcprst *mpr = (const struct mp_tcprst *)opt;
+
+        if (opt_len != 4)
+                return 0;
+
+        ND_PRINT(" flags [%s]", bittok2str_nosep(mp_tcprst_flags, "none",
+                 GET_U_1(mpr->sub_b)));
+
+        ND_PRINT(" reason %s", tok2str(mp_tcprst_reasons, "unknown (0x%02x)",
+                 GET_U_1(mpr->reason)));
+        return 1;
+}
+
 static const struct {
         const char *name;
-        int (*print)(netdissect_options *, const u_char *, u_int, u_char);
+        int (*print)(netdissect_options *, const u_char *, u_int, uint16_t);
 } mptcp_options[] = {
         { "capable",    mp_capable_print },
         { "join",       mp_join_print },
@@ -458,12 +523,13 @@ static const struct {
         { "prio",       mp_prio_print },
         { "fail",       mp_fail_print },
         { "fast-close", mp_fast_close_print },
+        { "tcprst",     mp_tcprst_print },
         { "unknown",    dummy_print },
 };
 
 int
 mptcp_print(netdissect_options *ndo,
-            const u_char *cp, u_int len, u_char flags)
+            const u_char *cp, u_int len, uint16_t flags)
 {
         const struct mptcp_option *opt;
         u_int subtype;
@@ -474,7 +540,7 @@ mptcp_print(netdissect_options *ndo,
 
         opt = (const struct mptcp_option *) cp;
         subtype = MPTCP_OPT_SUBTYPE(GET_U_1(opt->sub_etc));
-        subtype = ND_MIN(subtype, MPTCP_SUB_FCLOSE + 1);
+        subtype = ND_MIN(subtype, MPTCP_SUB_TCPRST + 1);
 
         ND_PRINT(" %u", len);
 

@@ -231,7 +231,18 @@ static int WflagChars;
 #if defined(HAVE_FORK) || defined(HAVE_VFORK)
 static char *zflag = NULL;		/* compress each savefile using a specified command (like gzip or bzip2) */
 #endif
+
+/*
+ * On QNX 8.0 SA_RESTART is not available, so it needs the workaround discussed
+ * in the comment after setitimer() below.  Use a prime number to reduce the
+ * resonance.
+ */
+#ifdef __QNX__
+static int timeout = 953;
+#else
 static int timeout = 1000;		/* default timeout = 1000 ms = 1 s */
+#endif // __QNX__
+
 #ifdef HAVE_PCAP_SET_IMMEDIATE_MODE
 static int immediate_mode;
 #endif
@@ -1962,11 +1973,7 @@ main(int argc, char **argv)
 			 */
 			setvbuf(stdout, NULL, _IONBF, 0);
 #else /* _WIN32 */
-#ifdef HAVE_SETLINEBUF
-			setlinebuf(stdout);
-#else
 			setvbuf(stdout, NULL, _IOLBF, 0);
-#endif
 #endif /* _WIN32 */
 			lflag = 1;
 			break;
@@ -2230,6 +2237,8 @@ main(int argc, char **argv)
 		error("-C cannot be used without -w.");
 	if (Gflag != 0 && WFileName == NULL)
 		error("-G cannot be used without -w.");
+	if (count_mode && RFileName == NULL && VFileName == NULL)
+		error("--count cannot be used without -r or -V.");
 #if defined(HAVE_FORK) || defined(HAVE_VFORK)
 	if (zflag != NULL && (WFileName == NULL || (Cflag == 0 && Gflag == 0)))
 		error("-z cannot be used without -w and (-C or -G).");
@@ -2827,6 +2836,25 @@ DIAG_ON_ASSIGN_ENUM
 		timer.it_value.tv_sec = 1;
 		timer.it_value.tv_usec = 1;
 		setitimer(ITIMER_REAL, &timer, NULL);
+		/*
+		 * The timer has just been armed, so this process will receive
+		 * a SIGALRM every second.  Soon the pcap_loop() below will
+		 * start iterating; iterations that have not filled the packet
+		 * buffer completely are supposed to invoke the callback after
+		 * the packet buffer timeout.  However, if the timeout is not
+		 * sufficiently less than the timer interval, the signal
+		 * typically will be delivered before the timeout has expired.
+		 * On at least one OS this will be steadily interrupting a
+		 * system call and interfering with the callback invocation.
+		 *
+		 * Until this problem has a proper solution, the simplest
+		 * workaround is to make the race condition less pronounced by
+		 * lowering the packet buffer timeout.  Ideally this block
+		 * ought both to arm the timer and to set a custom timeout, but
+		 * by now pcap_activate() has already been invoked, so the
+		 * workaround is in the 'timeout' declaration near the top of
+		 * this file.
+		 */
 #endif /* _WIN32 */
 	}
 
@@ -3009,6 +3037,7 @@ static void
 
 	memset(&new, 0, sizeof(new));
 	new.sa_handler = func;
+# ifdef SA_RESTART
 	if ((sig == SIGCHLD)
 # ifdef SIGNAL_REQ_INFO
 		|| (sig == SIGNAL_REQ_INFO)
@@ -3018,6 +3047,7 @@ static void
 # endif
 		)
 		new.sa_flags = SA_RESTART;
+# endif // SA_RESTART
 	if (sigaction(sig, &new, &old) < 0)
 		/* The same workaround as for SIG_DFL above. */
 #ifdef __illumos__

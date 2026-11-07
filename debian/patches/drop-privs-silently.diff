@@ -6,11 +6,9 @@ Origin: vendor, https://src.fedoraproject.org/rpms/tcpdump/raw/master/f/0008-Don
  tcpdump.c | 5 -----
  1 file changed, 5 deletions(-)
 
-Index: tcpdump/tcpdump.c
-===================================================================
---- tcpdump.orig/tcpdump.c
-+++ tcpdump/tcpdump.c
-@@ -812,8 +812,6 @@ droproot(const char *username, const cha
+--- a/tcpdump.c
++++ b/tcpdump.c
+@@ -823,8 +823,6 @@
  			int ret = capng_change_id(pw->pw_uid, pw->pw_gid, CAPNG_NO_FLAG);
  			if (ret < 0)
  				error("capng_change_id(): return %d", ret);
@@ -19,7 +17,7 @@ Index: tcpdump/tcpdump.c
  		}
  #else
  		if (initgroups(pw->pw_name, pw->pw_gid) != 0 ||
-@@ -823,9 +821,6 @@ droproot(const char *username, const cha
+@@ -834,9 +832,6 @@
  				(unsigned long)pw->pw_uid,
  				(unsigned long)pw->pw_gid,
  				pcap_strerror(errno));

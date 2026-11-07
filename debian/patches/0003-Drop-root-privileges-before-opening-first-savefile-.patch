@@ -14,11 +14,9 @@ Subject: [PATCH 3/8] Drop root priviledges before opening first savefile if
  tcpdump.c    | 30 ++++++++++++++++++++++++++++++
  2 files changed, 36 insertions(+), 1 deletion(-)
 
-Index: tcpdump/tcpdump.1.in
-===================================================================
---- tcpdump.orig/tcpdump.1.in
-+++ tcpdump/tcpdump.1.in
-@@ -283,6 +283,9 @@ not 1,048,576 bytes).
+--- a/tcpdump.1.in
++++ b/tcpdump.1.in
+@@ -287,6 +287,9 @@
  By adding a suffix of k/K, m/M or g/G to the value, the unit
  can be changed to 1,024 (KiB), 1,048,576 (MiB), or 1,073,741,824 (GiB)
  respectively.
@@ -28,7 +26,7 @@ Index: tcpdump/tcpdump.1.in
  .TP
  .B \-d
  Dump the compiled packet-matching code in a human readable form to
-@@ -434,6 +437,10 @@ capture period is therefore not advised.
+@@ -438,6 +441,10 @@
  If used in conjunction with the
  .B \-C
  option, filenames will take the form of `\fIfile\fP<count>'.
@@ -39,7 +37,7 @@ Index: tcpdump/tcpdump.1.in
  .TP
  .B \-h
  .PD 0
-@@ -1008,7 +1015,9 @@ but before opening any savefiles for out
+@@ -1012,7 +1019,9 @@
  and the group ID to the primary group of
  .IR user .
  .IP
@@ -50,11 +48,9 @@ Index: tcpdump/tcpdump.1.in
  .IP "\fI expression\fP"
  .RS
  selects which packets will be dumped.
-Index: tcpdump/tcpdump.c
-===================================================================
---- tcpdump.orig/tcpdump.c
-+++ tcpdump/tcpdump.c
-@@ -1544,6 +1544,7 @@ main(int argc, char **argv)
+--- a/tcpdump.c
++++ b/tcpdump.c
+@@ -1555,6 +1555,7 @@
  	cap_rights_t rights;
  	int cansandbox;
  #endif	/* HAVE_CAPSICUM */
@@ -62,7 +58,7 @@ Index: tcpdump/tcpdump.c
  	int Oflag = 1;			/* run filter code optimizer */
  	int yflag_dlt = -1;
  	const char *yflag_dlt_name = NULL;
-@@ -2639,6 +2640,16 @@ DIAG_ON_ASSIGN_ENUM
+@@ -2648,6 +2649,16 @@
  		}
  		capng_apply(CAPNG_SELECT_BOTH);
  #endif /* HAVE_LIBCAP_NG */
@@ -79,7 +75,7 @@ Index: tcpdump/tcpdump.c
  		if (username || chroot_dir)
  			droproot(username, chroot_dir);
  
-@@ -2681,6 +2692,22 @@ DIAG_ON_ASSIGN_ENUM
+@@ -2690,6 +2701,22 @@
  		  MakeFilename(dumpinfo.CurrentFileName, WFileName, 0, 0);
  
  		pdd = pcap_dump_open(pd, dumpinfo.CurrentFileName);

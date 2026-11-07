@@ -1,107 +1,92 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: tcpdump
+Upstream-Contact: tcpdump-workers@tcpdump.org
 Source: https://www.tcpdump.org/release/
 
 Files: *
-Copyright: 1984,      Sun Microsystems, Inc
-           1986-2008, Cisco Systems, Inc
-           1995-1999, Andrew Tridgell
-           1993-1994, Jeffrey C. Mogul, Digital Equipment Corporation
-           1994-1997, The Regents of the University of California
-           1998-2004, Hannes Gredler <hannes@gredler.at>
-           1998-2020, The TCPDUMP project
-           2000,      Lennert Buytenhek
-           2000,      Richard Sharpe
-           2001,      Compaq Computer Corporation
-           2004,      Arnaldo Carvalho de Melo
-           2005,      Ian McDonald
-           2005,      Yoshifumi Nishida
-           2009,      Florian Forster
-           2009,      Mojatatu Networks, Inc
-           2014,      VMware, Inc
-           2018,      Arista Networks, Inc
+Copyright: 1986-2008, Cisco Systems, Inc
+           1988, 1992-1997, The Regents of the University of California
+           1995-1999, 2001, 2002, WIDE Project
+           1998,      Todd C. Miller <Todd.Miller@courtesan.com>
+           1999,      Cisco And Motorola
+           2000,      Alfredo Andres Omella
+           2000,      United States Government as represented by the Secretary of the Navy
+           2000-2018, Kitware, Inc. and Contributors
+           2001,      Julian Cowley
+           2001,      NETLAB, Temple University
+           2001,      Protocol Engineering Lab, University of Delaware
+           2002-2003, NetGroup, Politecnico di Torino (Italy)
+           2003, 2004, David Young
+           2007-2011, Grégoire Henry, Juliusz Chroboczek
+           2012,      Gregory Detal <gregory.detal@uclouvain.be>
+           2012,      Christoph Paasch <christoph.paasch@uclouvain.be>
+           2013,      Romain Francoise <romain@orebokech.com>
+           2015,      Ritesh Ranjan <r.ranjan789@gmail.com>
+           2016,      Antonin Décimo, Jean-Raphaël Gaglione
+           2016,      Gerard Garcia <nouboh@gmail.com>
+           2017,      Red Hat, Inc.
+           2017,      Sabrina Dubroca <sd@queasysnail.net>
+           2018,      Arista Networks, Inc.
+                      The Tcpdump Group and contributors (see CREDITS)
 License: BSD-3-clause
 
 Files: Makefile.in
        addrtoname.c
        addrtoname.h
-       ah.h
        appletalk.h
        ascii_strcasecmp.h
-       atm.h
        bpf_dump.c
        chdlc.h
-       cpack.c
-       cpack.h
        ethertype.h
        extract.h
-       in_cksum.c
        interface.h
-       lbl/*
+       lbl/os-osf4.h
+       lbl/os-solaris2.h
+       lbl/os-sunos4.h
+       lbl/os-ultrix4.h
        llc.h
        machdep.c
        machdep.h
-       missing/*
-       mpls.h
        netdissect-ctype.h
-       netdissect-stdinc.h
        netdissect.c
        netdissect.h
        ntp.c
        ntp.h
        ospf.h
        pcap-missing.h
-       print-802_11.c
        print-802_15_4.c
        print-ah.c
        print-ap1394.c
        print-arcnet.c
        print-arp.c
        print-atalk.c
-       print-babel.c
        print-bcm-li.c
-       print-bgp.c
        print-brcmtag.c
-       print-bt.c
-       print-carp.c
        print-cdp.c
        print-chdlc.c
        print-decnet.c
-       print-dhcp6.c
        print-domain.c
        print-dsa.c
        print-dvmrp.c
        print-eap.c
-       print-esp.c
        print-ether.c
        print-fddi.c
        print-fr.c
        print-frag6.c
-       print-hncp.c
-       print-hsrp.c
        print-icmp.c
-       print-icmp6.c
        print-igmp.c
        print-igrp.c
        print-ip-demux.c
        print-ip.c
        print-ip6.c
-       print-ip6opts.c
        print-ipcomp.c
        print-ipfc.c
        print-ipoib.c
        print-ipx.c
-       print-isakmp.c
        print-isoclns.c
        print-krb.c
        print-l2tp.c
-       print-lisp.c
        print-llc.c
-       print-lwres.c
-       print-macsec.c
-       print-mobility.c
-       print-mpls.c
-       print-msdp.c
-       print-msnlb.c
        print-nfs.c
        print-ntp.c
        print-null.c
@@ -113,153 +98,285 @@ Files: Makefile.in
        print-ppp.c
        print-pppoe.c
        print-pptp.c
-       print-radius.c
        print-raw.c
        print-realtek.c
        print-rip.c
-       print-ripng.c
        print-rt6.c
-       print-rx.c
        print-sl.c
        print-sll.c
-       print-sunrpc.c
        print-symantec.c
        print-tcp.c
        print-tftp.c
        print-timed.c
        print-tipc.c
-       print-token.c
        print-udp.c
-       print-usb.c
        print-vjc.c
-       print-vrrp.c
-       print-vsock.c
        print-wb.c
        print-zep.c
-       print-zephyr.c
        print.c
        print.h
        tcpdump.1.in
        tcpdump.c
-       util-print.c
-Copyright: 1984,      Sun Microsystems, Inc
-           1987-2012, The Regents of the University of California
-           1990-1997, John Robert LoVerso
-           1990-1997, Los Alamos National Laboratory
-           1995-2002, WIDE Project
-           1998,      Larry Lile
-           1998,      Todd C. Miller <Todd.Miller@courtesan.com>
+Copyright: 1987-2002, 2011, 2012, The Regents of the University of California
            1998-2012, Michael Richardson <mcr@tcpdump.org>
-           1998-2012, The TCPDUMP project
-           1999,      J. Schoenwaelder
            1999-2004, The tcpdump.org project
-           2000,      Alfredo Andres Omella
            2000,      Ben Smithurst <ben@scientia.demon.co.uk>
-           2000,      United States Government, Secretary of the Navy
-           2000-2001, William C. Fenner
-           2001,      Charlie Lenahan <clenahan@fortresstech.com>
-           2001,      Julian Cowley
-           2001,      Fortress Technologies, Inc
-           2001,      Nickolai Zeldovich <kolya@MIT.EDU>
            2001,      Seth Webster <swebster@sst.ll.mit.edu>
-           2002,      Guy Harris
-           2002-2003, NetGroup, Politecnico di Torino (Italy)
-           2003-2004, David Young
            2004,      Michael Richardson <mcr@xelerance.com>
            2007,      Andrey "nording" Chernyak <andrew@nording.ru>
-           2007,      Paolo Abeni <paolo.abeni@email.it>
-           2007-2011, Grégoire Henry
-           2007-2011, Juliusz Chroboczek
-           2009,      Bert Vermeulen <bert@biot.com>
-           2009,      Dmitry Eremin-Solenikov <dbaryshkov@gmail.com>
            2009,      Siemens AG
-           2011,      Advanced Computing Technologies
-           2011-2016, Oracle and/or its affiliates
-           2013,      Romain Francoise <romain@orebokech.com>
-           2015,      Ritesh Ranjan <r.ranjan789@gmail.com>
-           2016,      Antonin Décimo
-           2016,      Gerard Garcia <nouboh@gmail.com>
-           2016,      Jean-Raphaël Gaglione
-           2017,      Red Hat, Inc
-           2017,      Sabrina Dubroca <sd@queasysnail.net>
+           2011, 2016, Oracle and/or its affiliates
+License: BSD-4-Clause-Shortened
+
+Files: af.c
+       af.h
+       checksum.c
+       gmpls.c
+       gmpls.h
+       ipproto.c
+       l2vpn.c
+       l2vpn.h
+       netdissect-alloc.c
+       netdissect-alloc.h
+       nlpid.c
+       nlpid.h
+       oui.c
+       oui.h
+       print-bfd.c
+       print-calm-fast.c
+       print-cfm.c
+       print-dtp.c
+       print-eigrp.c
+       print-forces.c
+       print-ftp.c
+       print-geneve.c
+       print-geonet.c
+       print-http.c
+       print-juniper.c
+       print-ldp.c
+       print-lldp.c
+       print-lmp.c
+       print-lspping.c
+       print-lwapp.c
+       print-mpcp.c
+       print-olsr.c
+       print-pgm.c
+       print-ptp.c
+       print-rpki-rtr.c
+       print-rsvp.c
+       print-rtsp.c
+       print-sflow.c
+       print-sip.c
+       print-slow.c
+       print-smtp.c
+       print-someip.c
+       print-ssh.c
+       print-syslog.c
+       print-udld.c
+       print-unsupported.c
+       print-vqp.c
+       print-vtp.c
+       print-vxlan.c
+       print-whois.c
+       signature.c
+       signature.h
+       status-exit-codes.h
+Copyright: 1998-2011, 2013, 2018, 2020, The TCPDUMP project
+           1998-2004, Hannes Gredler <hannes@gredler.at>
+           2009,      Florian Forster
+           2009,      Mojatatu Networks, Inc
+           2014,      VMware, Inc.
+                      Andy Heffernan <ahh@juniper.net>
+                      Partha S. Ghosh
+                      Francesco Fondelli
+                      Manu Pathak <mapathak@cisco.com>
+License: BSD-paragraph
+
+Files: print-802_11.c
+       print-esp.c
+       print-icmp6.c
+       print-ripng.c
+Copyright: 1988-1994, The Regents of the University of California
+           1995-1998, WIDE Project
+           2001,      Fortress Technologies, Inc.
+           2001,      Charlie Lenahan <clenahan@fortresstech.com>
+           2003, 2004, David Young
+License: BSD-4-Clause-Shortened and BSD-3-clause
+
+Files: print-sunrpc.c
+Copyright: 1984, 2009, Sun Microsystems, Inc.
+           1992-1996, The Regents of the University of California
+License: BSD-4-Clause-Shortened and BSD-3-clause
+Comment:
+  The portmapper protocol definitions in this file are derived from Sun RPC
+  (pmap_prot.h) and are under the BSD-3-clause license of Sun Microsystems,
+  Inc.; see the next stanza. The rest of the file is under the
+  BSD-4-Clause-Shortened license of the University of California.
+
+Files: rpc_auth.h
+       rpc_msg.h
+Copyright: 1984, 2009, Sun Microsystems, Inc.
 License: BSD-3-clause
+Comment:
+  These files, and the portmapper protocol definitions in print-sunrpc.c,
+  contain code derived from Sun RPC. In the upstream tarball the Sun RPC
+  portions still carry the original Sun RPC license notice, which is not
+  DFSG-free. The copyright holder, Sun Microsystems, Inc., has relicensed
+  that code under the 3-clause BSD license. The same relicensing was
+  applied in FreeBSD:
+    https://cgit.freebsd.org/src/commit/?id=2e322d379631c3bd6107e295f3e5d814c7845fc7
+  and adopted by upstream tcpdump in:
+    https://github.com/the-tcpdump-group/tcpdump/commit/b4c1686936096a305faadc866333c11b81e3c2f9
+  The Debian package distributes this code under the 3-clause BSD license
+  terms only. The upstream change is applied by the patch
+  debian/patches/sunrpc-relicense-bsd-3-clause.patch. See
+  https://bugs.debian.org/1147928.
+
+Files: print-atm.c
+Copyright: 1994-1997, The Regents of the University of California
+           1997,      Yen Yen Lim and North Dakota State University
+License: BSD-4-Clause-Shortened and BSD-4-clause
+
+Files: print-token.c
+Copyright: 1988-1996, The Regents of the University of California
+           1998,      Larry Lile
+License: BSD-4-Clause-Shortened and BSD-2-clause
+
+Files: util-print.c
+Copyright: 1990, 1991, 1993-1997, The Regents of the University of California
+                      Hannes Gredler <hannes@gredler.at>
+License: BSD-4-Clause-Shortened and BSD-paragraph
 
 Files: addrtostr.c
        addrtostr.h
        compiler-tests.h
        diag-control.h
-       fptype.c
-       fptype.h
        ftmacros.h
        funcattrs.h
-       getservent.h
-       ip.h
-       ip6.h
-       ipproto.h
        missing/datalinks.c
        missing/dlnames.c
-       missing/getservent.c
        missing/pcap_dump_ftell.c
-       missing/strdup.c
-       missing/strsep.c
-       nfs.h
-       pflog.h
        print-aodv.c
        print-ascii.c
-       print-atm.c
        print-cnfp.c
        print-mobile.c
        print-sunatm.c
        print-telnet.c
-       tcp.h
-       udp.h
        varattrs.h
-Copyright: 1982-1998, The Regents of the University of California
-           1993,      Digital Equipment Corporation
+Copyright: 1993-1998, The Regents of the University of California
            1994,      Simon J. Gerraty
-           1995-1998, WIDE Project
            1997,      Yen Yen Lim and North Dakota State University
-           1997-1998, The NetBSD Foundation, Inc
+           1997, 1998, The NetBSD Foundation, Inc.
            1998,      Michael Shalayeff
-           1999,      Kungliga Tekniska Högskolan
+           1999,      Kungliga Tekniska Högskolan (Royal Institute of Technology, Stockholm, Sweden)
            2003,      Bruce M. Simpson <bms@spc.org>
-           2012,      G. Vanem <gvanem@yahoo.no>
-           2017,      Ali Abdulkadir <autostart.ini@gmail.com>
 License: BSD-4-clause
 
-Files: makemib
+Files: fptype.c
+       fptype.h
+       getservent.h
+       ip.h
+       ipproto.h
+       missing/getservent.c
+       missing/strdup.c
+       missing/strsep.c
+       nfs.h
+       pflog.h
+       tcp.h
+       udp.h
+Copyright: 1982, 1983, 1986, 1988-1990, 1993, The Regents of the University of California
+           1993,      Digital Equipment Corporation
+           2012,      G. Vanem <gvanem@yahoo.no>
+           2017,      Ali Abdulkadir <autostart.ini@gmail.com>
+License: BSD-4-Clause-UC
+
+Files: ip6.h
+Copyright: 1982, 1986, 1993, The Regents of the University of California
+           1995-1998, WIDE Project
+License: BSD-4-Clause-UC and BSD-3-clause
+
+Files: instrument-functions.c
+       makemib
        openflow.h
        print-ahcp.c
        print-aoe.c
        print-gre.c
        print-loopback.c
        print-m3ua.c
-       print-mptcp.c
        print-nflog.c
        print-nsh.c
        print-openflow-1.0.c
        print-openflow-1.3.c
        print-openflow.c
        print-resp.c
-       print-sctp.c
-       print-snmp.c
        print-vxlan-gpe.c
        print-zeromq.c
        timeval-operations.h
-Copyright: 1990-1997, John Robert LoVerso
-           1990-1997, Los Alamos National Laboratory
-           1999,      Cisco And Motorola
-           2001,      NETLAB, Temple University
-           2001,      Protocol Engineering Lab, University of Delaware
+Copyright: 1990, 1996, John Robert LoVerso
+           1999,      William C. Fenner
            2002,      Jason L. Wright <jason@thought.net>
-           2013,      Petar Alilovic
-           2013-2020, The TCPDUMP project
+           2013,      Petar Alilovic, Faculty of Electrical Engineering and Computing, University of Zagreb
+           2013-2015, 2020, The TCPDUMP project
            2015,      bugyo
+           2022, 2023, 2025, The Tcpdump Group and contributors
 License: BSD-2-clause
+
+Files: print-snmp.c
+Copyright: 1990, 1991, 1993-1997, John Robert LoVerso
+           1999,      Juergen Schoenwaelder
+License: BSD-2-clause
+Comment:
+  The upstream header states that "Earlier forms of this implementation
+  were derived and/or inspired by an awk script originally written by
+  C. Philip Wood of LANL" (Los Alamos National Laboratory), and that "The
+  copyright notice for that work is preserved below, even though it may not
+  rightly apply to this file."
+  .
+  The notice is reproduced here to preserve the historical attribution and
+  out of caution. Its applicability to the present implementation has not
+  been established.
+  .
+    Los Alamos National Laboratory
+  .
+    Copyright (c) 1990, 1991, 1993, 1994, 1995, 1996, 1997
+    This software was produced under a U.S. Government contract
+    (W-7405-ENG-36) by Los Alamos National Laboratory, which is
+    operated by the University of California for the U.S. Department
+    of Energy.  The U.S. Government is licensed to use, reproduce,
+    and distribute this software.  Permission is granted to the
+    public to copy and use this software without charge, provided
+    that this Notice and any statement of authorship are reproduced
+    on all copies.  Neither the Government nor the University makes
+    any warranty, express or implied, or assumes any liability or
+    responsibility for the use of this software.
+    @(#)snmp.awk.x 1.1 (LANL) 1/15/90
+
+Files: print-bt.c
+       print-usb.c
+Copyright: 2007,      Paolo Abeni <paolo.abeni@email.it>
+           2009,      Bert Vermeulen <bert@biot.com>
+License: BSD-paragraph-advertising
+
+Files: atm.h
+       print-carp.c
+       print-msdp.c
+       print-vrrp.c
+       print-zephyr.c
+Copyright: 2000, 2001, William C. Fenner
+           2001,      Nickolai Zeldovich <kolya@MIT.EDU>
+           2002,      Guy Harris
+           2011,      Advanced Computing Technologies
+License: BSD-paragraph-endorsement
+
+Files: nfsfh.h
+       parsenfsfh.c
+Copyright: 1993, 1994, Jeffrey C. Mogul, Digital Equipment Corporation, Western Research Laboratory
+           2001,      Compaq Computer Corporation
+License: NFSFH
 
 Files: ascii_strcasecmp.c
        mkdep
-Copyright: 1987-1996, The Regents of the University of California
+Copyright: 1987, 1994, 1996, The Regents of the University of California
 License: BSD-4.3RENO
 
 Files: print-egp.c
@@ -269,17 +386,19 @@ License: BSD-4.3TAHOE
 
 Files: config.guess
        config.sub
-Copyright: 1992-2024, Free Software Foundation, Inc
+Copyright: 1992-2024, Free Software Foundation, Inc.
 License: GPL-3+ with AutoConf-3 exception
 
 Files: strtoaddr.c
        strtoaddr.h
-Copyright: 1996-2004, Internet Software Consortium
+Copyright: 1996, 1999, Internet Software Consortium
+           2004,      Internet Systems Consortium, Inc. ("ISC")
 License: ISC
 
 Files: print-cip.c
        print-lane.c
-Copyright:            Marko Kiiskila <carnil@cs.tut.fi>
+Copyright: Marko Kiiskila <carnil@cs.tut.fi>,
+                      Tampere University of Technology - Telecommunications Laboratory
 License: CMU-Mach
 
 Files: aclocal.m4
@@ -287,44 +406,63 @@ Copyright: 1995-1998, The Regents of the University of California
            1999,      WIDE Project
            2004,      Scott James Remnant <scott@netsplit.com>
            2012-2015, Dan Nicholson <dbn.lists@gmail.com>
-License: BSD-3-clause or GPL-2+ with AutoConf exception
+License: BSD-4-Clause-Shortened and BSD-3-clause and GPL-2+ with AutoConf exception
 
 Files: print-enc.c
-Copyright: 1990-1996, The Regents of the University of California
-           1995-1998, John Ioannidis
-           1995-2001, Angelos D. Keromytis
-License: BSD-3-clause or generic-xts
+Copyright: 1990, 1991, 1993-1996, The Regents of the University of California
+           1995-1998, John Ioannidis, Angelos D. Keromytis and Niels Provos
+           2001,      Angelos D. Keromytis
+License: BSD-4-Clause-Shortened and generic-xts
 
 Files: missing/getopt_long.c
-Copyright: 2000,      The NetBSD Foundation, Inc
+Copyright: 2000,      The NetBSD Foundation, Inc.
            2002,      Todd C. Miller <Todd.Miller@courtesan.com>
-License: BSD-2-clause-NetBSD or ISC
+License: ISC and BSD-2-clause-NetBSD
 
 Files: print-bootp.c
 Copyright: 1988,      Carnegie Mellon
-           1990-1997, The Regents of the University of California
-License: BSD-3-clause or MIT-like-HPND-Fenneberg-Livingston
+           1990, 1991, 1993-1997, The Regents of the University of California
+License: BSD-4-Clause-Shortened and MIT-like-HPND-Fenneberg-Livingston
 
 Files: nameser.h
-Copyright: 1983-1993, The Regents of the University of California
+Copyright: 1983, 1989, 1993, The Regents of the University of California
            1993,      Digital Equipment Corporation
-License: BSD-4-clause or ISC
+License: BSD-4-Clause-UC and DEC
 
 Files: missing/getopt_long.h
-Copyright: 2000,      The NetBSD Foundation, Inc
+Copyright: 2000,      The NetBSD Foundation, Inc.
 License: BSD-2-clause-NetBSD
 
 Files: install-sh
 Copyright: 1994,      X Consortium
-License: Expat
+                      FSF changes to this file are in the public domain.
+License: X11
 
 Files: configure
-Copyright: 1992-2021, Free Software Foundation
+Copyright: 1992-1996, 1998-2017, 2020-2023, Free Software Foundation, Inc.
 License: FSFUL
 
 Files: ppp.h
 Copyright: 1989,      Carnegie Mellon
 License: MIT-like-HPND-Fenneberg-Livingston
+
+Files: print-beep.c
+       print-smb.c
+       smb.h
+       smbutil.c
+Copyright: 1995-1999, Andrew Tridgell
+           2000,      Richard Sharpe
+License: BSD-3-clause or GPL-2+
+
+Files: print-dccp.c
+Copyright: 2004,      Arnaldo Carvalho de Melo
+           2005,      Ian McDonald
+           2005,      Yoshifumi Nishida
+License: BSD-3-clause or GPL-2
+
+Files: print-stp.c
+Copyright: 2000,      Lennert Buytenhek
+License: BSD-3-clause or GPL-1+
 
 Files: debian/*
 Copyright: 1997-1998, Peter Tobias <tobias@et-inf.fho-emden.de>
@@ -411,6 +549,52 @@ License: BSD-3-clause
  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+License: BSD-4-Clause-Shortened
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that: (1) source code distributions
+ retain the above copyright notice and this paragraph in its entirety, (2)
+ distributions including binary code include the above copyright notice and
+ this paragraph in its entirety in the documentation or other materials
+ provided with the distribution, and (3) all advertising materials mentioning
+ features or use of this software display the following acknowledgement:
+ ``This product includes software developed by the University of California,
+ Lawrence Berkeley Laboratory and its contributors.'' Neither the name of
+ the University nor the names of its contributors may be used to endorse
+ or promote products derived from this software without specific prior
+ written permission.
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+License: BSD-4-Clause-UC
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. All advertising materials mentioning features or use of this software
+    must display the following acknowledgement:
+         This product includes software developed by the University of
+         California, Berkeley and its contributors.
+ 4. Neither the name of the University nor the names of its contributors
+    may be used to endorse or promote products derived from this software
+    without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS'' AND
+ ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ ARE DISCLAIMED.  IN NO EVENT SHALL THE REGENTS OR CONTRIBUTORS BE LIABLE
+ FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.
+
 License: BSD-4-clause
  Redistribution and use in source and binary forms, with or without
  modification, are permitted provided that the following conditions are met:
@@ -463,6 +647,46 @@ License: BSD-4.3TAHOE
  IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED
  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
+License: BSD-paragraph
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that: (1) source code
+ distributions retain the above copyright notice and this paragraph
+ in its entirety, and (2) distributions including binary code include
+ the above copyright notice and this paragraph in its entirety in
+ the documentation or other materials provided with the distribution.
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND
+ WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, WITHOUT
+ LIMITATION, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ FOR A PARTICULAR PURPOSE.
+
+License: BSD-paragraph-advertising
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that: (1) source code distributions
+ retain the above copyright notice and this paragraph in its entirety, (2)
+ distributions including binary code include the above copyright notice and
+ this paragraph in its entirety in the documentation or other materials
+ provided with the distribution, and (3) all advertising materials mentioning
+ features or use of this software display the following acknowledgement:
+ ``This product includes software developed by Paolo Abeni.''
+ The name of author may not be used to endorse or promote products derived
+ from this software without specific prior written permission.
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
+License: BSD-paragraph-endorsement
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that: (1) source code
+ distributions retain the above copyright notice and this paragraph
+ in its entirety, and (2) distributions including binary code include
+ the above copyright notice and this paragraph in its entirety in
+ the documentation or other materials provided with the distribution.
+ The name of Guy Harris may not be used to endorse or promote products
+ derived from this software without specific prior written permission.
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND WITHOUT ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
 License: CMU-Mach
  Permission to use, copy, modify and distribute this
  software and its documentation is hereby granted,
@@ -479,28 +703,51 @@ License: CMU-Mach
  ANY DAMAGES WHATSOEVER RESULTING FROM THE USE OF THIS
  SOFTWARE.
 
-License: Expat
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is furnished
- to do so, subject to the following conditions:
+License: DEC
+ Permission to use, copy, modify, and distribute this software for any
+ purpose with or without fee is hereby granted, provided that the above
+ copyright notice and this permission notice appear in all copies, and that
+ the name of Digital Equipment Corporation not be used in advertising or
+ publicity pertaining to distribution of the document or software without
+ specific, written prior permission.
  .
- The above copyright notice and this permission notice shall be included in all
- copies or substantial portions of the Software.
- .
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ THE SOFTWARE IS PROVIDED "AS IS" AND DIGITAL EQUIPMENT CORP. DISCLAIMS ALL
+ WARRANTIES WITH REGARD TO THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS.   IN NO EVENT SHALL DIGITAL EQUIPMENT
+ CORPORATION BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
+ DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
+ PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS
+ ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
  SOFTWARE.
 
 License: FSFUL
  This configure script is free software; the Free Software Foundation gives
  unlimited permission to copy, distribute and modify it.
+
+License: GPL-1+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; any version of the License.
+Comment:
+ On Debian systems, the complete text of the GNU General Public License
+ version 1 can be found in `/usr/share/common-licenses/GPL-1'.
+
+License: GPL-2
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License version 2 as
+ published by the Free Software Foundation.
+Comment:
+ On Debian systems, the complete text of the GNU General Public License
+ version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+Comment:
+ On Debian systems, the complete text of the GNU General Public License
+ version 2 can be found in `/usr/share/common-licenses/GPL-2'.
 
 License: GPL-2+ with AutoConf exception
  This program is free software; you can redistribute it and/or modify it under
@@ -628,6 +875,57 @@ License: MIT-like-HPND-Fenneberg-Livingston
  University.  Carnegie Mellon makes no representations about the
  suitability of this software for any purpose.  It is provided "as is"
  without express or implied warranty.
+
+License: NFSFH
+ Permission to use, copy, and modify this software and its
+ documentation is hereby granted only under the following terms and
+ conditions.  Both the above copyright notice and this permission
+ notice must appear in all copies of the software, derivative works
+ or modified versions, and any portions thereof, and both notices
+ must appear in supporting documentation.
+ .
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+   1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+   2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in
+   the documentation and/or other materials provided with the
+   distribution.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS" AND COMPAQ COMPUTER CORPORATION
+ DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE, INCLUDING
+ ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS.   IN NO
+ EVENT SHALL COMPAQ COMPUTER CORPORATION BE LIABLE FOR ANY
+ SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN
+ AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING
+ OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
+ SOFTWARE.
+
+License: X11
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to
+ deal in the Software without restriction, including without limitation the
+ rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ sell copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ .
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ .
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE
+ X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+ AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNEC-
+ TION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ .
+ Except as contained in this notice, the name of the X Consortium shall not
+ be used in advertising or otherwise to promote the sale, use or other deal-
+ ings in this Software without prior written authorization from the X Consor-
+ tium.
 
 License: generic-xts
  Permission to use, copy, and modify this software with or without fee

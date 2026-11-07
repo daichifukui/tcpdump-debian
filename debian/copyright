@@ -141,14 +141,11 @@ Files: Makefile.in
        tcpdump.c
        util-print.c
 Copyright: 1987-2012, The Regents of the University of California
-           1990-1997, John Robert LoVerso
-           1990-1997, Los Alamos National Laboratory
            1995-2002, WIDE Project
            1998,      Larry Lile
            1998,      Todd C. Miller <Todd.Miller@courtesan.com>
            1998-2012, Michael Richardson <mcr@tcpdump.org>
            1998-2012, The TCPDUMP project
-           1999,      J. Schoenwaelder
            1999-2004, The tcpdump.org project
            2000,      Alfredo Andres Omella
            2000,      Ben Smithurst <ben@scientia.demon.co.uk>
@@ -248,7 +245,8 @@ Copyright: 1982-1998, The Regents of the University of California
            2017,      Ali Abdulkadir <autostart.ini@gmail.com>
 License: BSD-4-clause
 
-Files: makemib
+Files: instrument-functions.c
+       makemib
        openflow.h
        print-ahcp.c
        print-aoe.c
@@ -263,12 +261,10 @@ Files: makemib
        print-openflow.c
        print-resp.c
        print-sctp.c
-       print-snmp.c
        print-vxlan-gpe.c
        print-zeromq.c
        timeval-operations.h
-Copyright: 1990-1997, John Robert LoVerso
-           1990-1997, Los Alamos National Laboratory
+Copyright: 1990, 1996, John Robert LoVerso
            1999,      Cisco And Motorola
            2001,      NETLAB, Temple University
            2001,      Protocol Engineering Lab, University of Delaware
@@ -276,7 +272,38 @@ Copyright: 1990-1997, John Robert LoVerso
            2013,      Petar Alilovic
            2013-2020, The TCPDUMP project
            2015,      bugyo
+           2022, 2023, 2025, The Tcpdump Group and contributors
 License: BSD-2-clause
+
+Files: print-snmp.c
+Copyright: 1990-1991, 1993-1997, John Robert LoVerso
+           1999,      J. Schoenwaelder
+License: BSD-2-clause
+Comment:
+ The upstream header states that "Earlier forms of this implementation
+ were derived and/or inspired by an awk script originally written by
+ C. Philip Wood of LANL" (Los Alamos National Laboratory), and that "The
+ copyright notice for that work is preserved below, even though it may not
+ rightly apply to this file."
+ .
+ The notice is reproduced here to preserve the historical attribution and
+ out of caution. Its applicability to the present implementation has not
+ been established.
+ .
+   Los Alamos National Laboratory
+ .
+   Copyright (c) 1990, 1991, 1993, 1994, 1995, 1996, 1997
+   This software was produced under a U.S. Government contract
+   (W-7405-ENG-36) by Los Alamos National Laboratory, which is
+   operated by the University of California for the U.S. Department
+   of Energy.  The U.S. Government is licensed to use, reproduce,
+   and distribute this software.  Permission is granted to the
+   public to copy and use this software without charge, provided
+   that this Notice and any statement of authorship are reproduced
+   on all copies.  Neither the Government nor the University makes
+   any warranty, express or implied, or assumes any liability or
+   responsibility for the use of this software.
+   @(#)snmp.awk.x 1.1 (LANL) 1/15/90
 
 Files: ascii_strcasecmp.c
        mkdep
@@ -340,7 +367,7 @@ Copyright: 1994,      X Consortium
 License: Expat
 
 Files: configure
-Copyright: 1992-2021, Free Software Foundation
+Copyright: 1992-2023, Free Software Foundation
 License: FSFUL
 
 Files: ppp.h

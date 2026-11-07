@@ -503,7 +503,7 @@ releasetar:
 	(cd "$$TAG" && ./autogen.sh && rm -rf autom4te.cache) && \
 	tar cf "$$DIR/$$TAG".tar "$$TAG" && \
 	rm -f "$$DIR/$$TAG".tar.gz && \
-	gzip --best "$$DIR/$$TAG".tar && \
+	gzip -9 "$$DIR/$$TAG".tar && \
 	cd "$$DIR" && \
 	rm -rf "$$AUTORECONF_DIR"
 
@@ -522,15 +522,15 @@ releasecheck: releasetar
 	./autogen.sh && \
 	echo "[$@] $$ ./configure --quiet --prefix=/tmp/install_libpcap" && \
 	./configure --quiet --prefix=/tmp/install_libpcap && \
-	echo "[$@] $$ make -s " && \
-	make -s && \
-	echo "[$@] $$ make -s install" && \
-	make -s install && \
+	echo "[$@] $$ $(MAKE) -s " && \
+	$(MAKE) -s && \
+	echo "[$@] $$ $(MAKE) -s install" && \
+	$(MAKE) -s install && \
 	echo "[$@] $$ cd .." && \
 	cd .. && \
 	rm -rf "$$TAG" && \
 	rm -rf "$$INSTALL_DIR" && \
-	tar xf "$$DIR"/"$$TAG".tar.gz && \
+	tar xzf "$$DIR"/"$$TAG".tar.gz && \
 	cd "$$TAG" && \
 	echo "[$@] $$ touch .devel" && \
 	touch .devel && \
@@ -543,7 +543,7 @@ releasecheck: releasetar
 	cd .. && \
 	rm -rf "$$TAG" && \
 	rm -rf "$$INSTALL_DIR" && \
-	tar xf "$$DIR"/"$$TAG".tar.gz && \
+	tar xzf "$$DIR"/"$$TAG".tar.gz && \
 	cd "$$TAG" && \
 	echo "[$@] $$ touch .devel" && \
 	touch .devel && \

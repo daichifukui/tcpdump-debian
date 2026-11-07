@@ -1,3 +1,25 @@
+tcpdump (4.99.7-1) UNRELEASED; urgency=medium
+
+  * New upstream version 4.99.7.
+  * Refresh man-section.diff.
+  * Backport upstream commit b4c1686936 relicensing the Sun RPC code
+    (print-sunrpc.c, rpc_auth.h, rpc_msg.h) to BSD-3-Clause, and document
+    it in d/copyright. (Closes: #1147928)
+  * d/copyright:
+    - Document the Los Alamos National Laboratory notice preserved in
+      print-snmp.c.
+    - Update for 4.99.7: instrument-functions.c is now BSD-2-clause, and
+      new copyright years for configure.
+  * d/control: Add myself to Uploaders.
+  * d/salsa-ci.yml: Stop suppressing lintian tag no-human-maintainers.
+  * d/p/0003-*: Fix typo in patch description: priviledges -> privileges.
+  * d/tcpdump.lintian-overrides: Override spelling-error-in-copyright for a
+    verbatim quote of an upstream license notice.
+  * Drop obsolete migrations from /usr/sbin to /usr/bin (d/tcpdump.postinst,
+    d/tcpdump.maintscript).
+
+ -- Fukui Daichi <a.dog.will.talk@akane.waseda.jp>  Sat, 07 Nov 2026 15:13:57 +0000
+
 tcpdump (4.99.6-3) unstable; urgency=medium
 
   * Team upload.

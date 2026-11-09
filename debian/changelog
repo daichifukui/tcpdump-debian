@@ -1,3 +1,18 @@
+tcpdump (4.99.7-1) UNRELEASED; urgency=medium
+
+  * d/copyright: Relicense Sun RPC code (Closes: #1147928)
+  * New upstream version 4.99.7
+  * d/p: Refresh man-section.diff for 4.99.7
+    Otherwise the patch fails to apply, resulting in a build error.
+  * d/p/0003-*: Fix typo in patch description: priviledges -> privileges
+  * d/tcpdump.lintian-overrides: Override spelling-error-in-copyright
+  * Drop obsolete migrations from /usr/sbin to /usr/bin
+    d/tcpdump.{maintscript,postinst} only act on upgrades from before
+    4.99.0/4.99.1-3, while trixie has 4.99.5. This change fixes
+    the lintian tag bin-sbin-mismatch.
+
+ -- Fukui Daichi <a.dog.will.talk@akane.waseda.jp>  Mon, 09 Nov 2026 14:38:59 +0900
+
 tcpdump (4.99.6-3) unstable; urgency=medium
 
   * Team upload.

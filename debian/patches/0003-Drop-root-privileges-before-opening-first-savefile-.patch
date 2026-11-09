@@ -6,7 +6,7 @@ Origin: vendor, https://src.fedoraproject.org/rpms/tcpdump/blob/rawhide/f/0003-D
 From 9bee0dffaebbc53b9762df7a6d84a553969e7b00 Mon Sep 17 00:00:00 2001
 From: rpm-build <rpm-build>
 Date: Fri, 3 Feb 2017 09:36:26 +0100
-Subject: [PATCH 3/8] Drop root priviledges before opening first savefile if
+Subject: [PATCH 3/8] Drop root privileges before opening first savefile if
  running with -Z root
 
 ---

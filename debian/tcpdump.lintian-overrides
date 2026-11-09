@@ -1,1 +1,3 @@
 tcpdump binary: spelling-error-in-binary iif if [usr/bin/tcpdump]
+# Verbatim quote of the upstream license notice of print-enc.c.
+tcpdump binary: spelling-error-in-copyright "GNU public license" "GNU General Public License"

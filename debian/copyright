@@ -248,7 +248,8 @@ Copyright: 1982-1998, The Regents of the University of California
            2017,      Ali Abdulkadir <autostart.ini@gmail.com>
 License: BSD-4-clause
 
-Files: makemib
+Files: instrument-functions.c
+       makemib
        openflow.h
        print-ahcp.c
        print-aoe.c
@@ -276,6 +277,7 @@ Copyright: 1990-1997, John Robert LoVerso
            2013,      Petar Alilovic
            2013-2020, The TCPDUMP project
            2015,      bugyo
+           2022, 2023, 2025, The Tcpdump Group and contributors
 License: BSD-2-clause
 
 Files: ascii_strcasecmp.c
@@ -340,7 +342,7 @@ Copyright: 1994,      X Consortium
 License: Expat
 
 Files: configure
-Copyright: 1992-2021, Free Software Foundation
+Copyright: 1992-2023, Free Software Foundation
 License: FSFUL
 
 Files: ppp.h

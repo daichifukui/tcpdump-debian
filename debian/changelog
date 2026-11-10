@@ -1,3 +1,22 @@
+tcpdump (4.99.7-2) UNRELEASED; urgency=medium
+
+  * Team upload.
+  * d/copyright: Document the Sun RPC relicensing (Closes: #1147928)
+  * d/copyright: Update for 4.99.7
+  * d/p/0003-*: Fix typo in patch description: priviledges -> privileges
+    4.99.6-3 fixed only the file name. The Subject line kept the typo.
+  * d/tcpdump.lintian-overrides: Override spelling-error-in-copyright
+    The flagged phrase is a verbatim quote of the upstream license
+    notice of print-enc.c and must not be corrected.
+  * Drop obsolete migrations from /usr/sbin to /usr/bin
+    d/tcpdump.{maintscript,postinst} only act on upgrades from before
+    4.99.0/4.99.1-3; trixie has 4.99.5. Fixes lintian bin-sbin-mismatch.
+  * d/p: Backport upstream relicensing of Sun RPC code to BSD-3-Clause
+    Replace the non-free Sun RPC notice in print-sunrpc.c, rpc_auth.h and
+    rpc_msg.h, so that the unpacked source matches d/copyright.
+
+ -- Fukui Daichi <a.dog.will.talk@akane.waseda.jp>  Tue, 10 Nov 2026 10:44:45 +0900
+
 tcpdump (4.99.7-1) unstable; urgency=medium
 
   * Team upload.
